@@ -1,0 +1,28 @@
+{
+  "name": "orkesta",
+  "version": "1.0.0",
+  "description": "Servidor para Orquesta",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Duranzno/Orkesta.git"
+  },
+  "author": "duranzno",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Duranzno/Orkesta/issues"
+  },
+  "homepage": "https://github.com/Duranzno/Orkesta#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "mysqljs": "0.0.2-security",
+    "require": "^2.4.20",
+    "sheetjs": "^1.0.21"
+  },
+  "devDependencies": {}
+}
