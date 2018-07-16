@@ -4,18 +4,21 @@
 <body>
 <!--Barra de Navegacion-->
 <% include partials/nav.ejs %>
-<% include partials/sidebar.ejs %>
 <div class="container-fluid">
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-        <!--Intro-->
-        <% include partials/intro.ejs %>
-        <!--Tablas-->
-        <% include partials/tables.ejs %>
+    <div class="row">
 
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <% include partials/scripts.ejs %>
-    </main>
+        <% include partials/sidebar.ejs %>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <!--Intro-->
+            <% include partials/intro.ejs %>
+            <!--Tablas-->
+            <% include partials/tables.ejs %>
+
+            <!-- Optional JavaScript -->
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+            <% include partials/scripts.ejs %>
+        </main>
+    </div>
 </div>
 </body>
 </html>

@@ -4,7 +4,8 @@
   "description": "Servidor para Orquesta",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit ",
+    "postinstall": "node ./node_modules/frontend-dependencies/index.js"
   },
   "repository": {
     "type": "git",
@@ -18,11 +19,33 @@
   "homepage": "https://github.com/Duranzno/Orkesta#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "bootstrap": "^4.1.2",
+    "bootstrap-datepicker": "^1.8.0",
+    "datatables.net": "^1.10.19",
+    "datatables.net-bs4": "^1.10.19",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
+    "feather-icons": "^4.7.3",
+    "frontend-dependencies": "^1.1.3",
+    "jquery": "^3.3.1",
     "mysqljs": "0.0.2-security",
+    "popper.js": "^1.14.3",
     "require": "^2.4.20",
+    "serve-favicon": "^2.5.0",
     "sheetjs": "^1.0.21"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "frontendDependencies": {
+    "target": "public/js",
+    "packages": {
+      "jquery": {
+        "version": "^3.3.1",
+        "src": "dist/jquery.min.js"
+      },
+      "popper.js": {
+        "version": "^1.14.3",
+        "src": "dist/popper.min.js"
+      }
+    }
+  }
 }

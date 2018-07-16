@@ -27,8 +27,8 @@
 // };
 exports.create = function (req, res) {
 
-    console.log("--->Se ha agregado el pago de %s", req.body.name);
-    res.send("ok")
+    // console.log("--->Se ha agregado el pago de %s", req.body.name);
+    // res.send("ok")
 };
 // exports.findAll=function (req,res) {
 //     console.log("--->Find All: \n");

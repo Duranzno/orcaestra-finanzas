@@ -6,7 +6,10 @@ module.exports = function (app) {
     app.get("/", (req, res) => {
         res.render("../public/views/index")
     });
-    app.post("/api/addPago", pagoControlador.create());
+    app.get("/table", (req, res) => {
+        res.render("../public/views/tabletest")
+    });
+    // app.post("/api/addPago", pagoControlador.create());
 
-    app.post("/api/addStudent", studentControlador.create());
+    // app.post("/api/addStudent", studentControlador.create());
 };
