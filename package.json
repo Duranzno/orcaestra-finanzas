@@ -1,51 +1,20 @@
 {
-  "name": "orkesta",
-  "version": "1.0.0",
-  "description": "Servidor para Orquesta",
-  "main": "app.js",
+  "name": "Orkesta",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit ",
-    "postinstall": "node ./node_modules/frontend-dependencies/index.js"
+    "start": "supervisor ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Duranzno/Orkesta.git"
-  },
-  "author": "duranzno",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Duranzno/Orkesta/issues"
-  },
-  "homepage": "https://github.com/Duranzno/Orkesta#readme",
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "bootstrap": "^4.1.2",
-    "bootstrap-datepicker": "^1.8.0",
-    "datatables.net": "^1.10.19",
-    "datatables.net-bs4": "^1.10.19",
-    "ejs": "^2.6.1",
-    "express": "^4.16.3",
-    "feather-icons": "^4.7.3",
-    "frontend-dependencies": "^1.1.3",
-    "jquery": "^3.3.1",
-    "mysqljs": "0.0.2-security",
-    "popper.js": "^1.14.3",
-    "require": "^2.4.20",
-    "serve-favicon": "^2.5.0",
-    "sheetjs": "^1.0.21"
-  },
-  "devDependencies": {},
-  "frontendDependencies": {
-    "target": "public/js",
-    "packages": {
-      "jquery": {
-        "version": "^3.3.1",
-        "src": "dist/jquery.min.js"
-      },
-      "popper.js": {
-        "version": "^1.14.3",
-        "src": "dist/popper.min.js"
-      }
-    }
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0",
+    "pg": "^7.4.3",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.38.0",
+    "sequelize-cli": "^4.0.0"
   }
 }
