@@ -1,4 +1,4 @@
-const Pago = require('../db/models/model_pago');
+const Pago = require('../db/models/pago');
 module.exports = {
   create(req, res) {
     return Pago

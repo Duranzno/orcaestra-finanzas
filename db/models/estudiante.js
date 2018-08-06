@@ -1,53 +1,36 @@
 'use strict';
-module.exports = (sequelize, DataTypes) => {
-  var Estudiante = sequelize.define('Estudiante', {
-    id: {
-      allowNull: false,
-      autoIncrement: true,
-      primaryKey: true,
-      type: DataTypes.INTEGER,
-    },
+module.exports = (Schema, Pagos) => {
+  let gruposDisponibles = require("./grupos");
+  return new Schema({
     nombre: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: "",
-    },
-    lastName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: "",
+      type: String,
+      required: true,
+      default: "",
     },
     apellido: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: "",
+      type: String,
+      required: true,
+      default: "",
     },
     email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: "",
+      type: String,
+      required: true,
+      default: "",
+    },
+    grupo: {
+      type: String,
+      required: true,
+      enum: gruposDisponibles(),
+      default: gruposDisponibles[0],
     },
     numero: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: "",
+      type: String,
+      required: true,
+      default: "",
     },
-    createdAt: {
-      allowNull: false,
-      type: DataTypes.DATE
-    },
-    updatedAt: {
-      allowNull: false,
-      type: DataTypes.DATE
+    pagos: {
+      type: [Pagos]
     }
-  }, {});
-  Estudiante.associate = function (models) {
-    // associations can be defined here
-    Estudiante.hasMany(models.Pago, {
-      foreignKey: "id",
-      onDelete: 'CASCADE',
-      as: "Pago"
-    })
-  };
-  return Estudiante;
+
+  });
 };

@@ -1,53 +1,37 @@
-const db = require("./db/models/index");
-var Sequelize = db.Sequelize;
-var sequelize = db.sequelize;
-// var Sequelize = require('sequelize');
+const mongoose = require('mongoose');
+mongoose.set('debug', true);
+mongoose.connect('mongodb://localhost/orcaestra', {userNewUrlParser: true}).catch((err) => console.log(err));
+let db = mongoose.connection;
+db.on('error', console.error.bind(console, 'Connection error:'));
+db.once('open', function () {
 
-var env = process.env.NODE_ENV || 'development';
-// var config    = require('./db/config.js')[env];
-// var sequelize = new Sequelize(config.database, config.username, config.password, config)
-var estudiante = require('./db/models/estudiante')(sequelize, Sequelize);
-var pago = require('./db/models/pago')(sequelize, Sequelize);
+  console.log('Connected');
+  let PagoSchema = require("./db/models/pagos")(mongoose.Schema);
+  let EstudianteSchema = require("./db/models/estudiante")(mongoose.Schema, PagoSchema);
 
-// estudiante.hasMany(pago,{as:"Pagos"})
+  let Estudiante = mongoose.model('Estudiantes', EstudianteSchema);
+  let Pago = mongoose.model('Pagos', PagoSchema);
+  let pago1 = new Pago({
+    banco: "Venezuela",
+    referencia: "AAAA",
+    monto: 1000,
+  });
+  let pago2 = new Pago({
+    banco: "provincial",
+    referencia: "BBBB",
+    monto: 1000,
+  });
+  let alejandro = new Estudiante({
+    nombre: 'Fernando',
+    apellido: 'Duran',
+    email: 'aledurax@gmail.com',
+    numero: '04265919060',
+    grupo: 'IMB',
+    pagos: [pago1, pago2],
+  });
 
-let est = estudiante.create({
-  nombre: 'John',
-  apellido: "Snow",
-  proyecto: 'Winterfell',
-}).then(estudiante => {
-  console.log(estudiante.get("nombre") + " " + estudiante.get("apellido"));
+  alejandro.save(function (err, ale) {
+    if (err) return console.error(err);
+    console.log("Guardado");
+  })
 });
-// console.log(est.get("nombre")+" "+est.get("apellido"));
-// pago.create({banco:"Venezuela",estudianteId:est.dataValues.id}).then(pago=>{
-//     // console.log(pago.get("banco"))
-// });
-// estudiante.setPagos([])
-
-estudiante.findAll({attributes: ['id', 'nombre', "apellido"]})
-    .then(estudiantes => estudiantes.forEach((value) => {
-          // console.log("ESTUDIANTE");
-          // console.log(value.dataValues);
-        })
-    );
-pago.findAll({attributes: ['id', "banco", "referencia", "estudianteId"]})
-    .then(pagos => pagos.forEach((value) => {
-          // console.log("PAGOS");
-          // console.log(value.dataValues);
-        })
-    )
-;
-
-proyectos = [
-  "Coro de Padres",
-  "Inicial",
-  "Alma llanera",
-  "IMA",
-  "IMB",
-  "PMA",
-  "PMB ",
-  "Pre Infantil",
-  "Infantil",
-  "Pre Juvenil",
-  "Juvenil"
-];

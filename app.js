@@ -1,18 +1,15 @@
-const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
-const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const bodyParser = require('body-parser')
-// const usersRouter = require('./routes/users');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const createError = require('http-errors');
+var favicon = require('serve-favicon');
+
 
 const app = express();
 
-// app.on('mount', function (parent) {
-//     console.log('Admin Mounted');
-//     console.log(parent); // refers to the parent app
-// });
-// app.use(favicon(path.join(__dirname, 'public', '/resources/favicon.ico')));
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -23,6 +20,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(favicon(path.join(__dirname, 'public', 'resources', 'favicon.ico')));
 
 require('./routes')(app);
 app.get('*', (req, res) => res.status(200).send({
@@ -45,4 +43,7 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+app.listen(3000, function () {
+      console.log('Hello WOrld');
+    }
+);
