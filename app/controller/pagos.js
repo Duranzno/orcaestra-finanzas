@@ -1,19 +1,37 @@
-const Pago = require('../db/models/pago');
-module.exports = {
-  create(req, res) {
-    return Pago
-        .create({
-          banco: req.body.banco,
-          referencia: req.body.referencia,
-          fecha: req.body.fecha,
-          monto: req.body.monto,
-          pagoId: req.body.pagoId,
+const mongoose = require('mongoose');
+const {wrap: async} = require('co');
+const models = require('../models/index');
+const {respond, respondOrRedirect} = require('../utils');
 
-        }, {})
-        .then(todo => res.status(200).send(todo))
-        .catch(error => res.status(400).send(error));
-  }
-}
+exports.create = (function (req, res) {
+  // console.log(`Se va a hacer un usuario de ${req.body.getJSON()}`);
+  console.log(req.body);
+  const pago = new models.Pago(req.body);
+  // console.log(models.Pago.find({"referencia":req.body.referencia}));
+
+  respondOrRedirect({req, res}, `/articles/${pago._id}`, pago, {
+    type: 'success',
+    text: 'Successfully created article!'
+  });
+});
+// exports.destroy=function (req,res,next,id) {
+//
+// };
+
+
+// returnPago
+//       .create({
+//         banco: req.body.banco,
+//         referencia: req.body.referencia,
+//         fecha: req.body.fecha,
+//         monto: req.body.monto,
+//         pagoId: req.body.pagoId,
+//
+//       }, {})
+//       .then(todo => res.status(200).send(todo))
+//       .catch(error => res.status(400).send(error));
+// };
+
 // const modelStudent=require("../model/estudiante")
 // let students= {
 //     pago1: {

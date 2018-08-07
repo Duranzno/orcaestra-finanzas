@@ -1,4 +1,4 @@
-const Estudiante = require('../db/models/estudiante');
+const Estudiante = require('../models/estudiante');
 module.exports = {
   create(req, res) {
     console.log(req.body.apellido + " " + req.body.nombre + " " + req.body.proyecto);

@@ -4,7 +4,7 @@
     <option name="serverConfigurations">
       <list>
         <ServerConfiguration>
-          <option name="label" value="test" />
+          <option name="label" value="Orcaestra_Finanzas" />
           <option name="serverUrls">
             <list>
               <option value="localhost:27017" />
@@ -13,6 +13,19 @@
           <option name="sshTunnelingConfiguration">
             <SshTunnelingConfiguration />
           </option>
+          <option name="userDatabase" value="orcaestra" />
+        </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="label" value="local" />
+          <option name="serverUrls">
+            <list>
+              <option value="localhost:27017" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+          <option name="userDatabase" value="local" />
         </ServerConfiguration>
       </list>
     </option>
