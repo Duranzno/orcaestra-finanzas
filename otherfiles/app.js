@@ -4,7 +4,7 @@ var address_of_cell = 'A1'
 // var desiredCell=sheet[address_of_cell]
 // var desiredValue=(desiredCell?desiredCell.v:undefined)
 
-var sheet = workbook.Sheets[workbook.SheetNames[0]]
+var sheet = workbook.Sheets[workbook.SheetNames[0]];
 // console.log(workbook.Props);
 rangefirstCell = {c: 0, r: 0};
 rangeLastCell = {c: 0, r: 10};
