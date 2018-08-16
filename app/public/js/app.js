@@ -37,6 +37,7 @@ $(document).ready(function () {
   let table = $("#table").DataTable({
     "ajax": "../public/js/ajax.json",
     "columns": columnDefs,
+    "responsive": true,
     "paging": false,
 
     "order": [[1, "asc"]]

@@ -1,5 +1,6 @@
 const Pago = require('../models/pago');
 const Bancos = require('../models/bancos');
+const Estudiante = require("../models/pago");
 const {
   sendOk,
   sendError,

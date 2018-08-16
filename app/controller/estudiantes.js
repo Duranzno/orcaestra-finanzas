@@ -2,8 +2,7 @@ const Estudiante = require(`../models/estudiante`);
 const Grupos = require('../models/grupos');
 const {
   sendOk,
-  sendError,
-  newPago
+  sendError
 } = require('./help');
 // const Pago        = require(`../models/pago`);
 
@@ -31,7 +30,7 @@ exports.findOne = function (req, res) {
   const errMsg = `No existe el estudiante ${estId}`;
   console.log(`Se ha buscado ${estId}`);
 
-  Estudiante.findOne({'_id': estId})
+  Estudiante.findOne({'_id': estId}).populate('pagos')
       .then(estudiante => {
         if (estudiante == null) {
           sendError(errMsg, res);
@@ -92,20 +91,28 @@ exports.delete = async function (req, res) {
         });
   }, 2000)
 };
+
+
 //Pagos
 exports.crearPagoById = async function (req, res) {
   const estId = req.params.id;
-  const pagoNuevo = newPago(req.body);
+  console.log(req.body.banco);
+  // const pagoNuevo = {
+  //   banco: req.body.banco,
+  //   referencia: req.body.referencia,
+  //   monto: req.body.monto,
+  // };
+  let pagoNuevo = newPago(req);
   console.log(`Se va a acreditar a ${estId} el pago de ${pagoNuevo}`);
-  let pago = await Estudiante.crearPagoById(est, pagoNuevo);
-  pago.then(p => console.log(p));
-  // setTimeout(()=>{
-  //   Pago.findById()
-  //       .then(est=>{
-  //         if (est==null){sendOk(`Se elimino el usuario`,res)}
-  //         else(sendError(`No se elimino a ${est.nombre}`,res,est))
-  //       });
-  // },2000)
+  Estudiante.crearPagoById(estId, pagoNuevo)
+      .then(p => {
+        sendOk("Creado", res, p)
+      })
+      .catch(e => {
+        sendError("No creado", res, e)
+      })
+
+  // pago.then(p => {console.log(p);res.send(p)});
 };
 
 function nuevoEst(req) {
@@ -126,5 +133,16 @@ function nuevoEst(req) {
   return newData;
 }
 
+function newPago(req) {
+  let newData = {
+    banco: req.body.banco,
+    referencia: req.body.referencia,
+    monto: req.body.monto,
+  };
+  // if (Bancos.indexOf(newData.banco) === -1) {
+  //   newData.banco = Bancos[0]
+  // }
+  return newData;
+}
 
 
