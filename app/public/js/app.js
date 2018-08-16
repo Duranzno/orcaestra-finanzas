@@ -23,7 +23,7 @@ $(document).ready(function () {
   //DATATABLE SHIT
   console.log("Tables ready");
   let table = $("#table").DataTable({
-    "ajax": "../js/ajax.json",
+    "ajax": "../public/js/ajax.json",
     "columns": [
       {
         "className": "details-control",
@@ -33,7 +33,9 @@ $(document).ready(function () {
       },
       {"data": "nombre"},
       {"data": "apellido"},
-      {"data": "proyecto"},
+      {"data": "email"},
+      {"data": "grupo"},
+      {"data": "tlf"},
     ],
     "paging": false,
 
@@ -50,7 +52,9 @@ $(document).ready(function () {
     else {
       // Open this row
       //TODO Query & Print todas las referencias de esa persona a partir de su ID
-      row.child(format(row.data())).show();
+      let f = format(row.data());
+      console.log(f);
+      row.child(f).show();
       tr.addClass("shown");
     }
 
@@ -59,48 +63,40 @@ $(document).ready(function () {
 
 //DATATABLE SHIT
 function format(d) {
-  return `<table class="table table-striped">
-                ${titlerow()}
-                <tr>
-                    <td>${d.banco}</td>
-                    <td>${d.referencia}</td>
-                    <td>${d.fecha}</td>
-                    <td>${d.monto}</td>
-                </tr>
+
+  console.log(d.pagos);
+
+  function multiplesPagos(d) {
+    let respuesta = '';
+    for (let i = 0; i < d.pagos.length; i++) {
+      console.log(d.pagos[i].referencia);
+      respuesta += `<tr>
+                    <td>${d.pagos[i].banco}</td>
+                    <td>${d.pagos[i].referencia}</td>
+                    <td>${d.pagos[i].fecha}</td>
+                    <td>${d.pagos[i].monto}</td>
+                </tr>`
+    }
+  }
+
+  function titlerow() {
+    return "<tr>" +
+        "<td>Banco</td>" +
+        "<td>Referencia</td>" +
+        "<td>Fecha</td>" +
+        "<td>Monto</td>" +
+        "</tr>"
+  }
+
+  if (Array.isArray(d.pagos)) {
+    return `<table class="table table-striped">
+                ${titlerow()}</td>
+                ${multiplesPagos(d)}
             </table>`;
+  }
 
 }
 
-function titlerow() {
-  return "<tr>" +
-      "<td>Banco</td>" +
-      "<td>N Referencia</td>" +
-      "<td>Fecha</td>" +
-      "<td>Monto</td>" +
-      "</tr>"
-}
-
-
-// const CrearMusico=document.querySelector(".createStudent");
-// function post(path, data) {
-//     return window.fetch(path, {
-//         method: 'POST',
-//         headers: {
-//             'Accept': 'application/json',
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(data)
-//     });
-// }
-// CrearMusico.addEventListener('submit',(e)=>{
-//     console.log("evento añadido")   ;
-//     document.querySelector("h1").style.background="blue";
-//     e.preventDefault();
-//     const nombre=CrearMusico.querySelector('.nombre').val();
-//     const apellido=CrearMusico.querySelector('.apellido').val();
-//     const proyecto=CrearMusico.querySelector('.proyecto').val();
-//     post("/createStudent",{nombre,apellido,proyecto});
-// });
 
 
 $("#agregarEstudiante").on("click", () => {

@@ -1,0 +1,92 @@
+{
+  "data": [
+    {
+      "nombre": "Alejandro",
+      "apellido": "Duran",
+      "email": "aledurax@gmail.com",
+      "grupo": "Sin Determinar",
+      "tlf": "00",
+      "pagos": [
+        {
+          "banco": "Banesco",
+          "referencia": "951",
+          "fecha": "2018-08-12T21:02:55.847Z",
+          "monto": 815,
+          "_id": "5b70a08298de990454b7ff20",
+          "__v": 0
+        }
+      ],
+      "_id": "5b70a08298de990454b7ff1c",
+      "createdAt": "2018-08-12T21:02:58.186Z",
+      "__v": 1
+    },
+    {
+      "nombre": "Fernando",
+      "apellido": "Duran",
+      "email": "aledurax@gmail.com",
+      "grupo": "Juvenil",
+      "tlf": "00",
+      "pagos": [
+        {
+          "banco": "Sofitasa",
+          "referencia": "783",
+          "fecha": "2018-08-12T21:02:55.847Z",
+          "monto": 293,
+          "_id": "5b70a08298de990454b7ff21",
+          "__v": 0
+        }
+      ],
+      "_id": "5b70a08298de990454b7ff1d",
+      "createdAt": "2018-08-12T21:02:58.191Z",
+      "__v": 1
+    },
+    {
+      "nombre": "Jose",
+      "apellido": "Duran",
+      "email": "aledurax@gmail.com",
+      "grupo": "Infantil",
+      "tlf": "00",
+      "pagos": [
+        {
+          "banco": "DELSUR",
+          "referencia": "672",
+          "fecha": "2018-08-12T21:02:55.847Z",
+          "monto": 677,
+          "_id": "5b70a08398de990454b7ff22",
+          "__v": 0
+        },
+        {
+          "banco": "Sofitasa",
+          "referencia": "783",
+          "fecha": "2018-08-12T21:02:55.847Z",
+          "monto": 293,
+          "_id": "5b70a08298de990454b7ff21",
+          "__v": 0
+        }
+      ],
+      "_id": "5b70a08298de990454b7ff1e",
+      "createdAt": "2018-08-12T21:02:58.192Z",
+      "__v": 1
+    },
+    {
+      "nombre": "Yuli",
+      "apellido": "Duran",
+      "email": "aledurax@gmail.com",
+      "grupo": "Juvenil",
+      "tlf": "00",
+      "pagos": [
+        {
+          "banco": "Bancaribe",
+          "referencia": "695",
+          "fecha": "2018-08-12T21:02:55.847Z",
+          "monto": 455,
+          "_id": "5b70a08398de990454b7ff23",
+          "__v": 0
+        }
+      ],
+      "_id": "5b70a08298de990454b7ff1f",
+      "createdAt": "2018-08-12T21:02:58.192Z",
+      "__v": 1
+    }
+  ]
+}

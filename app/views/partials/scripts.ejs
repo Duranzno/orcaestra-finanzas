@@ -5,30 +5,30 @@
 <!-- jQuery CDN -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <!-- jQuery local fallback -->
-<script>window.jQuery || document.write('<script src="/public/libraries/jquery-3.3.1.slim.min.js"><\/script>')</script>
+<script>window.jQuery || document.write('<script src="/app/public/libraries/jquery-3.3.1.slim.min.js"><\/script>')</script>
 <!-- Bootstrap JS CDN -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.bundle.min.js"
         integrity="sha384-CS0nxkpPy+xUkNGhObAISrkg/xjb3USVCwy+0/NMzd5VxgY4CMCyTkItmy5n0voC"
         crossorigin="anonymous"></script><!-- Bootstrap JS local fallback -->
 <script>if (typeof($.fn.modal) === 'undefined') {
-    document.write('<script src="../../../public/libraries/bootstrap.bundle.min.js"><\/script>')
+    document.write('<script src="../../public/libraries/bootstrap.bundle.min.js"><\/script>')
   }</script>
 <!-- Bootstrap CSS local fallback -->
 <script>
   $(document).ready(function () {
     let bodyColor = $('body').css('color');
     if (bodyColor !== 'rgb(51, 51, 51)') {
-      $("head").prepend('<link rel="stylesheet" href="../../../public/stylesheets/bootstrap.min.css">');
+      $("head").prepend('<link rel="stylesheet" href="../../public/stylesheets/bootstrap.min.css">');
     }
   });
 </script>
-<script type="text/javascript" charset="utf8" src="../../../public/libraries/datatables.min.js"></script>
+<script type="text/javascript" charset="utf8" src="../../public/libraries/datatables.min.js"></script>
 <!-- Icons -->
 <script
         src="https://unpkg.com/feather-icons"></script>
 <script>
   if (typeof(feather) === 'undefined') {
-    document.write('<script src="../../../public/libraries/feather.min.js"><\/script>')
+    document.write('<script src="../../public/libraries/feather.min.js"><\/script>')
   }
   feather.replace()
 </script>
@@ -36,4 +36,4 @@
 <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 
-<script type="text/javascript" src="../../../public/js/app.js"></script>
+<script type="text/javascript" src="../../public/js/app.js"></script>
