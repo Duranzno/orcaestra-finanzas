@@ -19,24 +19,24 @@ $(document).ready(function () {
 
   date_input.datepicker(options);
   $("#date").val(getCurrentDate());
-
+  let columnDefs = [
+    {
+      "className": "details-control",
+      "orderable": false,
+      "data": null,
+      "defaultContent": ""
+    },
+    {"data": "nombre"},
+    {"data": "apellido"},
+    {"data": "email"},
+    {"data": "grupo"},
+    {"data": "tlf"},
+  ];
   //DATATABLE SHIT
   console.log("Tables ready");
   let table = $("#table").DataTable({
     "ajax": "../public/js/ajax.json",
-    "columns": [
-      {
-        "className": "details-control",
-        "orderable": false,
-        "data": null,
-        "defaultContent": ""
-      },
-      {"data": "nombre"},
-      {"data": "apellido"},
-      {"data": "email"},
-      {"data": "grupo"},
-      {"data": "tlf"},
-    ],
+    "columns": columnDefs,
     "paging": false,
 
     "order": [[1, "asc"]]
@@ -51,7 +51,6 @@ $(document).ready(function () {
     }
     else {
       // Open this row
-      //TODO Query & Print todas las referencias de esa persona a partir de su ID
       let f = format(row.data());
       console.log(f);
       row.child(f).show();
@@ -59,24 +58,26 @@ $(document).ready(function () {
     }
 
   });
+  $("#searchBar").on("keyup", function () {
+    console.log(this.value)
+    table.search(this.value).draw();
+  });
 });
 
 //DATATABLE SHIT
 function format(d) {
-
-  console.log(d.pagos);
-
   function multiplesPagos(d) {
-    let respuesta = '';
+    let respuesta = "";
     for (let i = 0; i < d.pagos.length; i++) {
-      console.log(d.pagos[i].referencia);
-      respuesta += `<tr>
-                    <td>${d.pagos[i].banco}</td>
-                    <td>${d.pagos[i].referencia}</td>
-                    <td>${d.pagos[i].fecha}</td>
-                    <td>${d.pagos[i].monto}</td>
-                </tr>`
+      respuesta =
+          respuesta + "<tr>" +
+          "<td>" + d.pagos[i].banco + "</td>" +
+          "<td>" + d.pagos[i].referencia + "</td>" +
+          "<td>" + d.pagos[i].fecha + "</td>" +
+          "<td>" + d.pagos[i].monto + "</td>" +
+          "</tr>"
     }
+    return respuesta;
   }
 
   function titlerow() {
@@ -98,35 +99,14 @@ function format(d) {
 }
 
 
-
-$("#agregarEstudiante").on("click", () => {
+$("#agregarEstudianteNuevo").on("click", () => {
   let student = {
     nombre: $("#nombre").val(),
     apellido: $("#apellido").val(),
-    proyecto: $("#proyecto").val()
+    grupo: $("#proyecto").val()
   };
   console.log(student);
   $.post("/api/addStudent", student, () => console.log("Sucess"), "json");
 })
 ;
-$("#agregarPago").on("click", () => {
-  let pago = {
-    banco: $("#banco").val(),
-    monto: $("#monto").val(),
-    referencia: $("#referencia").val(),
-    fecha: $("#date").val()
-  };
-  if (pago.fecha === "") {
-    pago.fecha = getCurrentDate();
-  }
-  console.log(pago);
-  $.post(
-      "/api/addPago",
-      pago,
-      function (data) {
-        console.log("SUCESS" + data.toString());
-      },
-      "json"
-  );
-});
 

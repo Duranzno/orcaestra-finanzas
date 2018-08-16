@@ -1,50 +1,54 @@
 'use strict';
-module.exports = (mongoose, PagoSchema) => {
-  const gruposDisponibles = require("./grupos");
-  const StudentSchema = new mongoose.Schema({
-    nombre: {
-      type: String,
-      default: "",
-      trim: true,
-    },
-    apellido: {
-      type: String,
-      required: true,
-      default: "",
-      trim: true,
-    },
-    email: {
-      type: String,
-      default: "",
-      trim: true,
-    },
-    grupo: {
-      type: String,
-      enum: gruposDisponibles(),
-      default: gruposDisponibles[0],
-      trim: true,
-    },
-    numero: {
-      type: String,
-      trim: true,
-      default: "",
-    },
-    pagos: {
-      type: [PagoSchema]
-    },
-    createdAt: {type: Date, default: Date.now}
-  });
-
-  /**
-   * Validations
-   */
-  StudentSchema.path('nombre').required(true, 'Nombre no puede estar en blanco');
-  StudentSchema.path('apellido').required(true, 'Apellido no puede estar en blanco');
-  StudentSchema.path('grupo').required(true, 'Grupo no puede estar en blanco');
-  StudentSchema.path('numero').required(true, 'Numero no puede estar en blanco');
-  /**
-   * Pre-remove hook
-   */
+const mongoose = require("mongoose");
+const gruposDisponibles = require("./grupos");
+const Pago = require('./pago');
+const StudentSchema = new mongoose.Schema({
+  nombre: {
+    type: String,
+    default: "",
+    required: true,
+    trim: true,
+  },
+  apellido: {
+    type: String,
+    required: true,
+    default: "",
+    trim: true,
+  },
+  email: {
+    type: String,
+    default: "",
+    trim: true,
+  },
+  grupo: {
+    type: String,
+    enum: gruposDisponibles,
+    default: gruposDisponibles[0],
+    trim: true,
+  },
+  tlf: {
+    type: String,
+    trim: true,
+    default: "",
+  },
+  pagos: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Pago',
+    }
+  ],
+  createdAt: {type: Date, default: Date.now}
+});
+/**
+ * Validations
+ */
+StudentSchema.path('nombre').required(true, 'Nombre no puede estar en blanco');
+StudentSchema.path('apellido').required(true, 'Apellido no puede estar en blanco');
+StudentSchema.path('grupo').required(true, 'Grupo no puede estar en blanco');
+StudentSchema.path('tlf').required(true, 'Numero no puede estar en blanco');
+/**
+ * Pre-remove hook
+ */
 
   /**
    * Methods

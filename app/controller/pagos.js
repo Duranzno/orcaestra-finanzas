@@ -1,7 +1,10 @@
-const mongoose = require('mongoose');
-const {wrap: async} = require('co');
-const models = require('../models/index');
-const {respond, respondOrRedirect} = require('../utils');
+const Pago = require('../models/pago');
+const Bancos = require('../models/bancos');
+const {
+  sendOk,
+  sendError,
+  newPago
+} = require('./help');
 
 exports.create = (function (req, res) {
   // console.log(`Se va a hacer un usuario de ${req.body.getJSON()}`);
