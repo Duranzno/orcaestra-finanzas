@@ -1,6 +1,5 @@
 XLSX = require('xlsx');
 var workbook = XLSX.readFile('./otherfiles/PlanillaPaola.xlsx');
-var aoc = 'A1';
 
 var sheet = workbook.Sheets[workbook.SheetNames[0]];
 rangeFirstCell = {c: 0, r: 0};
@@ -19,23 +18,26 @@ const eCol = {
   cMonto: 6,
 };
 // for (let rowNum=range.s.r;rowNum<=range.e.r;rowNum++){
-let rowNum = 1;
-let Pago = {
-  banco: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cBanco})].v,
-  referencia: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cRef})].v,
-  fecha: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cDate})].v,
-  monto: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cMonto})].v
-};
-let Estudiante = {
-  nombre: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cEst})].v,
-  apellido: 'REGEXP',
-  email: 'x@x.com',
-  grupo: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cGrupo})].v,
-  instrumento: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cInstr})].v,
-  pago: []
-};
-Estudiante;
-Pago
-// }
+let extraerFila
+(rowNum, sheet)
 
+function extraerFila(rowNum, sheet) {
+  let pago = {
+    banco: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cBanco})].v,
+    referencia: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cRef})].v,
+    fecha: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cDate})].v,
+    monto: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cMonto})].v
+  };
+  let estudiante = {
+    nombre: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cEst})].v,
+    apellido: 'REGEXP',
+    email: 'x@x.com',
+    tlf: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cGrupo})].v,
+    grupo: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cGrupo})].v,
+    instrumento: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cInstr})].v,
+    pago: []
+  };
+  console.log(pago);
+  console.log(estudiante)
+};
 

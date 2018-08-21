@@ -1,32 +1,60 @@
 //Require
+const XLSX = require('xlsx');
 const mongoose = require('mongoose');
-const Pago = require('/app/models/pago');
-const Estudiante = require('/app/models/estudiante');
+const Pago = require('./app/models/pago');
+const Estudiante = require('./app/models/estudiante');
+const regex = require('./app/utils/excel/parseRegex');
+const excelUtils = require('./app/utils/excel/extractXLSX');
+const fetch = require('node-fetch');
 //Addreses
-let estId = '5b70a08298de990454b7ff1c';
-let pagId = '5b70a08298de990454b7ff20';
-let estudiante = {
-  nombre: 'Harry',
-  apellido: 'Potter',
+let workbook = XLSX.readFile('./otherfiles/PlanillaPaola.xlsx');
+let sheet = workbook.Sheets[workbook.SheetNames[0]];
+
+estID = '5b782c5760097114a8361963';
+
+let est = {
+  nombre: 'Victor ',
+  apellido: 'Hugo',
+  email: 'notiene@barquismieto.com.ve',
   grupo: 'Sin Determinar',
-  tlf: '11111',
-  email: 'harrypotter@gmail.com',
+  tlf: '456456',
+  pagos: [],
 };
-let pago = {
-  banco: 'Delsur',
-  referencia: '@@@',
-  monto: '123'
+let pag = {
+  banco: 'Banco de Venezuela',
+  referencia: '0210147236',
+  monto: '2000000'
 };
+const databaseUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/orcaestra';
+
 //------------------------------------------------
 mongoose.connect(databaseUri, {useNewUrlParser: true,})
-    .then(() => console.log(`Base de Datos Conectada`))
-    .catch(err => console.log(`Error de Conexion de Base de Datos: ${err.message}`));
+    .then(() => {
+      console.log(`Base de Datos Conectada`)
+    })
+    .catch(err => console.log(`Error de Conexion de Base de Datos: ${err.message}`))
+    .then(p => {
 
 
-function testPOSTpago(req) {
+      ejecutar();
+    });
 
+//CODIGO A EJECUTAR
+
+
+async function ejecutar() {
+  let estR;
+  let pagoR;
+  // let estudiante= await Estudiante.crearPorCedula(estR);
+  // let pago      = await Estudiante.crearPagoById(estudiante._id,pagoR);
+  // console.log(pago)
+
+  // excelUtils.extraerFila(20,sheet);
+  fetch('http://localhost:3000/estudiantes').then(data => data.json()).then(a => console.log(a))
+  // let arturo=await Estudiante.crear(est);
+  // console.log(arturo)
+  // let pago=Estudiante.crearPagoById(arturo._id,pag).catch(err=>console.error(err));
 }
-
 
 
 

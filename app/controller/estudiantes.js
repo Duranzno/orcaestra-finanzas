@@ -97,11 +97,6 @@ exports.delete = async function (req, res) {
 exports.crearPagoById = async function (req, res) {
   const estId = req.params.id;
   console.log(req.body.banco);
-  // const pagoNuevo = {
-  //   banco: req.body.banco,
-  //   referencia: req.body.referencia,
-  //   monto: req.body.monto,
-  // };
   let pagoNuevo = newPago(req);
   console.log(`Se va a acreditar a ${estId} el pago de ${pagoNuevo}`);
   Estudiante.crearPagoById(estId, pagoNuevo)

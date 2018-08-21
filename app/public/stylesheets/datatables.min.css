@@ -6,7 +6,7 @@
  * software please visit:
  *   https://datatables.net/download/#bs4/jszip-2.5.0/pdfmake-0.1.36/dt-1.10.18/b-1.5.2/b-html5-1.5.2/b-print-1.5.2/fh-3.1.4/kt-2.4.0/r-2.2.2/rg-1.0.3/rr-1.2.4
  *
- * Included libraries:
+ * Included lib:
  *   JSZip 2.5.0, pdfmake 0.1.36, DataTables 1.10.18, Buttons 1.5.2, HTML5 export 1.5.2, Print view 1.5.2, FixedHeader 3.1.4, KeyTable 2.4.0, Responsive 2.2.2, RowGroup 1.0.3, RowReorder 1.2.4
  */
 
