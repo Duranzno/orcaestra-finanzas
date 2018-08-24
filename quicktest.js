@@ -2,6 +2,7 @@
 const XLSX = require('xlsx');
 const mongoose = require('mongoose');
 const Pago = require('./app/models/pago');
+const Grupos = require('./app/models/grupos');
 const Estudiante = require('./app/models/estudiante');
 const regex = require('./app/utils/excel/parseRegex');
 const excelUtils = require('./app/utils/excel/extractXLSX');
@@ -49,8 +50,11 @@ async function ejecutar() {
   // let pago      = await Estudiante.crearPagoById(estudiante._id,pagoR);
   // console.log(pago)
 
-  // excelUtils.extraerFila(20,sheet);
-  fetch('http://localhost:3000/estudiantes').then(data => data.json()).then(a => console.log(a))
+  excelUtils.extraerFila(70, sheet);
+
+  // console.log(b)
+  // excelUtils.extraerTodasFilas(sheet);
+  // fetch('http://localhost:3000/estudiantes').then(data => data.json()).then(a => console.log(a))
   // let arturo=await Estudiante.crear(est);
   // console.log(arturo)
   // let pago=Estudiante.crearPagoById(arturo._id,pag).catch(err=>console.error(err));

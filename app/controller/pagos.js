@@ -7,82 +7,51 @@ const {
   newPago
 } = require('./help');
 
-exports.create = (function (req, res) {
-  // console.log(`Se va a hacer un usuario de ${req.body.getJSON()}`);
-  console.log(req.body);
-  const pago = new models.Pago(req.body);
-  // console.log(models.Pago.find({"referencia":req.body.referencia}));
 
-  respondOrRedirect({req, res}, `/articles/${pago._id}`, pago, {
-    type: 'success',
-    text: 'Successfully created article!'
+//READ Obtener JSON de un pago especifico
+exports.findOne = function (req, res) {
+  const msg = `Encontrado el Pago ${req.params.pagoId} de ${req.params.id} `;
+  Pago.findById(req.params.pagoId).exec(function (err, found) {
+    if (err || !found) {
+      sendError("No " + msg, res, err)
+    } else {
+      sendOk(msg, res, found)
+    }
   });
-});
-// exports.destroy=function (req,res,next,id) {
-//
-// };
+};
 
 
-// returnPago
-//       .create({
-//         banco: req.body.banco,
-//         referencia: req.body.referencia,
-//         fecha: req.body.fecha,
-//         monto: req.body.monto,
-//         pagoId: req.body.pagoId,
-//
-//       }, {})
-//       .then(todo => res.status(200).send(todo))
-//       .catch(error => res.status(400).send(error));
-// };
+//UPDATE
+exports.update = function (req, res) {
+  let newData = newPago(req);
 
-// const modelStudent=require("../model/estudiante")
-// let students= {
-//     pago1: {
-//         id: 1,
-//         nombre: "Jack",
-//         apellido: "Davis",
-//         proyecto: "inicial",
-//     },
-//     student2: {
-//         id: 2,
-//         nombre: "Mary",
-//         apellido: "Taylor",
-//         proyecto: "inicial",
-//     },
-//     student3: {
-//         id: 3 ,
-//         nombre: "Peter",
-//         apellido: "Thomas",
-//         proyecto: "inicial",
-//     },
-//     student4: {
-//         id: 4,
-//         nombre: "Peter",
-//         apellido: "Thomas",
-//         proyecto: "inicial",
-//     }
-// };
-// exports.create = function (req, res) {
+  Pago.findByIdAndUpdate(req.params.pagoId, {$set: newData}, {
+    new: true,
+    upsert: true,
+    runValidators: true
+  }, function (err, pago) {
+    if (err) {
+      sendError(`Problemas al actualizar ${req.params.pagoId}`, res, err);
+    }
+    else {
+      sendOk(`actualizado ${req.params.id} ${pago}`, res, pago);
+    }
+  })
+};
 
-// console.log("--->Se ha agregado el pago de %s", req.body.name);
-// res.send("ok")
-// };
-// exports.findAll=function (req,res) {
-//     console.log("--->Find All: \n");
-//     res.send("deleted");
-// };
-// exports.findOne=function (req,res) {
-//     console.log("--->Find customer: \n");
-//     res.send("founded") ;
-//
-// };
-//
-// exports.update=function (req,res) {
-//     console.log("--->Update Successfully, customers: \n" )
-// };
-//
-// exports.delete=function (req,res) {
-//     console.log("--->After deletion, customer list:\n");
-//       res.end("deleted");
-// } ;
+//DELETE
+exports.delete = function (req, res) {
+  const estId = req.params.id;
+  const pagoId = req.params.pagoId;
+  console.log(`Se va a borrar ${pagoId}`);
+  Pago.findByIdAndRemove(req.params.pagoId, function (err) {
+    if (err) {
+      sendError(`Problemas al borrar ${req.params.pagoId}`, res, err);
+    }
+    else {
+      sendOk(`Borrado ${req.params.id}`, res);
+    }
+  })
+
+};
+
