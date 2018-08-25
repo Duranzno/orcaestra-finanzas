@@ -26,6 +26,8 @@ function DatatableModule() {
     {"data": "email"},
     {"data": "grupo"},
     {"data": "tlf"},
+
+
   ];
   const dtESP = {
     "decimal": ",",
@@ -117,8 +119,7 @@ function DatatableModule() {
     });
     $("#importar").on("click", function () {
       $("tr td[colspan=6]").remove();
-      $("tr")
-      tr.removeClass("shown");
+      $(".shown").removeClass("shown");
       newRow();
     });
     newRow();
@@ -153,6 +154,7 @@ function DatatableModule() {
                 "<td>" + d.pagos[i].monto + "</td>" +
                 "</tr>"
           }
+          respuesta += (addNewPagoRow(d) + addNewPagoRow(d));
           return respuesta;
         }
 
@@ -165,6 +167,15 @@ function DatatableModule() {
               "</tr>"
         }
 
+        function addNewPagoRow(d) {
+          return `<button 
+                    class="btn btn-bg btn-outline-secondary" 
+                    id=${d._id}
+                  >
+                    Importar para estudiante ${d._id}
+                  </button>`
+        }
+
         if (Array.isArray(d.pagos)) {
           return `<table class="table table-striped">
                 ${titlerow()}</td>
@@ -173,7 +184,6 @@ function DatatableModule() {
         }
       }
     });
-
   }
 
   return {

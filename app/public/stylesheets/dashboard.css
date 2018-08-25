@@ -93,6 +93,14 @@ tr.shown td.details-control {
     background: url('../resources/details_close.png') no-repeat center center;
 }
 
+td.edit-student {
+    background: url('../resources/details_open.png') no-repeat center center;
+    cursor: pointer;
+}
+
+tr.shown td.edit-student {
+    background: url('../resources/details_close.png') no-repeat center center;
+}
 .border-top {
     border-top: 1px solid #e5e5e5;
 }
