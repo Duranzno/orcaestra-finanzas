@@ -1,6 +1,7 @@
 'use strict';
 const mongoose = require("mongoose");
 const gruposDisponibles = require("./grupos");
+const TAG = "modelEstudiante|";
 
 const Pago = require('./pago');
 const StudentSchema = new mongoose.Schema({
@@ -66,23 +67,23 @@ StudentSchema.statics = {
   eliminarById: function (estId) {
     let estThis = this;
     estThis.findById(estId)
-        .catch((err) => console.log(err))
+        .catch((err) => console.log(TAG, err))
         .then((est) => {
           if (est != null) {
-            console.log(`Se ha encontrado a ${est.nombre}`);
+            console.log(TAG, `Se ha encontrado a ${est.nombre}`);
             if (est.pagos != null) {
               Pago.remove({_id: {$in: est.pagos}})
-                  .catch((err) => console.log(err))
-                  .then(console.log(`Se eliminaron sus pagos`));
+                  .catch((err) => console.log(TAG, err))
+                  .then(console.log(TAG, `Se eliminaron sus pagos`));
             }
             else {
-              console.log("No tenia Pagos")
+              console.log(TAG, "No tenia Pagos")
             }
             estThis.remove({"_id": est._id})
-                .then(console.log("Se elimino el estudiante"))
-                .catch(err => console.log(err));
+                .then(console.log(TAG, "Se elimino el estudiante"))
+                .catch(err => console.log(TAG, err));
           } else {
-            console.log("No se ha encontrado este estudiante")
+            console.log(TAG, "No se ha encontrado este estudiante")
           }
         })
   },
@@ -93,11 +94,11 @@ StudentSchema.statics = {
       console.error("No ref");
       return new Error('No tiene referencia el pago nuevo')
     }
-    console.log(`Se va a crear ${pagoNuevo.referencia}`);
+    console.log(TAG, `Se va a crear pago:${pagoNuevo.referencia}\n`);
     await Pago.findOneAndUpdate({"referencia": pagoNuevo.referencia}, pagoNuevo, {upsert: true, runValidators: true})
         .then((p) => {
           if (p) {
-            console.log(`Se Creo el pago${p}`);
+            console.log(TAG, `Se Creo el pago${p.referencia}\n`);
           }
           else {
             new Error('No se pudo crear el pago');
@@ -106,11 +107,11 @@ StudentSchema.statics = {
         .catch(err => console.error(err));
     let pago = await Pago.findOne({"referencia": pagoNuevo.referencia});
     let EstFound = await estThis.findOne({"_id": estId});
-    console.log(`${estId} de ${EstFound}`);
+    // console.log(TAG,`${estId} de ${EstFound}`);
     await EstFound.pagos.push(pago);
     await EstFound.save();
 
-    console.log(`Se tiene el pago ${pago.referencia} del ${pago.banco} de ${estId}`);
+    // console.log(TAG,`Se tiene el pago ${pago.referencia} del ${pago.banco} de ${estId}`);
     return pago;
   },
 
@@ -121,14 +122,22 @@ StudentSchema.statics = {
       "apellido": eNuevo.apellido,
       "grupo": eNuevo.grupo,
     };
-    if (eNuevo.hasOwnProperty("_id")) return eNuevo;
+    if (eNuevo.hasOwnProperty("_id")) {
+      console.log(TAG, `eNuevo ya tenia ._id por lo tanto ya es parte de la DB`);
+      return eNuevo
+    }
 
-    console.log('eNuevo', eNuevo);
-
-    let updated = await this.findOneAndUpdate(filtro, eNuevo, {upsert: true, runValidators: true})
+    let updated = await estThis.findOneAndUpdate(filtro, eNuevo, {upsert: true, runValidators: true})
+        .then(est => {
+          if (est)
+            console.log(TAG, `se consiguió\\encontró ${est.nombre}`);
+          else
+            console.error(TAG, `se consiguió\\encontró ${est.nombre}`);
+        })
         .catch(err => console.error(err));
-    console.log(`${updated}`);
-    return await estThis.findOne(filtro)
+    let letmesee = await estThis.findOne(filtro);
+    console.log(TAG, "SE ENCONTRO Estudiante", letmesee, '\n');
+    return letmesee;
   },
 };
 

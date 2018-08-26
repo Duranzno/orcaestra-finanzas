@@ -105,7 +105,6 @@ function otherSetup() {
 
   });
 }
-
 function DatatablesModule() {
   const columnDefs = [
     {
@@ -269,7 +268,6 @@ function DatatablesModule() {
     setupSideBar: setUpSideBar,
   }
 }
-
 function DateModule() {
   monthNames = [
     "Enero", "Febrero", "Marzo",

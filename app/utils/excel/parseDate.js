@@ -26,8 +26,12 @@ function getFecha(date) {
 }
 
 function parseDate(string) {
-  let extraido = regex.extraerPosibleColumnaMultiple(string);
-  return new Date(extraido[2], extraido[0] - 1, extraido[1]);
+  if (typeof string === "string") {
+    let extraido = regex.extraerPosibleColumnaMultiple(string);
+    return new Date(extraido[2], extraido[0] - 1, extraido[1]);
+  } else {
+    return string;
+  }
 
 }
 

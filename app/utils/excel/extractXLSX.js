@@ -4,6 +4,7 @@ const Estudiante = require('../../../app/models/estudiante');
 const Grupos = require('../../../app/models/grupos');
 const regex = require('./parseRegex');
 const dateUtil = require('./parseDate');
+const TAG = `extractXLSX|`;
 const eCol = {
   cEst: 0,
   cGrupo: 1,
@@ -15,21 +16,20 @@ const eCol = {
   cCedula: 7,
 };
 //FUNCIONES
-let extraerFila = function (rowNum, sheet) {
+function extraerFila(sheet, rowNum) {
   let colNombre = regex.extraerPosibleColumnaMultiple(
       sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cEst})].v);
   if (Array.isArray(colNombre)) {
     colNombre.forEach(function (item, index) {
-      console.log(item, index);
+      console.log(TAG, item, index);
       let estudiante = extraerEstudiante(sheet, rowNum, colNombre, index);
       let pago = extraerPago(sheet, rowNum);
       Estudiante.crear(estudiante).then((est) => {
-        // console.error(err);
         if (est == null) {
           console.error(new Error("id creado de rowNum=" + rowNum + "=null"))
         }
         Estudiante.crearPagoById(est._id, pago)
-            .then(p => console.log(p))
+            .then(p => console.log(TAG, "arrayEstudiantes ", p))
             .catch(err => console.error(err + rowNum));
       });
     })
@@ -39,13 +39,13 @@ let extraerFila = function (rowNum, sheet) {
     Estudiante.crear(estudiante).then((est) => {
       // console.error(est);
       return Estudiante.crearPagoById(est._id, pago)
-          .then(p => console.log(p))
+          .then(p => console.log(TAG, "unicoEstudiante ", p))
           .catch(err => console.error(err));
     })
         .catch(err => console.error(err));
   }
 
-};
+}
 
 let extraerTodasFilas = function (sheet) {
   let range = XLSX.utils.decode_range(sheet['!ref']); // get the range
@@ -54,9 +54,9 @@ let extraerTodasFilas = function (sheet) {
     if (nombre === undefined) {
       break
     }
-    // console.log(nombre.v+' ' + rowNum);
+    // console.log(TAG,nombre.v+' ' + rowNum);
 
-    extraerFila(rowNum, sheet)
+    extraerFila(sheet, rowNum)
   }
 };
 
@@ -67,7 +67,7 @@ let agregarPorReferencia = async function (pago) {
   return await Pago.findOne({'referencia': pago.referencia})
       .then(found => {
         if (found) {
-          console.log(found);
+          console.log(TAG, found);
           return found
         } else {
           Pago.create(pago, (err, creado) => {
@@ -90,6 +90,7 @@ function esParteDelGrupo(grupoNuevo) {
 
 let extraerPago = function (sheet, rowNum) {
   let fechaPago = sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cDate})].v;
+  fechaPago = (fechaPago === "-" || fechaPago === "") ? new Date(Date.UTC(0, 0, 0, 0, 0, 0)) : fechaPago;
   let pago = {
     banco: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cBanco})].v,
     referencia: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cRef})].v,
@@ -102,6 +103,7 @@ let extraerPago = function (sheet, rowNum) {
   return pago;
 };
 let extraerEstudiante = function (sheet, rowNum, colNombre, n) {
+  console.log(TAG, `EXTRAER ESTUDIANTE DE FILA ${rowNum}`);
   let sheetGrupo = sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cGrupo})].v;
   let sheetInstr = sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cInstr})].v;
   if (typeof n === "number") {
@@ -138,5 +140,6 @@ let extraerEstudiante = function (sheet, rowNum, colNombre, n) {
 module.exports = {
   extraerFila: extraerFila,
   extraerTodasFilas: extraerTodasFilas,
+  extraerPago: extraerPago,
   agregarPorReferencia: agregarPorReferencia,
 };
