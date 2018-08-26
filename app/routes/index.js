@@ -22,7 +22,7 @@ const storage = multer.diskStorage({
   }
 });
 var upload = multer({storage: storage});
-router.post('/', upload.single('planilla'), (req, res) => {
+router.post('/uploadPaola', upload.single('planilla'), (req, res) => {
   if (!req.file) {
     console.log("No file received");
     return res.send({
@@ -31,13 +31,28 @@ router.post('/', upload.single('planilla'), (req, res) => {
 
   } else {
     console.log(`Received: ${req.file.filename}`);
-    handleXLSX.useSheetPaolaStyle(req);
+    // console.log(req);
+    handleXLSX.useSheetPaolaStyle(req.file.path);
     return res.send({
       success: true
     })
   }
 });
+router.post('/uploadMarwan', upload.single('planilla'), (req, res) => {
+  if (!req.file) {
+    console.log("No file received");
+    return res.send({
+      success: false
+    });
 
+  } else {
+    console.log(`Received: ${req.file.filename}`);
+    // handleXLSX.useSheetMarwanStyle(req.file.path);
+    return res.send({
+      success: true
+    })
+  }
+});
 
 //ESTUDIANTE
 //READ Obtener todos los JSON

@@ -3,6 +3,7 @@ const Pago = require('../../../app/models/pago');
 const Estudiante = require('../../../app/models/estudiante');
 const Grupos = require('../../../app/models/grupos');
 const regex = require('./parseRegex');
+const dateUtil = require('./parseDate');
 const eCol = {
   cEst: 0,
   cGrupo: 1,
@@ -48,7 +49,7 @@ let extraerFila = function (rowNum, sheet) {
 
 let extraerTodasFilas = function (sheet) {
   let range = XLSX.utils.decode_range(sheet['!ref']); // get the range
-  for (let rowNum = 50; rowNum < 75/*range.e.r*/; rowNum++) {
+  for (let rowNum = 1; rowNum < range.e.r; rowNum++) {
     let nombre = sheet[XLSX.utils.encode_cell({r: rowNum, c: 0})];
     if (nombre === undefined) {
       break
@@ -88,10 +89,11 @@ function esParteDelGrupo(grupoNuevo) {
 }
 
 let extraerPago = function (sheet, rowNum) {
+  let fechaPago = sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cDate})].v;
   let pago = {
     banco: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cBanco})].v,
     referencia: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cRef})].v,
-    fecha: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cDate})].v,
+    fecha: dateUtil.parseDate(fechaPago),
     monto: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cMonto})].v
   };
   if (pago.fecha === '-' || pago.fecha === "") {

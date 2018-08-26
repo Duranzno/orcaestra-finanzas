@@ -7,6 +7,8 @@ const Estudiante = require('./app/models/estudiante');
 const regex = require('./app/utils/excel/parseRegex');
 const excelUtils = require('./app/utils/excel/extractXLSX');
 const fetch = require('node-fetch');
+const dateUtils = require('./app/utils/excel/parseDate');
+
 //Addreses
 let workbook = XLSX.readFile('./otherfiles/PlanillaPaola.xlsx');
 let sheet = workbook.Sheets[workbook.SheetNames[0]];
@@ -24,7 +26,8 @@ let est = {
 let pag = {
   banco: 'Banco de Venezuela',
   referencia: '0210147236',
-  monto: '2000000'
+  monto: '2000000',
+  fecha: dateUtils.parseDate("6/30/1996")
 };
 const databaseUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/orcaestra';
 
@@ -49,15 +52,15 @@ async function ejecutar() {
   // let estudiante= await Estudiante.crearPorCedula(estR);
   // let pago      = await Estudiante.crearPagoById(estudiante._id,pagoR);
   // console.log(pago)
-
-  excelUtils.extraerFila(70, sheet);
+  // excelUtils.extraerFila(70, sheet);
 
   // console.log(b)
   // excelUtils.extraerTodasFilas(sheet);
   // fetch('http://localhost:3000/estudiantes').then(data => data.json()).then(a => console.log(a))
-  // let arturo=await Estudiante.crear(est);
-  // console.log(arturo)
-  // let pago=Estudiante.crearPagoById(arturo._id,pag).catch(err=>console.error(err));
+  let arturo = await Estudiante.crear(est);
+  console.log(arturo);
+  let pago = await Estudiante.crearPagoById(arturo._id, pag).catch(err => console.error(err));
+  console.log(pago)
 }
 
 
