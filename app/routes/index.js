@@ -58,6 +58,10 @@ router.post('/uploadMarwan', upload.single('planilla'), (req, res) => {
 //READ Obtener todos los JSON
 router.get("/estudiantes/", Estudiante.findAll);
 //READ Obtener JSON de un estudiante especifico
+router.get("/estudiantes/:banco", Estudiante.findAllByBanco);
+//READ Obtener JSON de los estudiantes que han hecho pagos desde tal banco
+router.get("/estudiantes/:ano/:mes", Estudiante.findAllByMonthYear);
+
 router.get("/estudiante/:id", Estudiante.findOne);
 //CREATE -- Añadir Nuevo estudiante a la DB
 router.post("/estudiante/new", Estudiante.create);

@@ -148,7 +148,7 @@ function DatatablesModule() {
   let table;
 
   function setup() {
-    table = $("#table").DataTable({
+    table = $("#table").DataTables({
       "ajax": {
         "url": "http://localhost:3000/estudiantes",
         "dataSrc": "",

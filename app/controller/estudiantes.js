@@ -10,9 +10,11 @@ const {
 //READ Obtener todos los JSON
 exports.findAll = function (req, res) {
   // iferr(`Encontrar Estudiantes`);
-  if (false) {   //TODO conseguir por REGEXP
-  } else {
-    Estudiante.find({}).populate(`pagos`).exec(function (err, todosEstudiantes) {
+  // if (false) {   //TODO conseguir por REGEXP
+  // } else {
+  Estudiante.find({}).populate({
+    "path": "pagos",
+  }).exec(function (err, todosEstudiantes) {
       if (err) {
         console.log(err);
         res.send(err)
@@ -21,8 +23,93 @@ exports.findAll = function (req, res) {
         res.status(200).json(todosEstudiantes);
       }
     });
-  }
+  // }
+}
+exports.findAllByBanco = function (req, res) {
+  // iferr(`Encontrar Estudiantes`);
+  // if (false) {   //TODO conseguir por REGEXP
+  // } else {
+  const banco = req.params.banco;
+
+  Estudiante
+      .aggregate([
+        {"$match": {"nombre": "Paola"}},
+        {"$unwind": "$pagos"},
+        {
+          "$lookup": {
+            "from": "pagos",
+            "localField": "pagos",
+            "foreignField": "_id",
+            "as": "pagos"
+          }
+        },
+        {"$match": {"resultingStuff.banco": banco}},
+      ])
+      .exec(function (err, todosEstudiantes) {
+        if (err) {
+          console.log(err);
+          // res.send(err)
+        }
+        else {
+          console.log(`JSON con estudiantes que hecho pagos desde el banco:${req.banco}`);
+          res.status(200).json(todosEstudiantes);
+        }
+      });
+  // }
 };
+exports.findAllByMonthYear = async function (req, res) {
+  let filtroMes = req.params.mes,
+      filtroAno = req.params.ano;
+
+  const estIdDelBanco = await Estudiante
+      .aggregate([
+        {"$unwind": "$pagos"},
+        {
+          "$lookup": {
+            "from": "pagos",
+            "localField": "pagos",
+            "foreignField": "_id",
+            "as": "pagos"
+          }
+        },
+        {"$unwind": "$pagos"},
+        {
+          "$project":
+              {
+                "mes": {$month: "$pagos.fecha"},
+                "ano": {$year: "$pagos.fecha"},
+              }
+        },
+        {
+          "$match":
+              {
+                "mes": Number.parseInt(filtroMes),
+                "ano": Number.parseInt(filtroAno),
+              }
+        },
+        {
+          $group: {_id: null, array: {$push: "$_id"}}
+        },
+        {
+          $project: {array: true, _id: false}
+        }
+
+      ]);
+  const idArray = estIdDelBanco[0].array;
+  Estudiante.find({"_id": {"$in": idArray}})
+      .populate('pagos')
+      .exec(function (err, todosEstudiantes) {
+        if (err) {
+          console.log(err);
+          res.send(err)
+        }
+        else {
+          console.log(JSON.stringify(todosEstudiantes));
+          res.status(200).json(todosEstudiantes);
+        }
+      })
+};
+
 
 //READ Obtener JSON de un estudiante especifico
 exports.findOne = function (req, res) {

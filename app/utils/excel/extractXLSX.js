@@ -17,8 +17,12 @@ const eCol = {
 };
 //FUNCIONES
 function extraerFila(sheet, rowNum) {
+  let cell = sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cEst})];
+  if (typeof cell === "undefined") {
+    console.error(new Error(`La celda que se encuentra en ${eCol.cEst}:${rowNum} no pudo ser leida`))
+  }
   let colNombre = regex.extraerPosibleColumnaMultiple(
-      sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cEst})].v);
+      cell.v);
   if (Array.isArray(colNombre)) {
     colNombre.forEach(function (item, index) {
       console.log(TAG, item, index);
@@ -50,11 +54,12 @@ function extraerFila(sheet, rowNum) {
 let extraerTodasFilas = function (sheet) {
   let range = XLSX.utils.decode_range(sheet['!ref']); // get the range
   for (let rowNum = 1; rowNum < range.e.r; rowNum++) {
-    let nombre = sheet[XLSX.utils.encode_cell({r: rowNum, c: 0})];
-    if (nombre === undefined) {
+    let nombre = sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cEst})];
+    if (nombre === null || (typeof nombre === "undefined") || (typeof nombre.v === "undefined")) {
+      console.log(TAG, `Se imprimio hasta la fila ${rowNum - 1}`);
       break
     }
-    // console.log(TAG,nombre.v+' ' + rowNum);
+    // console.log(TAG,nombre.v+' ' + rowNum-1);
 
     extraerFila(sheet, rowNum)
   }

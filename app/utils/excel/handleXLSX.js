@@ -6,7 +6,7 @@ const excelUtilsM = require('./extractXLSXMarwan');
 module.exports.useSheetPaolaStyle = function (internalPath) {
   let workbook = XLSX.readFile(internalPath);
   let sheet = workbook.Sheets[workbook.SheetNames[0]];
-  excelUtils.extraerFila(sheet);
+  excelUtils.extraerTodasFilas(sheet);
 };
 module.exports.useSheetMarwanStyle = function (internalPath) {
   let workbook = XLSX.readFile(internalPath);
