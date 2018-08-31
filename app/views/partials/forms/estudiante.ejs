@@ -1,0 +1,32 @@
+<div class="form-row">
+    <div class="form-group col-md-6">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+    </div>
+    <div class="form-group col-md-6">
+        <label for="apellido">Apellido</label>
+        <input autocomplete='family-name' type="text" class="form-control" id="apellido"
+               placeholder="Apellido">
+    </div>
+    <div class="form-group col-md-4">
+        <label for="apellido">Correo</label>
+        <input type="email" class="form-control" id="correo"
+               placeholder="Correo">
+    </div>
+    <div class="form-group col-md-4">
+        <label for="tlf">Telefono</label>
+        <input type="tel" class="form-control" id="tlf"
+               placeholder="Telefono">
+    </div>
+    <div class="form-group col-md-4">
+        <label for="grupo">Grupo</label>
+
+        <select class="custom-select" id="grupo">
+            <option selected><%= grupos[0] %></option>
+            <% for ( var i2 = 1; i2 < grupos.length; i2++ ) { %>
+                <option value="<%= i2 %>"><%= grupos[i2] %></option>
+            <% } %>
+        </select>
+
+    </div>
+</div>

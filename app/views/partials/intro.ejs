@@ -23,71 +23,17 @@
         <!--</button>-->
     </div>
 </div>
-<!--Agregar Nuevo Estudiantes-->
 
+<!--Agregar Nuevo Estudiantes-->
 <div class="collapse" id="collapseExample">
     <div class="card card-body">
         <form>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" placeholder="Nombre">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="apellido">Apellido</label>
-                    <input autocomplete='family-name' type="text" class="form-control" id="apellido"
-                           placeholder="Apellido">
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="apellido">Correo</label>
-                    <input type="email" class="form-control" id="correo"
-                           placeholder="Correo">
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="tlf">Telefono</label>
-                    <input type="tel" class="form-control" id="tlf"
-                           placeholder="Telefono">
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="grupo">Grupo</label>
+            <!--Agregar Estudiante-->
+            <% include forms/estudiante.ejs %>
 
-                    <select class="custom-select" id="grupo">
-                        <option selected><%= grupos[0] %></option>
-                        <% for ( var i2 = 1; i2 < grupos.length; i2++ ) { %>
-                            <option value="<%= i2 %>"><%= grupos[i2] %></option>
-                        <% } %>
-                    </select>
+            <!--Agregar Pago-->
+            <% include forms/pago.ejs %>
 
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-3">
-                    <label for="banco">Banco</label>
-
-                    <select class="custom-select" id="banco">
-                        <option selected><%= bancos[0] %></option>
-                        <% for ( var i = 1; i < bancos.length; i++ ) { %>
-                        <option value="<%= i %>"><%= bancos[i] %></option>
-                        <% } %>
-                    </select>
-
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="monto">Monto</label>
-                    <input type="number" class="form-control" id="monto" placeholder="Monto">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="referencia">Referencia</label>
-                    <input type="text" class="form-control" id="referencia" placeholder="Referencia">
-                </div>
-                <div id="date-picker" class="form-group col-md-3">
-                    <div class="form-group"> <!-- Date input -->
-                        <label class="control-label" for="date">Date</label>
-                        <input autocomplete="off" class="form-control" id="date" name="date" placeholder="MM/DD/YYY"
-                               type="text"/>
-                    </div>
-                </div>
-            </div>
 
         </form>
         <div class="row">

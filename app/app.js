@@ -25,7 +25,7 @@ mongoose.connect(databaseUri, {useNewUrlParser: true,})
     })
     .catch(err => console.log(`Error de Conexion de Base de Datos: ${err.message}`));
 
-// view engine setup
+// view engine setupDT
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(bodyParser.json());

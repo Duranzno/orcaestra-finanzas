@@ -1,40 +1,29 @@
-<!--jQuery CDN -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<!--jQuery local fallback -->
-<script type="text/javascript" src="../../public/js/lib/jquery-3.3.1.slim.min.js"></script>
-
-
-<!--Bootstrap JS CDN -->
+<!--<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>-->
 <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.bundle.min.js"-->
 <!--integrity="sha384-CS0nxkpPy+xUkNGhObAISrkg/xjb3USVCwy+0/NMzd5VxgY4CMCyTkItmy5n0voC"-->
 <!--crossorigin="anonymous"></script>-->
-<!--Bootstrap JS local fallback-->
-<!--<script>-->
-<!--if (typeof($.fn.modal) === 'undefined') {-->
-<!--document.write('<script src="../../public/js/lib/bootstrap.bundle.min.js"><\/script>')-->
-<!--}-->
-<!--</script>-->
+<!--<script src="https://unpkg.com/feather-icons"></script>-->
 
-<script type="text/javascript" src="../../public/js/lib/bootstrap.bundle.min.js"></script>
+<script>document.write('<script src="../../public/js/lib/jquery.min.js"><\/script>')</script>
+<script src="../../public/js/lib/datatables.min.js"></script>
+<script>
+  if (typeof($.fn.modal) === 'undefined') {
+    document.write('<script src="../../public/js/lib/bootstrap.bundle.min.js"><\/script>')
+  }
+</script>
+<script>
+  $(document).ready(function () {
+    let bodyColor = $('body').css('color');
+    if (bodyColor !== 'rgb(51, 51, 51)') {
+      $("head").prepend('<link rel="stylesheet" href="../../public/stylesheets/bootstrap.min.css">');
+    }
+  });
+</script>
 
-<!--Bootstrap CSS local fallback -->
-<!--<script>-->
-<!--$(document).ready(function () {-->
-<!--let bodyColor = $('body').css('color');-->
-<!--if (bodyColor !== 'rgb(51, 51, 51)') {-->
-<!--$("head").prepend('<link rel="stylesheet" href="../../public/stylesheets/bootstrap.min.css">');-->
-<!--}-->
-<!--});-->
-<!--</script>-->
-
-<!--Icons -->
 <script type="text/javascript" src="../../public/js/lib/feather.min.js"></script>
 
-<!--Datatables-->
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-
-<script type="text/javascript" charset="utf8" src="../../public/js/lib/datatables.min.js"></script>
-
-
 <script type="text/javascript" src="../../public/js/lib/bootstrap-datepicker.min.js"></script>
+
+<!--<script type="text/javascript"-->
+<!--src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>-->
 <script type="text/javascript" src="../../public/js/app.js"></script>

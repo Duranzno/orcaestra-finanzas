@@ -4,6 +4,7 @@ var express = require("express"),
     Estudiante = require("../controller/estudiantes"),
     Pago = require("../controller/pagos");
 handleXLSX = require("../utils/excel/handleXLSX");
+TAG = "routes|";
 
 //INDEX -- Mostrar Todos
 router.get("/", function (req, res) {
@@ -77,6 +78,12 @@ router.get('/estudiante/:id/pago/:pagoId', Pago.findOne);
 
 //UPDATE
 router.put('/estudiante/:id/pago/:pagoId', Pago.update);
+
+//UPDATE
+router.put('/pago/:pagoId', (req, res) => {
+  console.log(TAG, `no implementado`);
+  res.send("no implementado")
+});
 //DELETE
 router.delete('/estudiante/:id/pago/:pagoId', Pago.delete);
 // router.post('*',(req,res)=>res.send("Wrong Post"));

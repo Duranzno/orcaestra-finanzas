@@ -1,15 +1,15 @@
 $(document).ready(async function () {
   let dt = DatatablesModule();
-  dt.setup();
+  dt.setupDT();
   dt.setupEvents();
   dt.setupSideBar();
   let c = CalendarModule();
   c.configCalendar();
-  otherSetup();
+  oneTimeEventsSetup();
   feather.replace();
 });
 
-function otherSetup() {
+function oneTimeEventsSetup() {
   $("#agregarEstudianteNuevo").on("click", () => {
     let student = {
       nombre: $("#nombre").val(),
@@ -48,7 +48,7 @@ function otherSetup() {
 
   });
 
-  var file_data;
+  let file_data;
   $("#inputP").change(function () {
     file_data = $("#inputP").prop("files")[0];
     let data = new FormData();
@@ -104,6 +104,28 @@ function otherSetup() {
   $("#extra").on("click", function () {
 
   });
+  // Modal config
+  setUpSideBar();
+
+  function setUpSideBar() {
+    let fecha = DateModule();
+    $("li.mes").append(() => {
+      $(".mes-actual").closest("a").attr('id', fecha.getAnoMesURL(new Date));
+      let meses = fecha.arrayMeses(new Date());
+      let li = "";
+      for (mes of meses.reverse()) {
+        li += addNewMonthRow(mes)
+      }
+      return li;
+    });
+
+    function addNewMonthRow(date) {
+      return `<a class="nav-link btn-fecha" id=${fecha.getAnoMesURL(date)} href="#" >
+                    <span data-feather="file-text"></span>
+                    ${fecha.getMesAno(date)}
+                </a>  `
+    }
+  }
 }
 function DatatablesModule() {
   const columnDefs = [
@@ -147,8 +169,9 @@ function DatatablesModule() {
   };
   let table;
 
-  function setup() {
-    table = $("#table").DataTables({
+  // Se configura la variable table que es god object en DataTables.net
+  function setupDT() {
+    table = $("#table").DataTable({
       "ajax": {
         "url": "http://localhost:3000/estudiantes",
         "dataSrc": "",
@@ -162,44 +185,96 @@ function DatatablesModule() {
       "columns": columnDefs,
       "responsive": true,
       "paging": false,
-
       "order": [[1, "asc"]]
     });
   }
 
+  // Se configuran los eventos por JQuery que estan relacionados a DT
   function setupEvents() {
+    // Barra de Busqueda que filtra por datos estudiantiles
     $("#searchBar").on("keyup", function () {
       console.log(this.value);
       table.search(this.value).draw();
     });
+
+    //Boton Extra que se usa para debugeo
     $("#extra").on("click", function () {
       $("tr td[colspan=6]").remove();
       $(".shown").removeClass("shown");
-      newRowPago();
+      eventNewRowPago();
     });
 
-    newRowPago();
+    //Botones para filtrar por estudiantes que han pagado en ese mes-año
+    $(".btn-fecha").on("click", function () {
+      const fechaURL = $(this).closest("a").attr('id');
+      const url = "http://localhost:3000/estudiantes/" + fechaURL;
+      console.log(`direccion url:${url}`);
+      alert(url);
+    });
+
+    //LLamada a toda la configuracion de filas de Pago
+    filasPago();
   }
 
-  function newRowPago() {
+  function filasPago() {
+
     $("#table tbody").on("click", "td.details-control", function () {
       let tr = $(this).closest("tr");
-      let row = table.row(tr);
-      if (row.child.isShown()) {
-        // This row is already open - close it
-        row.child.hide();
+      let filasPagos = table.row(tr);
+      if (filasPagos.child.isShown()) {
+        //Los pagos del estudiante estan mostrados, se van a ocultar
+        filasPagos.child.hide();
         tr.removeClass("shown");
       }
       else {
-        // Open this row
-        let f = format(row.data());
-        // console.log(f);
-        row.child(f).show();
+        // Mostrar Filas de Pagos
+        let htmlPagos = htmlFilaPago(filasPagos.data());
+        filasPagos.child(htmlPagos).show();
         tr.addClass("shown");
+
+        //Cada vez que se muestran las filas de pago se deben añadir de nuevo los eventos asociados
+        eventosFilasPago()
       }
 
-      function format(d) {
-        function multiplesPagos(d) {
+      function eventosFilasPago() {
+        // $(".btn-edit-pago").on("click",function () {
+        //   console.log("pago tocado");
+        //   const pagoId = $(this).closest("button").attr('id');
+        //   const url = "http://localhost:3000/pago/" + pagoId;
+        //   console.log(`direccion url:${url}`);
+        //   alert(url);
+        // });
+        // $(".btn-edit-student").on("click",function () {
+        //   console.log("student tocado");
+        //   const estId = $(this).closest("button").attr('id');
+        //   const url = "http://localhost:3000/estudiante/" + estId;
+        //   console.log(`direccion url:${url}`);
+        //   alert(url);
+        // });
+        $('#estModal').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget); // Button that triggered the modal
+          var recipient = button.data('estudianteID'); // Extract info from data-* attributes
+          // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+          // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+          var modal = $(this);
+          modal.find('.modal-title').text('New message to ' + recipient);
+          modal.find('.modal-body input').val(recipient);
+        });
+        feather.replace();
+
+      }
+
+      function htmlFilaPago(d) {
+        return `<table class="table table-striped">
+                    ${htmlFilaTitulo()}</td>
+                    ${htmlMultiplesPagos(d)}
+                </table>`;
+
+        function htmlFilaTitulo() {
+          return "<tr> <td>Banco</td> <td>Referencia</td> <td>Fecha</td> <td>Monto</td> <td>Editar</td> </tr>"
+        }
+
+        function htmlMultiplesPagos(d) {
           let fecha = DateModule();
           let respuesta = "";
           for (let i = 0; i < d.pagos.length; i++) {
@@ -209,67 +284,66 @@ function DatatablesModule() {
                 "<td>" + d.pagos[i].referencia + "</td>" +
                 "<td>" + fecha.getFecha(d.pagos[i].fecha) + "</td>" +
                 "<td>" + d.pagos[i].monto + "</td>" +
+                "<td>" +
+                '<button type="button" class="btn btn-edit-pago btn-sm" id="' + d.pagos[i]._id + '">' +
+                '<span data-feather="edit-2"></span></button>' +
+                "</td>" +
                 "</tr>"
           }
-          respuesta += (addNewPagoRow(d) + addNewPagoRow(d));
+          respuesta += (htmlFilaPagoIndividual(d) + '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pagoModal">' +
+              '  Launch demo modal' +
+              '</button>');
           return respuesta;
         }
 
-        function titlerow() {
-          return "<tr>" +
-              "<td>Banco</td>" +
-              "<td>Referencia</td>" +
-              "<td>Fecha</td>" +
-              "<td>Monto</td>" +
-              "</tr>"
+        function htmlFilaPagoIndividual(d) {
+          return `<button class="btn btn-bg btn-edit-student btn-outline-secondary text-center" data-estudianteID=${d._id}>Editar informacion de Estudiante</button></a>`
         }
 
-        function addNewPagoRow(d) {
-          return `<button 
-                    class="btn btn-bg btn-outline-secondary" 
-                    id=${d._id}
-                  >
-                    Importar para estudiante ${d._id}
-                  </button>`
-        }
-
-        if (Array.isArray(d.pagos)) {
-          return `<table class="table table-striped">
-                ${titlerow()}</td>
-                ${multiplesPagos(d)}
-            </table>`;
-        }
       }
     });
   }
 
-  function setUpSideBar() {
-    let fecha = DateModule();
-    $("li.mes").append(() => {
-      let meses = fecha.arrayMeses(new Date());
-      let li = "";
-      for (mes of meses.reverse()) {
-        li += addNewMonthRow(mes)
-      }
-      return li;
-    });
 
-    function addNewMonthRow(date) {
-      return `<a class="nav-link" href="#">
-                    <span data-feather="file-text"></span>
-                    ${fecha.getMesAno(date)}
-                </a>                    `
-    }
+  let newAjaxSrc = function (url) {
+    url = url ? url : 'http://localhost:3000/estudiantes';
+    table.ajax.url(url).reload();
+  };
+  return {
+    setupDT: setupDT,
+    setupEvents: setupEvents,
+  }
+}
+
+function CalendarModule() {
+  const dateformat = 'mm/dd/yyyy';
+  const form = $('.bootstrap-iso form');
+  let date_input = $('input[name="date"]'); //our date input has the name "date"
+  let container = form.length > 0 ? form.parent() : "body";
+  let options = {
+    format: dateformat,
+    container: container,
+    todayHighlight: true,
+    autoclose: true,
+    todayBtn: true
+  };
+
+  function getCurrentDate() {
+    const today_date = new Date();
+    return ((today_date.getDate() < 10) ? "0" : "") + String(today_date.getDate()) + "-" + ((today_date.getMonth() < 9) ? "0" : "") + String(today_date.getMonth() + 1) + "-" + today_date.getFullYear();
+  }
+
+  function configCalendar() {
+    date_input.datepicker(options);
+    $("#date").val(getCurrentDate());
   }
 
   return {
-    setup: setup,
-    setupEvents: setupEvents,
-    setupSideBar: setUpSideBar,
+    configCalendar: configCalendar
   }
 }
 function DateModule() {
-  monthNames = [
+  let monthNames = [
     "Enero", "Febrero", "Marzo",
     "Abril", "Mayo", "Junio",
     "Julio", "Agosto", "Septiembre",
@@ -292,51 +366,30 @@ function DateModule() {
     let nYear = date.getFullYear();
     let meses = [];
     for (let i = 0; i < 12; i++) {
-      meses.push(new Date(nYear - 1, i))
+      meses.push(new Date(nYear - 1, i))//AGREGO AL Array los meses del año pasado
     }
     for (let i = 0; i <= nMonth; i++) {
-      meses.push(new Date(nYear, i));
+      meses.push(new Date(nYear, i));   //AGREGO AL Array los meses de este año hasta el actual
     }
+    meses.pop()//elimino el actual debido a que lo manejo no con su nombre sino con "Mes actual"
     return meses;
   }
-
   function getMesAno(date) {
     let value = (typeof date === "string") ? new Date(date) : date;
     return (`${getMonthName(value.getMonth())} ${value.getFullYear()}`);
   }
 
+  function getAnoMesURL(date) {
+    return +date.getFullYear() + "/" + (date.getMonth() + 1) + "/"
+  }
   return {
     getFecha: getFecha,
     arrayMeses: arrayMeses,
     getMesAno: getMesAno,
+    getAnoMesURL: getAnoMesURL,
     // getMonthName:getMonthName,
   }
 }
-function CalendarModule() {
-  const dateformat = 'mm/dd/yyyy';
-  const form = $('.bootstrap-iso form');
-  let date_input = $('input[name="date"]'); //our date input has the name "date"
-  let container = form.length > 0 ? form.parent() : "body";
-  let options = {
-    format: dateformat,
-    container: container,
-    todayHighlight: true,
-    autoclose: true,
-    todayBtn: true
-  };
-  function getCurrentDate() {
-    const today_date = new Date();
-    return ((today_date.getDate() < 10) ? "0" : "") + String(today_date.getDate()) + "-" + ((today_date.getMonth() < 9) ? "0" : "") + String(today_date.getMonth() + 1) + "-" + today_date.getFullYear();
-  }
 
-  function configCalendar() {
-    date_input.datepicker(options);
-    $("#date").val(getCurrentDate());
-  }
-
-  return {
-    configCalendar: configCalendar
-  }
-}
 
 
