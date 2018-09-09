@@ -1,3 +1,4 @@
+const TAG=`parseDate` ;
 monthNames = [
   "Enero", "Febrero", "Marzo",
   "Abril", "Mayo", "Junio",
@@ -28,6 +29,8 @@ function getFecha(date) {
 function parseDate(string) {
   if (typeof string === "string") {
     let extraido = regex.extraerPosibleColumnaMultiple(string);
+      extraido[2]=(parseInt(extraido[2])<100)?parseInt(extraido[2])+2000:extraido[2];
+      console.log(TAG,`parseDate:`,extraido);
     return new Date(extraido[2], extraido[0] - 1, extraido[1]);
   } else {
     return string;

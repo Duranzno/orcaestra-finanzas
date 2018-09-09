@@ -20,7 +20,6 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "bootstrap": "^4.1.2",
-    "bootstrap-datepicker": "^1.8.0",
     "cheerio": "^1.0.0-rc.2",
     "co": "^4.6.0",
     "cookie-parser": "^1.4.3",
@@ -36,7 +35,7 @@
     "jasmine": "^3.2.0",
     "jquery": "^3.3.1",
     "jsdom": "^12.0.0",
-    "mongoose": "^5.2.7",
+    "mongoose": "5.2.8",
     "multer": "^1.3.1",
     "node-fetch": "^2.2.0",
     "popper.js": "^1.14.3",
@@ -45,7 +44,9 @@
     "sheetjs": "^1.0.21",
     "xlsx": "^0.13.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "bootstrap-datepicker": "^1.8.0"
+  },
   "frontendDependencies": {
     "target": "public/js",
     "packages": {

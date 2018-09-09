@@ -16,40 +16,51 @@ const usr = [
     apellido: 'Sierra Sotillo',
     email: '-',
     grupo: 'Inicial',
-    tlf: '-',
-    pagos: [],
+    tlf: '125',
   }, {
     nombre: 'Paola',
     apellido: 'Zorrilla',
     email: '-',
     grupo: 'Inicial',
-    tlf: '-',
-    pagos: [],
+    tlf: '125',
   }
 ];
 const pagos = [{
-  banco: "Banesco",
+  banco: "00Banesco",
   referencia: "125",
-  monto: '100',
+  monto: `69`,
   fecha: '2018-01-15'
 }, {
-  banco: "Banco De Venezuela",
+  banco: "11Banco De Venezuela",
   referencia: "123",
-  monto: '100',
+  monto: '6868',
   fecha: '2018-02-15'
 }, {
-  banco: "Banesco",
+  banco: "22Banesco",
   referencia: "124",
-  monto: '200',
+  monto: '500',
   fecha: '2018-01-02',
 
 }, {
-  banco: "Banco Fondo Comun",
-  monto: '100',
-  referencia: "125",
+  banco: "33Banco Fondo Comun",
+  monto: '666',
+  referencia: "126",
   fecha: '2018-03-02',
-}];
-//Addreses
+},
+    {
+        banco: "44Comun",
+        monto: '666',
+        referencia: "126",
+        fecha: '2018-03-02',
+    },
+    {
+        banco: "55Comun",
+        monto: '666',
+        referencia: "126",
+        fecha: '2018-03-02',
+    }];
+
+
 let workbook = XLSX.readFile('./otherfiles/PlanillaPaola.xlsx');
 let sheet = workbook.Sheets[workbook.SheetNames[0]];
 
@@ -66,14 +77,9 @@ mongoose.connect(databaseUri, {useNewUrlParser: true,})
     });
 
 async function ejecutar() {
-  // const i=await Estudiante.crear(usr[0]),
-  //     p=await Estudiante.crear(usr[1]),
-  //     b1=await Estudiante.crearPagoById(i._id,pagos[0]),
-  //     b2=await Estudiante.crearPagoById(p._id,pagos[2]),
-  //     b3=await Estudiante.crearPagoById(i._id,pagos[1]),
-  //     b4=await Estudiante.crearPagoById(p._id,pagos[3]);
-  //
-
+    let paola=await Estudiante.crear(usr[0]);
+    // paola.agregarPago(pagos[2])
+    console.log(await Estudiante.crearPagoById(paola._id,pagos[5]))
 
 }
 

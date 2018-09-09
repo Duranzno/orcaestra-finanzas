@@ -95,19 +95,33 @@ exports.findAllByMonthYear = async function (req, res) {
         }
 
       ]);
-  const idArray = estIdDelBanco[0].array;
-  Estudiante.find({"_id": {"$in": idArray}})
-      .populate('pagos')
-      .exec(function (err, todosEstudiantes) {
-        if (err) {
-          console.log(err);
-          res.send(err)
-        }
-        else {
-          console.log(JSON.stringify(todosEstudiantes));
-          res.status(200).json(todosEstudiantes);
-        }
-      })
+  if(typeof estIdDelBanco[0]===`undefined`){
+      console.log(TAG,`No existen estudiantes del mes:${filtroMes} del ${filtroAno}` );
+      res.json([{
+          nombre:``,
+          apellido:``,
+          email:``,
+          grupo:``,
+          tlf:``,
+      }]);
+  }
+  else {
+      const idArray = estIdDelBanco[0].array;
+      Estudiante.find({"_id": {"$in": idArray}})
+          .populate('pagos')
+          .exec(function (err, todosEstudiantes) {
+              if (err) {
+                  console.log(err);
+                  res.send(err)
+              }
+              else {
+                  console.log(TAG,`Suministrados estudiantes del ${filtroMes}/${filtroAno}`);
+                  res.status(200).json(todosEstudiantes);
+              }
+          })
+  }
+
+
 };
 
 

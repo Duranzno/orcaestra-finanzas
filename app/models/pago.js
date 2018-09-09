@@ -1,4 +1,5 @@
 'use strict';
+const TAG=`pagoModel | `;
 /**
  * Module dependencies.
  */
@@ -40,7 +41,23 @@ let PagoSchema = new mongoose.Schema({
 /**
  * Methods
  */
-PagoSchema.statics = {};
+PagoSchema.statics = {
+  crear:async function (pagoNuevo) {
+    let pThis=this;
+      if (pagoNuevo.referencia === null || pagoNuevo.referencia === '') {
+          console.error(new Error('No tiene referencia el pago nuevo'));
+      }
+
+      return await pThis.findOneAndUpdate({
+              "referencia": pagoNuevo.referencia,
+              "banco": pagoNuevo.banco
+          },
+          pagoNuevo,
+          {upsert: true, runValidators: true, new: true,});
+
+      // return p;
+  },
+};
 
 module.exports = mongoose.model('Pago', PagoSchema);
 

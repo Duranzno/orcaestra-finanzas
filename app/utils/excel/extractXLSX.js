@@ -38,6 +38,7 @@ function extraerFila(sheet, rowNum) {
       });
     })
   } else {
+
     let estudiante = extraerEstudiante(sheet, rowNum, colNombre);
     let pago = extraerPago(sheet, rowNum);
     Estudiante.crear(estudiante).then((est) => {
@@ -94,19 +95,20 @@ function esParteDelGrupo(grupoNuevo) {
 }
 
 let extraerPago = function (sheet, rowNum) {
-  let fechaPago = sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cDate})].v;
-  fechaPago = (fechaPago === "-" || fechaPago === "") ? new Date(Date.UTC(0, 0, 0, 0, 0, 0)) : fechaPago;
+  let fechaPago = sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cDate})].w;
+  console.log(TAG,`fechaPago:${fechaPago}`);
+  fechaPago = (fechaPago === "-" || fechaPago === "") ? new Date(Date.UTC(2001, 0, 0, 0, 0, 0)) : fechaPago;
   let pago = {
     banco: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cBanco})].v,
     referencia: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cRef})].v,
     fecha: dateUtil.parseDate(fechaPago),
     monto: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cMonto})].v
   };
-  if (pago.fecha === '-' || pago.fecha === "") {
-    pago.fecha = Date.now();
-  }
+  console.log(TAG,`pago.fecha:${pago.fecha}`);
+  console.log(TAG,`Extraer Pago| ${pago.fecha}`);
   return pago;
 };
+
 let extraerEstudiante = function (sheet, rowNum, colNombre, n) {
   console.log(TAG, `EXTRAER ESTUDIANTE DE FILA ${rowNum}`);
   let sheetGrupo = sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cGrupo})].v;

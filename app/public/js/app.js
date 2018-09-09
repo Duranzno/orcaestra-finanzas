@@ -1,13 +1,13 @@
 const grupos = ["Sin Determinar", "Coro de Padres", "Inicial", "Preparatorio \"B\"", '"Alma Llanera"', "IMA", "IMB", "PMA", "PMB", "Pre-Infantil", "Infantil", "Pre Juvenil", "Juvenil", "Kinder Musical"];
-
+const TAG="public/app";
 $(document).ready(async function () {
+    oneTimeEventsSetup();
     let dt = DatatablesModule();
     dt.setupDT();
     dt.setupEvents();
     // dt.setupSideBar();
     let c = CalendarModule();
     c.configCalendar();
-    oneTimeEventsSetup();
     feather.replace();
 });
 
@@ -35,7 +35,6 @@ function oneTimeEventsSetup() {
                         console.log(data);
                         table.ajax.reload();
                         table.draw();
-                        newRowPago();
                         console.log("Sucess")
                     });
             })
@@ -139,8 +138,8 @@ function DatatablesModule() {
         },
         {"data": "nombre"},
         {"data": "apellido"},
-        {"data": "email"},
         {"data": "grupo"},
+        {"data": "email"},
         {"data": "tlf"},
         {
             "targets": -1,
@@ -211,23 +210,23 @@ function DatatablesModule() {
 
         //Boton Extra que se usa para debugeo
         $("#extra").on("click", function () {
-            $("tr td[colspan=6]").remove();
-            $(".shown").removeClass("shown");
+            newAjaxSrc("http://localhost:3000/estudiantes/2018/02");
         });
 
         //Botones para filtrar por estudiantes que han pagado en ese mes-año
         $(".btn-fecha").on("click", function () {
             const fechaURL = $(this).closest("a").attr(`id`);
             const url = "http://localhost:3000/estudiantes/" + fechaURL;
-            console.log(`direccion url:${url}`);
-            alert(url);
+            newAjaxSrc(url);
+
         });
 
         $(`#estudianteModal`).on(`show.bs.modal`, function (event) {
             var button = $(event.relatedTarget); // Button that triggered the modal
-            var id = button.data(`estudianteID`); // Extract info from data-* attributes
+            var id = button.data(`estudianteid`); // Extract info from data-* attributes
             // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
             // Update the modal`s content. We`ll use jQuery here, but you could use a data binding library or other methods instead.
+            console.log(id)
             let e = {
                 nombre: button.data(`nombre`),
                 apellido: button.data(`apellido`),
@@ -245,8 +244,22 @@ function DatatablesModule() {
             modal.find(`.modal-body #tlf`).val(e.tlf);
             modal.find(`.modal-body #correo`).val(e.correo);
             $(`.btn-modal-save-student`).on(`click`, function () {
-                alert(modal.find(`.modal-body #nombre`).val());
-                alert(modal.find(`.modal-body #grupo`).val());
+                let e = {
+                    nombre: modal.find(`.modal-body #nombre`).val(),
+                    apellido: modal.find(`.modal-body #apellido`).val(),
+                    grupo: modal.find(`.modal-body #grupo`).val(),
+                    tlf: modal.find(`.modal-body #tlf`).val(),
+                    email: modal.find(`.modal-body #correo`).val(),
+                };
+                console.log(TAG,`${id} estudiante a reemplazar `,e);
+                $.ajax({
+                    type: "PUT",
+                    url: "http://localhost:3000/estudiante/"+id,
+                    data: e,
+                    dataType:"json"
+                }).done(function () {
+                    newAjaxSrc()
+                });
             });
         });
 
@@ -329,7 +342,8 @@ function DatatablesModule() {
 
     let newAjaxSrc = function (url) {
         url = url ? url : `http://localhost:3000/estudiantes`;
-        table.ajax.url(url).reload();
+        console.log(TAG,`newAjaxSrc|`,url) ;
+        table.ajax.url(url).load();
     };
     return {
         setupDT: setupDT,

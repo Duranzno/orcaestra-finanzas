@@ -54,7 +54,19 @@ StudentSchema.path('grupo').required(true, 'Grupo no puede estar en blanco');
 /**
  * Methods
  */
-StudentSchema.methods = {};
+StudentSchema.methods = {
+    agregarPago:async function (pagoNuevo) {
+        let estThis=this;
+        let pago=await Pago.crear(pagoNuevo);
+        estThis.pagos.addToSet(pago._id);
+        estThis.save(function(error){
+            if(error){console.error(TAG,``,error);}
+            console.log(TAG,`Se agrego el pago ${pagoNuevo.referencia} del banco ${pagoNuevo.banco} a ${estThis.nombre} ${estThis.apellido}`);
+            return pago;
+        })
+
+    },
+};
 /**
  * Statics
  */
@@ -87,35 +99,14 @@ StudentSchema.statics = {
           }
         })
   },
-  crearPagoById: async function (estId, pagoNuevo) {
-    console.log("Se va a crear un pago para ", estId);
-    let estThis = this;
-    if (pagoNuevo.referencia === null || pagoNuevo.referencia === '') {
-      console.error("No ref");
-      return new Error('No tiene referencia el pago nuevo')
-    }
-    console.log(TAG, `Se va a crear pago:${pagoNuevo.referencia}\n`);
-    await Pago.findOneAndUpdate({
-      "referencia": pagoNuevo.referencia,
-      "banco": pagoNuevo.banco
-    }, pagoNuevo, {upsert: true, runValidators: true})
-        .then((p) => {
-          if (p) {
-            console.log(TAG, `Se Creo el pago${p.referencia}\n`);
-          }
-          else {
-            new Error('No se pudo crear el pago');
-          }
-        })
-        .catch(err => console.error(err));
-    let pago = await Pago.findOne({"referencia": pagoNuevo.referencia, "banco": pagoNuevo.banco});
-    let EstFound = await estThis.findOne({"_id": estId});
-    console.log(TAG, `${estId} de ${EstFound}`);
-    await EstFound.pagos.push(pago);
-    await EstFound.save();
-
-    // console.log(TAG,`Se tiene el pago ${pago.referencia} del ${pago.banco} de ${estId}`);
-    return pago;
+  crearPagoById: async function (estId,pagoNuevo) {
+      //Conseguir Estudiante existente
+      //Buscar pago y si no existe crearlo
+      //Agregar Pago al estudiante
+      // console.log(TAG,`Crear PagoByID`)
+     let est=await this.findById(estId);
+      return await est.agregarPago(pagoNuevo);
+    ;
   },
 
   crear: async function (eNuevo) {
@@ -131,15 +122,9 @@ StudentSchema.statics = {
     }
 
     let updated = await estThis.findOneAndUpdate(filtro, eNuevo, {upsert: true, runValidators: true})
-        .then(est => {
-          if (est)
-            console.log(TAG, `se consiguió\\encontró ${est.nombre}`);
-          else
-            console.error(TAG, `no se consiguió\\encontró ${(typeof est.nombre === "undefined") ? est.nombre : eNuevo}`);
-        })
         .catch(err => console.error(err));
     let letmesee = await estThis.findOne(filtro);
-    console.log(TAG, "SE ENCONTRO Estudiante", letmesee, '\n');
+    console.log(TAG, "SE ENCONTRÓ\\CREÓ Estudiante", letmesee, '\n');
     return letmesee;
   },
 };
