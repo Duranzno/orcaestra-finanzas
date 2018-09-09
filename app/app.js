@@ -23,7 +23,11 @@ mongoose.connect(databaseUri, {useNewUrlParser: true,})
     .then(() => {
       console.log(`Base de Datos Conectada`)
     })
-    .catch(err => console.log(`Error de Conexion de Base de Datos: ${err.message}`));
+    .catch(err =>{
+        console.log(`Error de Conexion de Base de Datos: ${err.message}`);
+        process.exit();
+        }
+    );
 
 // view engine setupDT
 app.set('views', path.join(__dirname, 'views'));

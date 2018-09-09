@@ -210,7 +210,7 @@ function DatatablesModule() {
 
         //Boton Extra que se usa para debugeo
         $("#extra").on("click", function () {
-            newAjaxSrc("http://localhost:3000/estudiantes/2018/02");
+            newAjaxSrc();
         });
 
         //Botones para filtrar por estudiantes que han pagado en ese mes-año
@@ -220,13 +220,13 @@ function DatatablesModule() {
             newAjaxSrc(url);
 
         });
-
+        $(`#dashboard`).on(`click`,function(){newAjaxSrc()})
         $(`#estudianteModal`).on(`show.bs.modal`, function (event) {
             var button = $(event.relatedTarget); // Button that triggered the modal
             var id = button.data(`estudianteid`); // Extract info from data-* attributes
             // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
             // Update the modal`s content. We`ll use jQuery here, but you could use a data binding library or other methods instead.
-            console.log(id)
+            console.log(id);
             let e = {
                 nombre: button.data(`nombre`),
                 apellido: button.data(`apellido`),
@@ -243,7 +243,9 @@ function DatatablesModule() {
             // console.log(e.grupo);
             modal.find(`.modal-body #tlf`).val(e.tlf);
             modal.find(`.modal-body #correo`).val(e.correo);
+
             $(`.btn-modal-save-student`).on(`click`, function () {
+                $('#estudianteModal').modal('toggle');
                 let e = {
                     nombre: modal.find(`.modal-body #nombre`).val(),
                     apellido: modal.find(`.modal-body #apellido`).val(),
@@ -257,9 +259,9 @@ function DatatablesModule() {
                     url: "http://localhost:3000/estudiante/"+id,
                     data: e,
                     dataType:"json"
-                }).done(function () {
-                    newAjaxSrc()
                 });
+                newAjaxSrc();
+
             });
         });
 
@@ -295,13 +297,7 @@ function DatatablesModule() {
                 //   console.log(`direccion url:${url}`);
                 //   alert(url);
                 // });
-                // $(".btn-edit-student").on("click",function () {
-                //   console.log("student tocado");
-                //   const estId = $(this).closest("button").attr(`id`);
-                //   const url = "http://localhost:3000/estudiante/" + estId;
-                //   console.log(`direccion url:${url}`);
-                //   alert(url);
-                // });
+                // $(".btn-edit-student"ś
                 feather.replace();
 
             }
