@@ -196,6 +196,7 @@ function DatatablesModule() {
             "paging": false,
             "order": [[1, "asc"]]
         });
+        console.log(TAG,"Datatables url:",$("#table".DataTable.url()));
         feather.replace()
 
     }
