@@ -44,21 +44,5 @@
     "serve-favicon": "^2.5.0",
     "sheetjs": "^1.0.21",
     "xlsx": "^0.13.3"
-  },
-  "devDependencies": {
-    "bootstrap-datepicker": "^1.8.0"
-  },
-  "frontendDependencies": {
-    "target": "public/js",
-    "packages": {
-      "jquery": {
-        "version": "^3.3.1",
-        "src": "dist/jquery.min.js"
-      },
-      "popper.js": {
-        "version": "^1.14.3",
-        "src": "dist/popper.min.js"
-      }
-    }
   }
 }
