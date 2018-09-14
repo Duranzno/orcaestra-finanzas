@@ -46,6 +46,6 @@ app.use("/", indexRoutes);
 
 
 app.listen(3000, function () {
-  console.log(`Servidor Node escuchando en ${process.env.IP}/:${process.env.PORT}`);
+//   console.log(`Servidor Node escuchando en ${process.env.IP}/:${process.env.PORT}`);
     }
 );
