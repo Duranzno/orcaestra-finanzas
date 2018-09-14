@@ -1,5 +1,6 @@
 const grupos = ["Sin Determinar", "Coro de Padres", "Inicial", "Preparatorio \"B\"", '"Alma Llanera"', "IMA", "IMB", "PMA", "PMB", "Pre-Infantil", "Infantil", "Pre Juvenil", "Juvenil", "Kinder Musical"];
 const TAG="public/app";
+const website=location.href||"http://localhost:5000/" ;
 $(document).ready(async function () {
     oneTimeEventsSetup();
     let dt = DatatablesModule();
@@ -182,7 +183,7 @@ function DatatablesModule() {
     function setupDT() {
         table = $("#table").DataTable({
             "ajax": {
-                "url": "http://localhost:3000/estudiantes",
+                "url": url+ "/estudiantes",
                 "dataSrc": "",
                 "deferRender": true
             },
@@ -217,7 +218,7 @@ function DatatablesModule() {
         //Botones para filtrar por estudiantes que han pagado en ese mes-año
         $(".btn-fecha").on("click", function () {
             const fechaURL = $(this).closest("a").attr(`id`);
-            const url = "http://localhost:3000/estudiantes/" + fechaURL;
+            const url = website+ "/estudiantes/" + fechaURL;
             newAjaxSrc(url);
 
         });
@@ -257,7 +258,7 @@ function DatatablesModule() {
                 console.log(TAG,`${id} estudiante a reemplazar `,e);
                 $.ajax({
                     type: "PUT",
-                    url: "http://localhost:3000/estudiante/"+id,
+                    url: url+ "/estudiante/"+id,
                     data: e,
                     dataType:"json"
                 });
@@ -294,7 +295,7 @@ function DatatablesModule() {
                 // $(".btn-edit-pago").on("click",function () {
                 //   console.log("pago tocado");
                 //   const pagoId = $(this).closest("button").attr(`id`);
-                //   const url = "http://localhost:3000/pago/" + pagoId;
+                //   const url = website+ "/pago/" + pagoId;
                 //   console.log(`direccion url:${url}`);
                 //   alert(url);
                 // });
@@ -338,7 +339,7 @@ function DatatablesModule() {
 
 
     let newAjaxSrc = function (url) {
-        url = url ? url : `http://localhost:3000/estudiantes`;
+        url = url ? url : url+ `/estudiantes`;
         console.log(TAG,`newAjaxSrc|`,url) ;
         table.ajax.url(url).load();
     };
