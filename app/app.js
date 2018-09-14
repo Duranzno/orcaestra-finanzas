@@ -45,7 +45,7 @@ app.use(favicon(path.join(__dirname, 'public', 'resources', 'favicon.ico')));
 app.use("/", indexRoutes);
 
 
-app.listen(3000, function () {
+app.listen(process.env.port||3000, function () {
 //   console.log(`Servidor Node escuchando en ${process.env.IP}/:${process.env.PORT}`);
     }
 );
