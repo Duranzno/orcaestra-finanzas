@@ -16,7 +16,8 @@ const indexRoutes = require("./routes");
 
 // assign mongoose promise library and connect to database
 mongoose.Promise = global.Promise;
-const databaseUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/orcaestra';
+// const databaseUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/orcaestra';
+const databaseUri="mongodb://admin:ale123.@ds157522.mlab.com:57522/orcaestra"
 
 
 mongoose.connect(databaseUri, {useNewUrlParser: true,})
