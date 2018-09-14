@@ -1,7 +1,9 @@
 const grupos = ["Sin Determinar", "Coro de Padres", "Inicial", "Preparatorio \"B\"", '"Alma Llanera"', "IMA", "IMB", "PMA", "PMB", "Pre-Infantil", "Infantil", "Pre Juvenil", "Juvenil", "Kinder Musical"];
 const TAG="public/app";
-const website=location.href||"http://localhost:5000/" ;
+const website=location.href.slice(0,-1)||"http://localhost:5000/" ;
+
 $(document).ready(async function () {
+    console.log(website)
     oneTimeEventsSetup();
     let dt = DatatablesModule();
     dt.setupDT();
@@ -183,7 +185,7 @@ function DatatablesModule() {
     function setupDT() {
         table = $("#table").DataTable({
             "ajax": {
-                "url": url+ "/estudiantes",
+                "url": website+ "/estudiantes",
                 "dataSrc": "",
                 "deferRender": true
             },
@@ -197,7 +199,7 @@ function DatatablesModule() {
             "paging": false,
             "order": [[1, "asc"]]
         });
-        console.log(TAG,"Datatables url:",$("#table".DataTable.url()));
+        // console.log(TAG,"Datatables url:",$("#table").DataTable.url());
         feather.replace()
 
     }
