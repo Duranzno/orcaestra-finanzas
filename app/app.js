@@ -16,8 +16,8 @@ const indexRoutes = require("./routes");
 
 // assign mongoose promise library and connect to database
 mongoose.Promise = global.Promise;
-// const databaseUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/orcaestra';
-const databaseUri="mongodb://admin:ale123.@ds157522.mlab.com:57522/orcaestra"
+const databaseUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/orcaestra';
+// const databaseUri="mongodb://admin:ale123.@ds157522.mlab.com:57522/orcaestra"
 
 
 mongoose.connect(databaseUri, {useNewUrlParser: true,})
@@ -45,7 +45,7 @@ app.use(favicon(path.join(__dirname, 'public', 'resources', 'favicon.ico')));
 app.use("/", indexRoutes);
 
 
-app.listen(process.env.PORT||3000, function () {
-//   console.log(`Servidor Node escuchando en ${process.env.IP}/:${process.env.PORT}`);
+app.listen(process.env.PORT||   3000, function () {
+  console.log(`Servidor Node escuchando en ${process.env.IP}/:${process.env.PORT}`);
     }
 );

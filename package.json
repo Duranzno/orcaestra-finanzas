@@ -4,7 +4,7 @@
   "description": "Servidor para Orquesta",
   "main": "app/app.js",
   "scripts": {
-  	"start":"node app/app.js",
+    "start": "node app/app.js",
     "test": "echo \"Error: no test specified\" && exit ",
     "postinstall": "node ./node_modules/frontend-dependencies/index.js"
   },
@@ -64,5 +64,5 @@
   "engines": {
     "node": "8.11.4",
     "npm": "6.4.1"
-    }
+  }
 }

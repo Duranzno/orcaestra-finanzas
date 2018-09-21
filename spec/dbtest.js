@@ -1,13 +1,13 @@
 //Require
 const XLSX = require('xlsx');
 const mongoose = require('mongoose');
-const Pago = require('./app/models/pago');
-const Grupos = require('./app/models/grupos');
-const Estudiante = require('./app/models/estudiante');
-const regex = require('./app/utils/excel/parseRegex');
-const excelUtils = require('./app/utils/excel/extractXLSX');
+const Pago = require('../app/models/pago');
+const Grupos = require('../app/models/grupos');
+const Estudiante = require('../app/models/estudiante');
+const regex = require('../app/utils/excel/parseRegex');
+const excelUtils = require('../app/utils/excel/extractXLSX');
 const fetch = require('node-fetch');
-const dateUtils = require('./app/utils/excel/parseDate');
+const dateUtils = require('../app/utils/excel/parseDate');
 const TAG = "quicktest|";
 //var
 const usr = [
