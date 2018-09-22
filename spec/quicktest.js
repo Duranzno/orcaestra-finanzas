@@ -1,6 +1,6 @@
 const XLSX = require('xlsx'),
-    parseDate=require(`./app/utils/excel/parseDate`);
-    excelUtils = require('./app/utils/excel/extractXLSXMarwan');
+    parseDate=require(`../app/utils/excel/parseDate`);
+    excelUtils = require('../app/utils/excel/extractXLSXMarwan');
 const TAG = `quicktest|`;
 
 let workbook = XLSX.readFile('./otherfiles/PlanillaMarwan.xlsx');
