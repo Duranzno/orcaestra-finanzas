@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const TAG = "modelRepresentante|";
 
 const Pago = require('./pago');
-const Est  = require("./estudiante");
+const Estudiante  = require("./estudiante");
 
 const PadreSchema = new mongoose.Schema({
   nombre: {
@@ -56,17 +56,17 @@ PadreSchema.path('apellido').required(true, 'Apellido no puede estar en blanco')
  */
 PadreSchema.methods = 
 {
-//     agregarPago:async function (pagoNuevo) {
-//         let estThis=this;
-//         let pago=await Pago.crear(pagoNuevo);
-//         estThis.pagos.addToSet(pago._id);
-//         estThis.save(function(error){
-//             if(error){console.error(TAG,``,error);}
-//             console.log(TAG,`Se agrego el pago ${pagoNuevo.referencia} del banco ${pagoNuevo.banco} a ${estThis.nombre} ${estThis.apellido}`);
-//             return pago;
-//         })
+  agregarHijo:async function (hijoNuevo) {
+      let padThis=this;
+      let hijo=await Estudiante.crear(hijoNuevo);
+      padThis.hijos.addToSet(hijo._id);
+      padThis.save(function(error){
+          if(error){console.error(TAG,``,error);}
+          console.log(TAG,`Se agrego el hijo${hijoNuevo.nombre} ${hijoNuevo.apellido} a ${padThis.nombre} ${padThis.apellido}`);
+          return hijo;
+      })
 
-//     },
+  },
 };
 /**
  * Statics
