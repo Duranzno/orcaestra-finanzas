@@ -55,7 +55,8 @@ PadreSchema.path('apellido').required(true, 'Apellido no puede estar en blanco')
  * Methods
  */
 PadreSchema.methods = 
-{
+{ 
+  hello:function(){mongoose.connection.dropDatabase();return "hello"},
   agregarHijo:async function (hijoNuevo) {
       let padThis=this;
       let hijo=await Estudiante.crear(hijoNuevo);
