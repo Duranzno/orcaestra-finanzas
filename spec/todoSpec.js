@@ -79,7 +79,6 @@ describe("| DBs",()=>{
 
     describe("|Estudiantes",()=>{
         afterAll(()=>{
-            
             mongoose.connection.dropCollection("estudiantes");
         });
         const est= {
@@ -111,11 +110,6 @@ describe("| DBs",()=>{
             padre.save();
             done();
         });
-
-        afterEach(()=>{  
-            mongoose.connection.dropCollection("padres");
-        });   
-
         it("|Busqueda",(done)=>{
             Padre.find({"nombre":"Jose"})
             .then((result) => {
@@ -129,7 +123,15 @@ describe("| DBs",()=>{
             
             done();
         });
-        
+        afterEach(()=>{  
+            mongoose.connection.dropCollection("padres");
+        });   
+        afterAll(()=>{  
+            mongoose.connection.dropCollection("padres");
+        });   
+    })
+    
+})
     //     // describe("|Hijos",()=>{
     //     //     // afterAll(()=>mongoose.connection.dropCollection("estudiantes"));
     //     //     it("| Añadido creado",(done)=>{
@@ -173,8 +175,3 @@ describe("| DBs",()=>{
     //     // //         done();
     //     // //     });
     //     // })
-    })
-    
-    
-
-})
