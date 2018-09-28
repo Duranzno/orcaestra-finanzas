@@ -59,6 +59,6 @@ PagoSchema.statics = {
   },
 };
 
-module.exports = mongoose.model('Pago', PagoSchema);
+module.exports = mongoose.model('Pagos', PagoSchema);
 
 

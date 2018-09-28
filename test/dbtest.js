@@ -61,10 +61,10 @@ const pagos = [{
     }];
 
 
-let workbook = XLSX.readFile('./otherfiles/PlanillaPaola.xlsx');
-let sheet = workbook.Sheets[workbook.SheetNames[0]];
+// let workbook = XLSX.readFile('./otherfiles/PlanillaPaola.xlsx');
+// let sheet = workbook.Sheets[workbook.SheetNames[0]];
 
-const databaseUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/orcaestra';
+const databaseUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/testdb';
 
 //------------------------------------------------
 mongoose.connect(databaseUri, {useNewUrlParser: true,})

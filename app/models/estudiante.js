@@ -61,7 +61,7 @@ StudentSchema.methods = {
         estThis.pagos.addToSet(pago._id);
         estThis.save(function(error){
             if(error){console.error(TAG,``,error);}
-            console.log(TAG,`Se agrego el pago ${pagoNuevo.referencia} del banco ${pagoNuevo.banco} a ${estThis.nombre} ${estThis.apellido}`);
+            console.log(TAG,`Se agrego el pago ${pagoNuevo.referencia} del banco ${pagoNuevo.banco} al Est:${estThis.nombre} ${estThis.apellido}`);
             return pago;
         })
 
@@ -121,10 +121,10 @@ StudentSchema.statics = {
       return eNuevo
     }
 
-    let updated = await estThis.findOneAndUpdate(filtro, eNuevo, {upsert: true, runValidators: true})
+    await estThis.findOneAndUpdate(filtro, eNuevo, {upsert: true, runValidators: true})
         .catch(err => console.error(err));
     let letmesee = await estThis.findOne(filtro);
-    console.log(TAG, "SE ENCONTRÓ\\CREÓ Estudiante", letmesee, '\n');
+    console.log(TAG, `SE ENCONTRÓ\\CREÓ Estudiante ${letmesee.nombre} ${letmesee.apellido}`, '\n');
     return letmesee;
   },
 };

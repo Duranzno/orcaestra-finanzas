@@ -11,12 +11,12 @@
             "program": "${workspaceFolder}/app/app.js"
         },
         { 
-        "type": "node", 
-        "request": "launch", 
-        "name": "Jasmine Individual Test", 
-        "program": "${workspaceRoot}/node_modules/jasmine/bin/jasmine.js", 
+            "type": "node", 
+            "request": "launch", 
+            "name": "Mocha Tests", 
+            "program": "${workspaceRoot}/node_modules/mocha/bin/mocha", 
         "args": [ 
-            "spec/todoSpec.js" 
+            "-c" 
         ], 
         "env": { 
             "NODE_PATH": "." 
