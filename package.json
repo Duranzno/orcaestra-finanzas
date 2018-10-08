@@ -1,12 +1,11 @@
 {
-  "name": "orkesta",
-  "version": "1.0.0",
+  "name": "orcaestra-finanzas",
+  "version": "0.0.9",
   "description": "Servidor para Orquesta",
   "main": "app/app.js",
   "scripts": {
     "start": "node app/app.js",
-    "test": "mocha",
-    "postinstall": "node ./node_modules/frontend-dependencies/index.js"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -20,48 +19,25 @@
   "homepage": "https://github.com/Duranzno/Orkesta#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "bootstrap": "^4.1.2",
-    "cheerio": "^1.0.0-rc.2",
-    "co": "^4.6.0",
     "cookie-parser": "^1.4.3",
-    "datatables.net": "^1.10.19",
-    "datatables.net-bs4": "^1.10.19",
     "dotenv": "^6.0.0",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
     "feather-icons": "^4.7.3",
-    "fetch": "^1.1.0",
-    "frontend-dependencies": "^1.1.3",
     "http-error": "0.0.6",
-    "jquery": "^3.3.1",
-    "jsdom": "^12.0.0",
+    "jsdom": "^12.1.0",
     "mongoose": "5.2.8",
-    "multer": "^1.3.1",
-    "node-fetch": "^2.2.0",
-    "popper.js": "^1.14.3",
+    "multer": "^1.4.0",
     "require": "^2.4.20",
     "serve-favicon": "^2.5.0",
     "sheetjs": "^1.0.21",
     "xlsx": "^0.13.3"
   },
   "devDependencies": {
-    "bootstrap-datepicker": "^1.8.0",
-    "chai": "^4.1.2",
+    "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
-    "mocha": "^5.2.0"
-  },
-  "frontendDependencies": {
-    "target": "public/js",
-    "packages": {
-      "jquery": {
-        "version": "^3.3.1",
-        "src": "dist/jquery.min.js"
-      },
-      "popper.js": {
-        "version": "^1.14.3",
-        "src": "dist/popper.min.js"
-      }
-    }
+    "mocha": "^5.2.0",
+    "uglify-js": "^3.4.9"
   },
   "engines": {
     "node": "8.11.4",

@@ -50,6 +50,10 @@ PadreSchema.path('apellido').required(true, 'Apellido no puede estar en blanco')
 /**
  * Pre-remove hook
  */
+PadreSchema.pre("remove",function (callback) {
+    this.model('Pago').remove({$in:this.pagos})
+    this.model('Estudiante').remove({$in:this.pagos})
+});
 
 /**
  * Methods
@@ -64,7 +68,7 @@ PadreSchema.methods={
       let letmesee = await Estudiante.findById(hijo._id);
       return letmesee;
   },
-    agregarPago:async function (pagoNuevo) {
+  agregarPago:async function (pagoNuevo) {
         let padThis=this;
         let pago=await Pago.crear(pagoNuevo);
         padThis.pagos.addToSet(pago._id);
@@ -73,10 +77,31 @@ PadreSchema.methods={
             console.log(TAG,`Se agrego el pago ${pagoNuevo.referencia} del banco ${pagoNuevo.banco} al Rep:${padThis.nombre} ${padThis.apellido}`);
             return pago;
         });
-        for (let estId in padThis.hijos){
-          Estudiante.crearPagoById(estId, pagoNuevo);
+        if(padThis.hijos.length>0){
+          for (let estId in padThis.hijos){
+            Estudiante.crearPagoById(estId, pagoNuevo);
+          }
         }
     },
+    eliminar:()=>{
+      let padThis=this;
+      Promise.all([
+          padThis.eliminarPago(padThis.pagos),
+          padThis.eliminarHijo(padThis.hijos),
+          padThis.remove({"_id":padThis._id})
+      ]).then(()=>{
+        console.log("Se elimino el padre, con sus hijos y pagos");
+      });
+  },
+  eliminarPago:async function(pagosArray){
+    let padThis=this;
+    if(argument.constructor!==Array){
+
+      //El pago se eliminar
+      //Se saca de Padre
+        //Si el padre tiene hijos se saca de los hijos
+    }
+  },
 };
 /**
  * Statics
@@ -105,6 +130,16 @@ PadreSchema.statics = {
     let letmesee = await padThis.findOne(filtro);
     console.log(TAG, `SE ENCONTRÓ\\CREÓ Estudiante ${letmesee.nombre} ${letmesee.apellido}`, '\n');
     return letmesee;
+  },
+  eliminarById: async function (padId) {
+      let padThis = this;
+      try {
+        let pad=await padThis.findById(padId);
+        if (pad != null){
+          pad.eliminar()
+        }else console.log(TAG, "No se ha encontrado este padre")
+      }
+      catch(err){console.error(TAG, err)}
   },
 };
 

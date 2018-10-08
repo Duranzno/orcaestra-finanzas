@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8c75f7dd-2d7c-437a-bdd4-12127505bd81" name="Default Changelist" comment="" />
+    <list default="true" id="8c75f7dd-2d7c-437a-bdd4-12127505bd81" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/padre.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/padre.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/dbTest.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/dbTest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/dbtest.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/dbtest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/quicktest.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/quicktest.js" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -112,70 +121,45 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="193353705">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="5" />
+          <entry key="project.open.time.43" value="1" />
+          <entry key="project.open.time.50" value="1" />
+          <entry key="project.open.time.61" value="1" />
+          <entry key="project.open.time.84" value="1" />
+          <entry key="project.open.time.89" value="1" />
+          <entry key="project.opened" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="js" value="8" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JavaScript" value="8" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="js" value="1802" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JavaScript" value="1802" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FavoritesManager">
     <favorites_list name="Orcaestra-Finanzas" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test/dbTest.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="59" column="25" selection-start-line="59" selection-start-column="25" selection-end-line="59" selection-end-column="25" />
-              <folding>
-                <element signature="e#339#443#0" />
-                <element signature="e#499#552#0" />
-                <element signature="e#846#862#0" />
-                <element signature="e#1006#1139#0" />
-                <element signature="e#1012#1036#0" />
-                <element signature="e#1436#1677#0" />
-                <element signature="e#3206#3347#0" />
-                <element signature="e#2078#2100#0" />
-                <element signature="e#3480#4041#0" />
-                <element signature="e#3539#3970#0" />
-                <element signature="e#3987#4029#0" />
-                <element signature="e#2551#6262#0" />
-                <element signature="e#1575#1625#0" />
-                <element signature="e#3346#3440#0" />
-                <element signature="e#2816#4700#0" />
-                <element signature="e#1608#2033#0" />
-                <element signature="e#2932#3201#0" />
-                <element signature="e#3687#3689#0" />
-                <element signature="e#4840#5101#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/padre.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="77" column="26" lean-forward="true" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/estudiante.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="126" column="66" selection-start-line="126" selection-end-line="127" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controller/estudiantes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="110" column="16" selection-start-line="110" selection-start-column="11" selection-end-line="110" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -233,8 +217,9 @@
         <option value="$PROJECT_DIR$/test/Databases/Padre.js" />
         <option value="$PROJECT_DIR$/app/models/pago.js" />
         <option value="$PROJECT_DIR$/app/models/estudiante.js" />
-        <option value="$PROJECT_DIR$/app/models/padre.js" />
+        <option value="$PROJECT_DIR$/helloDocker.js" />
         <option value="$PROJECT_DIR$/test/dbTest.js" />
+        <option value="$PROJECT_DIR$/app/models/padre.js" />
       </list>
     </option>
   </component>
@@ -270,46 +255,17 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Orcaestra-Finanzas" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Orcaestra-Finanzas" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Orcaestra-Finanzas" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Orcaestra-Finanzas" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Orcaestra-Finanzas" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Orcaestra-Finanzas" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Orcaestra-Finanzas" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Orcaestra-Finanzas" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/ale/Dev/Orcaestra-Finanzas/app/models/estudiante.js&#10;mocha&#9;FILE&#9;file:///home/ale/Dev/Orcaestra-Finanzas/node_modules/mocha&#10;routes&#9;FILE&#9;file:///home/ale/Git/Orcaestra-Finanzas/app/routes&#10;package&#9;FILE&#9;file:///home/ale/Git/Orcaestra-Finanzas/package.json" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/ale/Development/orcaestra-finanzas/app/models/estudiante.js&#10;padre&#9;FILE&#9;file:///home/ale/Development/orcaestra-finanzas/app/models/padre.js&#10;mocha&#9;FILE&#9;file:///home/ale/Dev/Orcaestra-Finanzas/node_modules/mocha&#10;routes&#9;FILE&#9;file:///home/ale/Git/Orcaestra-Finanzas/app/routes&#10;package&#9;FILE&#9;file:///home/ale/Git/Orcaestra-Finanzas/package.json" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="8.11.4" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/helloDocker.js" />
     <property name="nodejs.mocha.mocha_node_package_dir" value="$PROJECT_DIR$/node_modules/mocha" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -328,110 +284,10 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Mocha. DBs. Padres.Creación de Pagos Compartidos">
+  <component name="RunManager">
     <configuration name="Offline" type="NodeJSConfigurationType" factoryName="Node.js" path-to-js-file="app/app.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
-    <configuration name="dbtest.js" type="NodeJSConfigurationType" factoryName="Node.js" nameIsGenerated="true" path-to-js-file="dbtest.js" working-dir="$PROJECT_DIR$/test">
-      <method v="2" />
-    </configuration>
-    <configuration name=" DBs" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <ui>bdd</ui>
-      <extra-mocha-options />
-      <test-kind>SUITE</test-kind>
-      <test-file>$PROJECT_DIR$/test/dbTest.js</test-file>
-      <test-names>
-        <name value=" DBs" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name=" DBs. Padres.Creación de Pagos Compartidos" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <ui>bdd</ui>
-      <extra-mocha-options />
-      <test-kind>TEST</test-kind>
-      <test-file>$PROJECT_DIR$/test/dbTest.js</test-file>
-      <test-names>
-        <name value=" DBs" />
-        <name value=" Padres" />
-        <name value="Creación de Pagos Compartidos" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name=" DBs. Padres.Hijos.Añadido por id" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <ui>bdd</ui>
-      <extra-mocha-options />
-      <test-kind>TEST</test-kind>
-      <test-file>$PROJECT_DIR$/test/dbTest.js</test-file>
-      <test-names>
-        <name value=" DBs" />
-        <name value=" Padres" />
-        <name value="Hijos" />
-        <name value="Añadido por id" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name=" DBs. Padres.Mostrar Todo" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <ui>bdd</ui>
-      <extra-mocha-options />
-      <test-kind>TEST</test-kind>
-      <test-file>$PROJECT_DIR$/test/dbTest.js</test-file>
-      <test-names>
-        <name value=" DBs" />
-        <name value=" Padres" />
-        <name value="Mostrar Todo" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name=" DBs.Estudiante..crear()" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <ui>bdd</ui>
-      <extra-mocha-options />
-      <test-kind>SUITE</test-kind>
-      <test-file>$PROJECT_DIR$/test/dbTest.js</test-file>
-      <test-names>
-        <name value=" DBs" />
-        <name value="Estudiante" />
-        <name value=".crear()" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <list>
-      <item itemvalue="Node.js.Offline" />
-      <item itemvalue="Node.js.dbtest.js" />
-      <item itemvalue="Mocha. DBs" />
-      <item itemvalue="Mocha. DBs.Estudiante..crear()" />
-      <item itemvalue="Mocha. DBs. Padres.Hijos.Añadido por id" />
-      <item itemvalue="Mocha. DBs. Padres.Mostrar Todo" />
-      <item itemvalue="Mocha. DBs. Padres.Creación de Pagos Compartidos" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Mocha. DBs. Padres.Creación de Pagos Compartidos" />
-        <item itemvalue="Mocha. DBs" />
-        <item itemvalue="Mocha. DBs. Padres.Mostrar Todo" />
-        <item itemvalue="Mocha. DBs.Estudiante..crear()" />
-        <item itemvalue="Mocha. DBs. Padres.Hijos.Añadido por id" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -459,6 +315,9 @@
       <workItem from="1538138715822" duration="720000" />
       <workItem from="1538139920615" duration="4240000" />
       <workItem from="1538145894382" duration="15693000" />
+      <workItem from="1538734734013" duration="1304000" />
+      <workItem from="1538736459403" duration="7850000" />
+      <workItem from="1538952143899" duration="147000" />
     </task>
     <task id="LOCAL-00001" summary="Listo editar estudiantes y filtrar por mes. &#10;Editar estudiante no actualiza pagina sola.&#10;Falta editar pago y leer planilla marwan">
       <created>1536463309807</created>
@@ -478,58 +337,57 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="_DBs__Padres_Mostrar_Todo - 2018.09.28 at 15h 12m 57s.xml">
-      <configuration name=" DBs. Padres.Mostrar Todo" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="_DBs__Padres_Mostrar_Todo - 2018.09.28 at 15h 15m 12s.xml">
-      <configuration name=" DBs. Padres.Mostrar Todo" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="_DBs__Padres_Mostrar_Todo - 2018.09.28 at 15h 15m 59s.xml">
-      <configuration name=" DBs. Padres.Mostrar Todo" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="_DBs__Padres_Mostrar_Todo - 2018.09.28 at 15h 16m 28s.xml">
-      <configuration name=" DBs. Padres.Mostrar Todo" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="_DBs__Padres_Mostrar_Todo - 2018.09.28 at 15h 17m 34s.xml">
-      <configuration name=" DBs. Padres.Mostrar Todo" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="_DBs__Padres_Mostrar_Todo - 2018.09.28 at 15h 18m 13s.xml">
-      <configuration name=" DBs. Padres.Mostrar Todo" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="_DBs__Padres_Mostrar_Todo - 2018.09.28 at 15h 19m 09s.xml">
-      <configuration name=" DBs. Padres.Mostrar Todo" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="_DBs__Padres_Mostrar_Todo - 2018.09.28 at 15h 19m 47s.xml">
-      <configuration name=" DBs. Padres.Mostrar Todo" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="_DBs__Padres_Mostrar_Todo - 2018.09.28 at 15h 20m 09s.xml">
-      <configuration name=" DBs. Padres.Mostrar Todo" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="_DBs - 2018.09.28 at 15h 20m 34s.xml">
+    <history-entry file="_DBs - 2018.10.05 at 06h 59m 14s.xml">
       <configuration name=" DBs" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="_DBs__Padres_Creación_de_Pagos_Compartidos - 2018.10.05 at 07h 38m 57s.xml">
+      <configuration name=" DBs. Padres.Creación de Pagos Compartidos" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="_DBs__Padres_Creación_de_Pagos_Compartidos - 2018.10.05 at 07h 42m 41s.xml">
+      <configuration name=" DBs. Padres.Creación de Pagos Compartidos" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="_DBs - 2018.10.05 at 07h 44m 10s.xml">
+      <configuration name=" DBs" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="_DBs__Padres_Creación_de_Pagos_Compartidos - 2018.10.05 at 07h 44m 26s.xml">
+      <configuration name=" DBs. Padres.Creación de Pagos Compartidos" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="_DBs__Padres_Creación_de_Pagos_Compartidos - 2018.10.05 at 07h 45m 20s.xml">
+      <configuration name=" DBs. Padres.Creación de Pagos Compartidos" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="_DBs__Padres_Creación_de_Pagos_Compartidos - 2018.10.05 at 07h 52m 38s.xml">
+      <configuration name=" DBs. Padres.Creación de Pagos Compartidos" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="_DBs__Padres_Creación_de_Pagos_Compartidos - 2018.10.05 at 07h 56m 27s.xml">
+      <configuration name=" DBs. Padres.Creación de Pagos Compartidos" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="_DBs__Padres_Creación_de_Pagos_Compartidos - 2018.10.05 at 08h 04m 13s.xml">
+      <configuration name=" DBs. Padres.Creación de Pagos Compartidos" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="_DBs__Padres_Manejo_de_Pagos - 2018.10.05 at 08h 13m 20s.xml">
+      <configuration name=" DBs. Padres.Manejo de Pagos" configurationId="mocha-javascript-test-runner" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49977000" />
+    <option name="totallyTimeSpent" value="59278000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2" y="26" width="1444" height="876" extended-state="6" />
-    <editor active="true" />
+    <frame x="-2" y="23" width="1444" height="879" extended-state="7" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4973262" weight="0.24892704" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4973262" weight="0.24876674" />
       <window_info id="Structure" order="1" sideWeight="0.5026738" side_tool="true" weight="0.25679544" />
       <window_info id="npm" order="2" side_tool="true" weight="0.3298611" />
       <window_info id="Favorites" order="3" sideWeight="0.5020325" side_tool="true" weight="0.24930556" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.44518715" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39839572" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.44474036" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.67509985" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" weight="0.32756326" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.328877" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32899868" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.31865284" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32769832" />
       <window_info anchor="bottom" id="YouTrack" order="11" />
       <window_info anchor="bottom" id="Quokka" order="12" />
@@ -581,75 +439,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/test/dbTest.js</url>
-          <line>77</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="87" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/test/dbTest.js</url>
-          <line>78</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="88" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/test/dbTest.js</url>
-          <line>80</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="90" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/test/dbTest.js</url>
-          <line>79</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="91" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/app/models/padre.js</url>
-          <line>67</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="92" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/app/models/padre.js</url>
-          <line>68</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="93" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/app/models/padre.js</url>
-          <line>69</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="94" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/app/models/padre.js</url>
-          <line>70</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="95" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/app/models/padre.js</url>
-          <line>72</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="96" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/app/models/padre.js</url>
-          <line>75</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="97" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/app/models/padre.js</url>
-          <line>76</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="99" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/app/models/padre.js</url>
-          <line>77</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="100" />
+          <line>83</line>
+          <option name="timeStamp" value="105" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -665,7 +456,64 @@
   <component name="debuggerHistoryManager">
     <expressions id="watch">
       <expression>
+        <expression-string>pago._id</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>p.pagos[0]._id</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
         <expression-string>mongoose</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>p.pagos[0]._id.equals(pago.id)</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>p.pagos[0]._id</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>p.pagos[0].id.toString()==pago._id.toString()</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>p.pagos[0].id.toString()</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>pago._id.toString()</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>pago._id</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>p.pagos[0]._id.id==pago._id.id</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>p.pagos[0]._id.iod==pago._id.id</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>p.pagos[0]._id==pago._id</expression-string>
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -723,21 +571,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="236" column="44" selection-start-line="236" selection-start-column="43" selection-end-line="236" selection-end-column="44" />
-          <folding>
-            <element signature="n#!!block;n#oneTimeEventsSetup#0" />
-            <element signature="n#!!block;n#setUpSideBar#0;n#!!block;n#oneTimeEventsSetup#0" />
-            <element signature="n#!!block;n#addNewMonthRow#0;n#!!block;n#setUpSideBar#0;n#!!block;n#oneTimeEventsSetup#0" />
-            <element signature="n#!!block;n#setupDT#0;n#!!block;n#DatatablesModule#0" />
-            <element signature="n#!!block;n#CalendarModule#0" />
-            <element signature="n#!!block;n#getCurrentDate#0;n#!!block;n#CalendarModule#0" />
-            <element signature="n#!!block;n#configCalendar#0;n#!!block;n#CalendarModule#0" />
-            <element signature="n#!!block;n#DateModule#0" />
-            <element signature="n#!!block;n#getMonthName#0;n#!!block;n#DateModule#0" />
-            <element signature="n#!!block;n#getFecha#0;n#!!block;n#DateModule#0" />
-            <element signature="n#!!block;n#arrayMeses#0;n#!!block;n#DateModule#0" />
-            <element signature="n#!!block;n#getMesAno#0;n#!!block;n#DateModule#0" />
-            <element signature="n#!!block;n#getAnoMesURL#0;n#!!block;n#DateModule#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -751,27 +584,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="10" column="13" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <element signature="n#!!block;n#scripts#0;n#!!top" />
-            <element signature="n#!!block;n#repository#0;n#!!top" />
-            <element signature="n#!!block;n#bugs#0;n#!!top" />
-            <element signature="n#!!block;n#dependencies#0;n#!!top" />
-            <element signature="n#!!block;n#devDependencies#0;n#!!top" />
-            <element signature="n#!!block;n#frontendDependencies#0;n#!!top" />
-            <element signature="n#!!block;n#packages#0;n#!!block;n#frontendDependencies#0;n#!!top" />
-            <element signature="n#!!block;n#jquery#0;n#!!block;n#packages#0;n#!!block;n#frontendDependencies#0;n#!!top" />
-            <element signature="n#!!block;n#popper.js#0;n#!!block;n#packages#0;n#!!block;n#frontendDependencies#0;n#!!top" />
-            <element signature="n#!!block;n#engines#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/.env" />
     <entry file="file://$PROJECT_DIR$/spec/nodetest.js" />
     <entry file="file://$PROJECT_DIR$/test/quicktest.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -808,9 +627,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="37" column="1" lean-forward="true" selection-start-line="32" selection-start-column="3" selection-end-line="37" selection-end-column="1" />
-          <folding>
-            <element signature="e#738#821#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -828,58 +644,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/pago.js">
+    <entry file="file://$PROJECT_DIR$/app/controller/estudiantes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="61" column="38" selection-start-line="61" selection-start-column="38" selection-end-line="61" selection-end-column="38" />
+        <state relative-caret-position="1650">
+          <caret line="110" column="16" selection-start-line="110" selection-start-column="11" selection-end-line="110" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/estudiantes.js">
+    <entry file="file://$PROJECT_DIR$/helloDocker.js" />
+    <entry file="file://$PROJECT_DIR$/app/models/pago.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="110" column="16" selection-start-line="110" selection-start-column="11" selection-end-line="110" selection-end-column="16" />
+        <state relative-caret-position="314">
+          <caret line="58" column="2" selection-start-line="58" selection-start-column="2" selection-end-line="58" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/estudiante.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="126" column="66" selection-start-line="126" selection-end-line="127" />
+        <state>
+          <caret line="93" column="34" selection-start-line="93" selection-start-column="34" selection-end-line="93" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/padre.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="77" column="26" lean-forward="true" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
+        <state relative-caret-position="152">
+          <caret line="93" column="9" selection-start-line="93" selection-start-column="9" selection-end-line="93" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/dbTest.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="59" column="25" selection-start-line="59" selection-start-column="25" selection-end-line="59" selection-end-column="25" />
+        <state relative-caret-position="416">
+          <caret line="88" column="36" selection-start-line="88" selection-start-column="36" selection-end-line="88" selection-end-column="36" />
           <folding>
-            <element signature="e#339#443#0" />
-            <element signature="e#499#552#0" />
-            <element signature="e#846#862#0" />
-            <element signature="e#1006#1139#0" />
-            <element signature="e#1012#1036#0" />
-            <element signature="e#1436#1677#0" />
-            <element signature="e#3206#3347#0" />
-            <element signature="e#2078#2100#0" />
-            <element signature="e#3480#4041#0" />
-            <element signature="e#3539#3970#0" />
-            <element signature="e#3987#4029#0" />
-            <element signature="e#2551#6262#0" />
-            <element signature="e#1575#1625#0" />
-            <element signature="e#3346#3440#0" />
-            <element signature="e#2816#4700#0" />
-            <element signature="e#1608#2033#0" />
-            <element signature="e#2932#3201#0" />
-            <element signature="e#3687#3689#0" />
-            <element signature="e#4840#5101#0" />
+            <element signature="e#657#1043#0" />
+            <element signature="e#852#905#0" />
+            <element signature="e#1136#1707#0" />
+            <element signature="e#1248#1698#0" />
+            <element signature="e#1290#1686#0" />
+            <element signature="e#1366#1627#0" />
           </folding>
         </state>
       </provider>

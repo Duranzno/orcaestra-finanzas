@@ -45,7 +45,6 @@ describe(" DBs",()=>{
     });
     describe(" Padres",function(){
         afterEach(function(){mongoose.connection.dropCollection("padres")});
-
         beforeEach(async function(){
             let padre= await Padre.crear(padNuevo);
         });
@@ -74,15 +73,26 @@ describe(" DBs",()=>{
             });
 
         });
-        it("Creación de Pagos Compartidos",async function(){
-            let pago=await Pago.crear(pagNuevo);
-            let p=await Padre.crear(padNuevo);
-            await p.agregarPago(pago);
-            padre.pagos[0].should.equal(pago._id);
-            // padre.hijos[0].pagos[0].should.equal(pago._id)
+        describe ("Manejo de Pagos",function(){
+            let pago,padre;
+            before(async ()=>{
+                pago=await Pago.crear(pagNuevo);
+                padre=await Padre.crear(padNuevo);
+            });
+            it("Creación de Pagos Compartidos",function(done){
+                padre.agregarPago(pago).then((result)=>{
+                    expect(padre.pagos[0]._id.equal(p._id)).to.eventually.be.true;
+                });
+                done()
+            });
+            it("Eliminación de Pagos Compartidos",async ()=>{
+                await padre.eliminarPago(pago);
+                padre.find({}).populate({"path":"pagos"}).then((result)=>{
+                    result.pagos.length.should.be.empty;
+                });
+            });
 
         });
-        xit("Eliminación de Pagos Compartidos");
         xit("Eliminado");
         xit("Cambiar Representante");
 
