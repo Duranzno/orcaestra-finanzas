@@ -1,11 +1,12 @@
 {
   "name": "orcaestra-finanzas",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "Servidor para Orquesta",
-  "main": "app/app.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node app/app.js",
-    "test": "mocha"
+    "start": "node server.js",
+    "test": "mocha",
+    "pretest": "eslint --ignore-path .gitignore ."
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
     "jsdom": "^12.1.0",
     "mongoose": "5.2.8",
     "multer": "^1.4.0",
+    "prettier": "^1.14.3",
     "require": "^2.4.20",
     "serve-favicon": "^2.5.0",
     "sheetjs": "^1.0.21",
@@ -36,6 +38,8 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
+    "eslint": "^5.7.0",
+    "eslint-config-strongloop": "^2.1.0",
     "mocha": "^5.2.0",
     "uglify-js": "^3.4.9"
   },

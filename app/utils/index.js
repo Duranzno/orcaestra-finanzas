@@ -1,6 +1,6 @@
 module.exports = {
   respond,
-  respondOrRedirect
+  respondOrRedirect,
 };
 
 function respond(res, tpl, obj, status) {
@@ -9,7 +9,7 @@ function respond(res, tpl, obj, status) {
     json: () => {
       if (status) return res.status(status).json(obj);
       res.json(obj);
-    }
+    },
   });
 }
 
@@ -19,6 +19,6 @@ function respondOrRedirect({req, res}, url = '/', obj = {}, flash) {
       // if (req && flash) req.flash(flash.type, flash.text);
       res.redirect(url);
     },
-    json: () => res.json(obj)
+    json: () => res.json(obj),
   });
 }

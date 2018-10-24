@@ -1,75 +1,73 @@
-var express = require("express"),
-    multer = require('multer'),
-    router = express.Router(),
-    Estudiante = require("../controller/estudiantes"),
-    Pago = require("../controller/pagos");
-handleXLSX = require("../utils/excel/handleXLSX");
-TAG = "routes|";
+var express = require('express'),
+  multer = require('multer'),
+  router = express.Router(),
+  Estudiante = require('../controller/estudiantes'),
+  Pago = require('../controller/pagos');
+handleXLSX = require('../utils/excel/handleXLSX');
+TAG = 'routes|';
 
 //INDEX -- Mostrar Todos
-router.get("/", function (req, res) {
+router.get('/', function(req, res) {
   // console.log("bla");
   let bancos = require('../models/bancos');
   let grupos = require('../models/grupos');
-  res.render("../views/index", {grupos: grupos, bancos: bancos});
+  res.render('../views/index', {grupos: grupos, bancos: bancos});
 });
 //MULTER | EXCEL
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'app/public/uploads')
+    cb(null, 'app/public/uploads');
   },
   filename: (req, file, cb) => {
-    cb(null, file.fieldname + '-' + Date.now() + '.xlsx')
-  }
+    cb(null, file.fieldname + '-' + Date.now() + '.xlsx');
+  },
 });
 var upload = multer({storage: storage});
 router.post('/uploadPaola', upload.single('planilla'), (req, res) => {
   if (!req.file) {
-    console.log("No file received");
+    console.log('No file received');
     return res.send({
-      success: false
+      success: false,
     });
-
   } else {
     console.log(`Received: ${req.file.filename}`);
     // console.log(req);
     handleXLSX.useSheetPaolaStyle(req.file.path);
     return res.send({
-      success: true
-    })
+      success: true,
+    });
   }
 });
 router.post('/uploadMarwan', upload.single('planilla'), (req, res) => {
   if (!req.file) {
-    console.log("No file received");
+    console.log('No file received');
     return res.send({
-      success: false
+      success: false,
     });
-
   } else {
     console.log(`Received: ${req.file.filename}`);
     // handleXLSX.useSheetMarwanStyle(req.file.path);
     return res.send({
-      success: true
-    })
+      success: true,
+    });
   }
 });
 
 //ESTUDIANTE
 //READ Obtener todos los JSON
-router.get("/estudiantes/", Estudiante.findAll);
+router.get('/estudiantes/', Estudiante.findAll);
 //READ Obtener JSON de un estudiante especifico
-router.get("/estudiantes/:banco", Estudiante.findAllByBanco);
+router.get('/estudiantes/:banco', Estudiante.findAllByBanco);
 //READ Obtener JSON de los estudiantes que han hecho pagos desde tal banco
-router.get("/estudiantes/:ano/:mes", Estudiante.findAllByMonthYear);
+router.get('/estudiantes/:ano/:mes', Estudiante.findAllByMonthYear);
 
-router.get("/estudiante/:id", Estudiante.findOne);
+router.get('/estudiante/:id', Estudiante.findOne);
 //CREATE -- Añadir Nuevo estudiante a la DB
-router.post("/estudiante/new", Estudiante.create);
+router.post('/estudiante/new', Estudiante.create);
 //UPDATE -- Actualizar Usuario
-router.put("/estudiante/:id/", Estudiante.update);
+router.put('/estudiante/:id/', Estudiante.update);
 //DELETE - remueve a un estudiante y a sus pagos de la Db
-router.delete("/estudiante/:id/", Estudiante.delete);
+router.delete('/estudiante/:id/', Estudiante.delete);
 //PAGOS
 
 router.post('/estudiante/:id/pago', Estudiante.crearPagoById);
@@ -82,16 +80,10 @@ router.put('/estudiante/:id/pago/:pagoId', Pago.update);
 //UPDATE
 router.put('/pago/:pagoId', (req, res) => {
   console.log(TAG, `no implementado`);
-  res.send("no implementado")
+  res.send('no implementado');
 });
 //DELETE
 router.delete('/estudiante/:id/pago/:pagoId', Pago.delete);
 // router.post('*',(req,res)=>res.send("Wrong Post"));
 // router.get('*',(req,res)=>res.send("Wrong Get"));
 module.exports = router;
-
-
-
-
-
-

@@ -7,7 +7,7 @@ rangeLastCell = {c: 0, r: 10};
 // var myRange={s:rangeFirstCell,e:rangeLastCell};
 // myRange
 var range = XLSX.utils.decode_range(sheet['!ref']);
-range
+range;
 const eCol = {
   cEst: 0,
   cGrupo: 1,
@@ -18,15 +18,15 @@ const eCol = {
   cMonto: 6,
 };
 // for (let rowNum=range.s.r;rowNum<=range.e.r;rowNum++){
-let extraerFila
-(rowNum, sheet)
+let extraerFila;
+rowNum, sheet;
 
 function extraerFila(rowNum, sheet) {
   let pago = {
     banco: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cBanco})].v,
     referencia: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cRef})].v,
     fecha: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cDate})].v,
-    monto: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cMonto})].v
+    monto: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cMonto})].v,
   };
   let estudiante = {
     nombre: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cEst})].v,
@@ -35,9 +35,8 @@ function extraerFila(rowNum, sheet) {
     tlf: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cGrupo})].v,
     grupo: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cGrupo})].v,
     instrumento: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cInstr})].v,
-    pago: []
+    pago: [],
   };
   console.log(pago);
-  console.log(estudiante)
-};
-
+  console.log(estudiante);
+}

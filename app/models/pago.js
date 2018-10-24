@@ -1,9 +1,9 @@
 'use strict';
-const TAG=`pagoModel | `;
+const TAG = `pagoModel | `;
 /**
  * Module dependencies.
  */
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 /**
  * Pago Schema
@@ -12,12 +12,12 @@ let PagoSchema = new mongoose.Schema({
   banco: {
     type: String,
     required: true,
-    default: "",
+    default: '',
   },
   referencia: {
     type: String,
     required: true,
-    default: "",
+    default: '',
   },
   fecha: {
     type: Date,
@@ -28,7 +28,6 @@ let PagoSchema = new mongoose.Schema({
     required: true,
     default: 0,
   },
-
 });
 
 /**
@@ -42,23 +41,23 @@ let PagoSchema = new mongoose.Schema({
  * Methods
  */
 PagoSchema.statics = {
-  crear:async function (pagoNuevo) {
-    let pThis=this;
-      if (pagoNuevo.referencia === null || pagoNuevo.referencia === '') {
-          console.error(new Error('No tiene referencia el pago nuevo'));
-      }
+  crear: async function(pagoNuevo) {
+    let pThis = this;
+    if (pagoNuevo.referencia === null || pagoNuevo.referencia === '') {
+      console.error(new Error('No tiene referencia el pago nuevo'));
+    }
 
-      return await pThis.findOneAndUpdate({
-              "referencia": pagoNuevo.referencia,
-              "banco": pagoNuevo.banco
-          },
-          pagoNuevo,
-          {upsert: true, runValidators: true, new: true,});
+    return await pThis.findOneAndUpdate(
+      {
+        referencia: pagoNuevo.referencia,
+        banco: pagoNuevo.banco,
+      },
+      pagoNuevo,
+      {upsert: true, runValidators: true, new: true}
+    );
 
-      // return p;
+    // return p;
   },
 };
 
 module.exports = mongoose.model('Pagos', PagoSchema);
-
-

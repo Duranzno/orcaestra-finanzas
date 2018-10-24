@@ -1,7 +1,6 @@
 //funciones de ayuda
 const Bancos = require('../models/bancos');
 
-
 function sendOk(okMsg, res, object) {
   if (object == null) {
     console.log(okMsg);
@@ -19,7 +18,7 @@ function newPago(req) {
     monto: req.body.monto,
   };
   if (Bancos.indexOf(newData.banco) === -1) {
-    newData.banco = Bancos[0]
+    newData.banco = Bancos[0];
   }
   return newData;
 }
@@ -27,10 +26,10 @@ function newPago(req) {
 function sendError(errMsg, res, err) {
   if (err == null) {
     console.error(errMsg);
-    res.status(400).send(errMsg)
+    res.status(400).send(errMsg);
   } else {
     console.error(err);
-    res.status(400).send(errMsg)
+    res.status(400).send(errMsg);
   }
 }
 

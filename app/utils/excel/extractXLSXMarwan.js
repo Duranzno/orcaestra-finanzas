@@ -1,10 +1,10 @@
 const XLSX = require('xlsx'),
-    Pago = require('../../../app/models/pago'),
-    Estudiante = require('../../../app/models/estudiante'),
-    Grupos = require('../../../app/models/grupos'),
-    regex = require('./parseRegex'),
-    dateUtil = require('./parseDate'),
-    TAG = `extractXLSXMarwan|`;
+  Pago = require('../../../app/models/pago'),
+  Estudiante = require('../../../app/models/estudiante'),
+  Grupos = require('../../../app/models/grupos'),
+  regex = require('./parseRegex'),
+  dateUtil = require('./parseDate'),
+  TAG = `extractXLSXMarwan|`;
 
 const eCol = {
   cTimeStamp: 0,
@@ -26,14 +26,14 @@ const eCol = {
 
 function extraerCelda(sheet, rowNum, col) {
   let v = sheet[XLSX.utils.encode_cell({r: rowNum, c: col})];
-  return (typeof v !== "undefined") ? v.v : ''
+  return typeof v !== 'undefined' ? v.v : '';
 }
 
 function extraerFila(sheet, rowNum) {
   const estudiantesRef = [
     extraerCelda(sheet, rowNum, eCol.cEst[0].nombre),
     extraerCelda(sheet, rowNum, eCol.cEst[1].nombre),
-    extraerCelda(sheet, rowNum, eCol.cEst[2].nombre)
+    extraerCelda(sheet, rowNum, eCol.cEst[2].nombre),
   ];
   //Creacion de Pago
   let newPago = extraerPago(sheet, rowNum);
@@ -44,17 +44,23 @@ function extraerFila(sheet, rowNum) {
       let est = extraerEstudiante(sheet, rowNum, eCol.cEst[i]);
 
       Estudiante.crear(est)
-          .then((est) => {
-            console.log(TAG, `creado/encontrado estudiante ${est.nombre}`);
+        .then(est => {
+          console.log(TAG, `creado/encontrado estudiante ${est.nombre}`);
 
-            Estudiante.crearPagoById(est._id, pago)
-                .then(p => console.log(TAG, `Se agrego el pago ${p.referencia} a ${est.nombre} ${est.apellido}`))
-                .catch(err => console.error(err));
-          })
-          .catch(err => console.error(err));
+          Estudiante.crearPagoById(est._id, pago)
+            .then(p =>
+              console.log(
+                TAG,
+                `Se agrego el pago ${p.referencia} a ${est.nombre} ${
+                  est.apellido
+                }`
+              )
+            )
+            .catch(err => console.error(err));
+        })
+        .catch(err => console.error(err));
     }
   }
-
 }
 
 // let extraerTodasFilas = function (sheet) {
@@ -70,54 +76,71 @@ function extraerFila(sheet, rowNum) {
 //   }
 // };
 
-let agregarPagoPorReferencia = async function (pago) {
-
-  if (pago.hasOwnProperty("_id")) {
+let agregarPagoPorReferencia = async function(pago) {
+  if (pago.hasOwnProperty('_id')) {
     console.log(TAG, `ya existia el pago`);
     return pago;
-  }//Ya existe el pago
+  } //Ya existe el pago
 
-  return await Pago.create(pago)
+  return await Pago.create(pago);
 };
 
 function esParteDelGrupo(grupoNuevo) {
   for (let i in Grupos) {
-    if (Grupos[i] === (grupoNuevo)) {
-      return true
+    if (Grupos[i] === grupoNuevo) {
+      return true;
     }
   }
   return false;
 }
 
-let extraerPago = function (sheet, rowNum) {
+let extraerPago = function(sheet, rowNum) {
   let fechaPago = extraerCelda(sheet, rowNum, eCol.cDate);
-  fechaPago = (fechaPago === "-" || fechaPago === "") ? new Date(Date.UTC(0, 0, 0, 0, 0, 0)) : fechaPago;
+  fechaPago =
+    fechaPago === '-' || fechaPago === ''
+      ? new Date(Date.UTC(0, 0, 0, 0, 0, 0))
+      : fechaPago;
   let pago = {
-    banco: extraerCelda(sheet, rowNum, eCol.cBanco) ? extraerCelda(sheet, rowNum, eCol.cBanco) : "Desconocido",
+    banco: extraerCelda(sheet, rowNum, eCol.cBanco)
+      ? extraerCelda(sheet, rowNum, eCol.cBanco)
+      : 'Desconocido',
     referencia: extraerCelda(sheet, rowNum, eCol.cRef),
     fecha: dateUtil.parseDate(fechaPago),
-    monto: extraerCelda(sheet, rowNum, eCol.cMonto) ? extraerCelda(sheet, rowNum, eCol.cMonto) : "0"
+    monto: extraerCelda(sheet, rowNum, eCol.cMonto)
+      ? extraerCelda(sheet, rowNum, eCol.cMonto)
+      : '0',
   };
-  if (pago.fecha === '-' || pago.fecha === "") {
+  if (pago.fecha === '-' || pago.fecha === '') {
     pago.fecha = Date.now();
   }
   return pago;
 };
-let extraerEstudiante = function (sheet, rowNum, cEst) {
+let extraerEstudiante = function(sheet, rowNum, cEst) {
   let estudiante = {
-    nombre: extraerCelda(sheet, rowNum, cEst.nombre) ? extraerCelda(sheet, rowNum, cEst.nombre) : "Desconocido",
-    apellido: extraerCelda(sheet, rowNum, cEst.apellido) ? extraerCelda(sheet, rowNum, cEst.apellido) : "Desconocido",
-    email: extraerCelda(sheet, rowNum, eCol.cCorreo) ? extraerCelda(sheet, rowNum, eCol.cCorreo) : "-",
-    tlf: extraerCelda(sheet, rowNum, eCol.ctlfRep) ? extraerCelda(sheet, rowNum, eCol.ctlfRep) : "-",
-    grupo: extraerCelda(sheet, rowNum, cEst.grupo) ? extraerCelda(sheet, rowNum, cEst.grupo) : "Sin Determinar",
-    instrumento: extraerCelda(sheet, rowNum, cEst.instrumento) ? extraerCelda(sheet, rowNum, cEst.instrumento) : "Sin Determinar",
-    pago: []
+    nombre: extraerCelda(sheet, rowNum, cEst.nombre)
+      ? extraerCelda(sheet, rowNum, cEst.nombre)
+      : 'Desconocido',
+    apellido: extraerCelda(sheet, rowNum, cEst.apellido)
+      ? extraerCelda(sheet, rowNum, cEst.apellido)
+      : 'Desconocido',
+    email: extraerCelda(sheet, rowNum, eCol.cCorreo)
+      ? extraerCelda(sheet, rowNum, eCol.cCorreo)
+      : '-',
+    tlf: extraerCelda(sheet, rowNum, eCol.ctlfRep)
+      ? extraerCelda(sheet, rowNum, eCol.ctlfRep)
+      : '-',
+    grupo: extraerCelda(sheet, rowNum, cEst.grupo)
+      ? extraerCelda(sheet, rowNum, cEst.grupo)
+      : 'Sin Determinar',
+    instrumento: extraerCelda(sheet, rowNum, cEst.instrumento)
+      ? extraerCelda(sheet, rowNum, cEst.instrumento)
+      : 'Sin Determinar',
+    pago: [],
   };
   if (!esParteDelGrupo(estudiante.grupo)) {
-    estudiante.grupo = "Sin Determinar"
+    estudiante.grupo = 'Sin Determinar';
   }
   return estudiante;
-
 };
 
 module.exports = {
@@ -134,5 +157,3 @@ module.exports = {
 //   monto: sheet[XLSX.utils.encode_cell({r: rowNum, c: eCol.cMonto})].v
 // };
 //
-
-
