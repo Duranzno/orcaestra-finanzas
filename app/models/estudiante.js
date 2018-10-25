@@ -1,7 +1,6 @@
-xba'use strict';
+'use strict';
 const mongoose = require('mongoose');
 const gruposDisponibles = require('./grupos');
-const TAG = 'modelEstudiante|';
 
 const Pago = require('./pago');
 const StudentSchema = new mongoose.Schema({
@@ -45,10 +44,7 @@ const StudentSchema = new mongoose.Schema({
  * Validations
  */
 StudentSchema.path('nombre').required(true, 'Nombre no puede estar en blanco');
-StudentSchema.path('apellido').required(
-  true,
-  'Apellido no puede estar en blanco'
-);
+StudentSchema.path('apellido').required(true,'Apellido no puede estar en blanco');
 StudentSchema.path('grupo').required(true, 'Grupo no puede estar en blanco');
 /**
  * Pre-remove hook
@@ -59,90 +55,44 @@ StudentSchema.path('grupo').required(true, 'Grupo no puede estar en blanco');
  */
 StudentSchema.methods = {
   agregarPago: async function(pagoNuevo) {
-    let estThis = this;
-    let pago = await Pago.crear(pagoNuevo);
-    estThis.pagos.addToSet(pago._id);
-    estThis.save(function(error) {
-      if (error) {
-        console.error(TAG, ``, error);
-      }
-      console.log(
-        TAG,
-        `Se agrego el pago ${pagoNuevo.referencia} del banco ${
-          pagoNuevo.banco
-        } al Est:${estThis.nombre} ${estThis.apellido}`
-      );
+    try{
+      let estThis = this;
+      let pago = await Pago.crear(pagoNuevo);
+      estThis.pagos.addToSet(pago._id);
+      await estThis.save();
       return pago;
-    });
+    }
+    catch (e) {console.error(e)}
   },
 };
 /**
  * Statics
  */
 StudentSchema.statics = {
-  /**
-   *eliminar
-   *@param {Number} estId
-   *@api private
-   **/
-  eliminarById: function(estId) {
-    let estThis = this;
-    estThis
-      .findById(estId)
-      .catch(err => console.log(TAG, err))
-      .then(est => {
-        if (est != null) {
-          console.log(TAG, `Se ha encontrado a ${est.nombre}`);
-          if (est.pagos != null) {
-            Pago.remove({_id: {$in: est.pagos}})
-              .catch(err => console.log(TAG, err))
-              .then(console.log(TAG, `Se eliminaron sus pagos`));
-          } else {
-            console.log(TAG, 'No tenia Pagos');
-          }
-          estThis
-            .remove({_id: est._id})
-            .then(console.log(TAG, 'Se elimino el estudiante'))
-            .catch(err => console.log(TAG, err));
-        } else {
-          console.log(TAG, 'No se ha encontrado este estudiante');
-        }
-      });
+  crear: async function(eNuevo) {
+    try{
+      const filtro = {nombre: eNuevo.nombre,apellido: eNuevo.apellido,grupo: eNuevo.grupo,
+      };
+      await this.findOneAndUpdate(filtro,eNuevo,
+        {upsert: true, runValidators: true}
+      );
+
+      return await this.findOne(filtro);
+    } catch (e) {
+      console.error(e);
+    }
   },
-  crearPagoById: async function(estId, pagoNuevo) {
-    //Conseguir Estudiante existente
-    //Buscar pago y si no existe crearlo
-    //Agregar Pago al estudiante
-    // console.log(TAG,`Crear PagoByID`)
+  agregarPagoById: async function(estId, pagoNuevo) {
     let est = await this.findById(estId);
     return await est.agregarPago(pagoNuevo);
   },
-
-  crear: async function(eNuevo) {
-    let estThis = this;
-    const filtro = {
-      nombre: eNuevo.nombre,
-      apellido: eNuevo.apellido,
-      grupo: eNuevo.grupo,
-    };
-    if (eNuevo.hasOwnProperty('_id')) {
-      console.log(
-        TAG,
-        `eNuevo ya tenia ._id por lo tanto ya es parte de la DB`
-      );
-      return eNuevo;
+  eliminarById:async function(estId){
+    try {
+      let est= await this.findOne({"_id":estId});
+      if (est.pagos&&est.pagos.length>0) await Pago.remove({_id: {$in: est.pagos}});
+      await this.remove({"_id":estId});
     }
-
-    await estThis
-      .findOneAndUpdate(filtro, eNuevo, {upsert: true, runValidators: true})
-      .catch(err => console.error(err));
-    let letmesee = await estThis.findOne(filtro);
-    console.log(
-      TAG,
-      `SE ENCONTRÓ\\CREÓ Estudiante ${letmesee.nombre} ${letmesee.apellido}`,
-      '\n'
-    );
-    return letmesee;
+    catch (e) {console.error(e)}
   },
 };
 

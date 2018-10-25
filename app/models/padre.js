@@ -46,23 +46,17 @@ const PadreSchema = new mongoose.Schema({
  * Validations
  */
 PadreSchema.path('nombre').required(true, 'Nombre no puede estar en blanco');
-PadreSchema.path('apellido').required(
-  true,
-  'Apellido no puede estar en blanco'
-);
+PadreSchema.path('apellido').required(true,'Apellido no puede estar en blanco');
 /**
  * Pre-remove hook
  */
-PadreSchema.pre('remove', function(callback) {
-  this.model('Pago').remove({$in: this.pagos});
-  this.model('Estudiante').remove({$in: this.pagos});
-});
+
 
 /**
  * Methods
  */
 PadreSchema.methods = {
-  agregarHijo: async function(hijoNuevo) {
+  agregarHijo2: async function(hijoNuevo) {
     let padThis = this;
     let hijo = await Estudiante.crear(hijoNuevo);
     padThis.hijos.addToSet(hijo._id);
@@ -76,27 +70,25 @@ PadreSchema.methods = {
     let letmesee = await Estudiante.findById(hijo._id);
     return letmesee;
   },
-  agregarPago: async function(pagoNuevo) {
-    let padThis = this;
-    let pago = await Pago.crear(pagoNuevo);
-    padThis.pagos.addToSet(pago._id);
-    padThis.save(function(error) {
-      if (error) {
-        console.error(TAG, ``, error);
-      }
-      console.log(
-        TAG,
-        `Se agrego el pago ${pagoNuevo.referencia} del banco ${
-          pagoNuevo.banco
-        } al Rep:${padThis.nombre} ${padThis.apellido}`
-      );
-      return pago;
-    });
-    if (padThis.hijos.length > 0) {
-      for (let estId in padThis.hijos) {
-        Estudiante.crearPagoById(estId, pagoNuevo);
-      }
+  agregarHijo:async function(hijoNuevo){
+    try{
+      let padThis = this;
+      let hijo = await Estudiante.crear(hijoNuevo);
+      padThis.hijos.addToSet(hijo._id);
+      await padThis.save();
+      return hijo;
     }
+    catch (e) {console.error(e)}
+  },
+  agregarPago: async function(pagoNuevo) {
+    try{
+      let padThis = this;
+      let pago = await Pago.crear(pagoNuevo);
+      padThis.pagos.addToSet(pago._id);
+      await padThis.save();
+      return pago;
+    }
+    catch (e) {console.error(e)}
   },
   eliminar: () => {
     let padThis = this;
@@ -108,8 +100,7 @@ PadreSchema.methods = {
       console.log('Se elimino el padre, con sus hijos y pagos');
     });
   },
-  eliminarPago: async function(pagosArray) {
-    let padThis = this;
+  eliminarPago: async function() {
     if (argument.constructor !== Array) {
       //El pago se eliminar
       //Se saca de Padre
@@ -142,7 +133,7 @@ PadreSchema.statics = {
       );
       return pNuevo;
     }
-    let updated = await padThis
+    await padThis
       .findOneAndUpdate(filtro, pNuevo, {upsert: true, runValidators: true})
       .catch(err => console.error(err));
     let letmesee = await padThis.findOne(filtro);

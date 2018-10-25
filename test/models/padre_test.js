@@ -1,134 +1,109 @@
-const chai = require("chai");
-const expect= chai.expect;
+const chai   = require('chai');
 chai.should();
-
+const expect=chai.expect;
 const mongoose = require('mongoose');
-const Padre = require('../../app/models/padre');
-const Pago = require('../../app/models/pago');
+const mockData=require('../utils');
+const Pago=require('../../app/models/pago');
+const Padre=require('../../app/models/padre');
+const Estudiante=require('../../app/models/estudiante');
 
-const Estudiante = require("../../app/models/estudiante") ;
-const estNuevo = {nombre: 'Alejandro', apellido: 'Duran', grupo: 'Inicial'};
-const pagNuevo = {
-  banco: '11Banco De Venezuela',
-  referencia: '123',
-  monto: '6868',
-  fecha: '2018-02-15',
-};
-const padNuevo = {nombre: 'Jose', apellido: 'Duran'};
-
-describe(' Padres', function() {
-  before(async function before() {
-    mongoose.connect(
-      'mongodb://localhost:27017/testdb',
-      {useNewUrlParser: true}
-    );});
-  beforeEach(async function() {
-    await Padre.crear(padNuevo);
-  });
-  afterEach(()=> {Padre.deleteMany({});});
-  after(()=>{mongoose.disconnect();});
-  it('Mostrar Todo', async function() {
-    let h = await Estudiante.crear(estNuevo);
-    let p = await Padre.crear(padNuevo);
-    await p.agregarHijo(h);
-    let padres = await Padre.find({}) /*.populate("pagos")*/
-      .populate('hijos');
-    console.log(JSON.stringify(padres));
-    padres[0].pagos.should.be.a.instanceOf(Array);
-    padres[0].hijos.should.be.a.instanceOf(Array);
-    padres[0].pagos.should.have.a.lengthOf(0);
-    padres[0].hijos.should.have.a.lengthOf(1);
+describe('Padres', function() {
+  let expectedPad;
+  before(async ()=>{
+    expectedPad=mockData.getPadre();
+    await mongoose.connect('mongodb://localhost:27017/testdb',{useNewUrlParser: true})
   });
 
-  it('Busqueda', done => {
-    Padre.find({})
-      .then(result => {
-        expect(result).to.be.an.instanceOf(Array);
-        expect(result.length).to.equal(1);
-        expect(result[0].nombre).to.equal('Jose');
-        expect(result[0].apellido).to.equal('Duran');
-        done();
-      })
-      .catch(err => {
-        done(err);
+  after(() => mongoose.disconnect());
+  afterEach(() => {
+    Padre.deleteMany({});
+  });
+  describe('methods', () => {
+    it('.agregarHijo()', async () => {
+      const expectedEst=mockData.getStudent();
+      let resultPad=await Padre.create(expectedPad);
+      await resultPad.agregarHijo(expectedEst);
+      let resultEst=await Estudiante.findOne({});
+      resultPad=await Padre.findOne({});
+      resultPad.hijos.should.contain(resultEst._id);
+    });
+    it('.agregarPago()', async() => {
+        try{
+          let expected=mockData.getPago();
+          console.log(expected);
+          let result=await Padre.agregarPago(expected);
+          console.log(result);
+          pad=await Padre.findOne({});
+          console.log(pad);
+          pad.pagos.should.include(result._id);
+          result.referencia.should.be.equal(expected.referencia);
+          result.banco.should.be.equal(expected.banco);
+          result=await Pago.findOne({});
+          result.referencia.should.be.equal(expected.referencia);
+          result.banco.should.be.equal(expected.banco);
+        }
+        catch (e) {console.error(e);}
+    });
+    it('.eliminar()', async () => {
+
+    });
+    it('.eliminarPago()', async () => {
+
+    });
+    afterEach(() => {
+      Padre.deleteMany({});
+      Estudiante.deleteMany({});
+      Pago.deleteMany({});
+    });
+  });
+  describe('statics', () => {
+    describe('.agregarHijo()', () => {
+
+    });
+    describe('.crearPagoById()', () => {
+      it('', async() => {
+        try{
+          const expectedPago=mockData.getPago();
+          const expectedPad=mockData.getPadre();
+          let result=await Padre.crear(expectedPad);
+          const id=result._id;
+          let resultPago=Padre.crearPagoById(id, expectedPago);
+          resultPago.referencia.should.be.equal(expectedPago.referencia);
+        } catch (e) {console.error(e)}
       });
-  });
-  describe('Manejo de Pagos', function() {
-    let pago, padre;
-    before(async () => {
-      pago = await Pago.crear(pagNuevo);
-      padre = await Padre.crear(padNuevo);
+
     });
-    it('Creación de Pagos Compartidos', function(done) {
-      padre.agregarPago(pago).then(() => {
-        expect(padre.pagos[0]._id.equal(p._id)).to.eventually.be.true;
+    describe('.crear()', () => {
+
+    });
+    describe('.eliminarById', async() => {
+      it('eliminarById()', async() => {
+        try{
+          Padre.deleteMany({});
+          const expected=mockData.getPadre();
+          let result =await Padre.create(expected);
+          await Padre.eliminarById(result._id);
+          result = await Padre.find({});
+          result.should.be.empty;
+        }catch (e) {console.error(e)}
+
       });
-      done();
-    });
-    it('Eliminación de Pagos Compartidos', async () => {
-      await padre.eliminarPago(pago);
-      padre
-        .find({})
-        .populate({path: 'pagos'})
-        .then(result => {
-          expect(result.pagos).to.be.empty;
-        });
-    });
-  });
-  it('Eliminado');
-  it('Cambiar Representante');
+      it('eliminarById() with Pago', async() => {
+        try{
+          Padre.deleteMany({});
+          const expectedPad=mockData.getPadre();
+          const expectedPago=mockData.getPago();
+          let result =await Padre.create(expectedPad);
+          await result.agregarPago(expectedPago);
+          await Padre.eliminarById(result._id);
+          result = await Pago.find({});
+          result.should.be.empty;
+          result = await Padre.find({});
+          expect(result).to.be.empty;
 
-  describe('Hijos', () => {
-    const h = {
-      nombre: 'Alejandro',
-      apellido: 'Duran',
-      grupo: 'Inicial',
-    };
-    beforeEach(() => Estudiante.crear(h));
+        }catch (e) {console.error(e)}
 
-    afterEach(function(done) {
-      mongoose.connection.dropCollection('estudiantes');
-      done();
-    });
-
-    it('Añadido creado', function(done) {
-      Padre.find({nombre: 'Jose'})
-        .then(result => {
-          expect(result[0]).to.be.an.instanceOf(Object);
-          expect(result.length).to.equal(1);
-          expect(result[0].nombre).to.equal('Jose');
-          expect(result[0].apellido).to.equal('Duran');
-
-          result[0]
-            .agregarHijo(h)
-            .then(result => {
-              expect(result.nombre).to.equal(h.nombre);
-              expect(result.apellido).to.equal(h.apellido);
-              expect(result.grupo).to.equal(h.grupo);
-              done();
-            })
-            .catch(err => {
-              done(err);
-            });
-        })
-        .catch(err => done(err));
-    });
-    //
-    //
-
-    xit('Añadido por id', async function() {
-      let hijo = await Estudiante.findOne(h);
-
-      let padre = await Padre.findOne({nombre: 'Jose'});
-      padre.should.be.an.instanceOf(Object);
-      padre.nombre.should.equal('Jose');
-      padre.apellido.should.equal('Duran');
-
-      await padre.agregarHijo(hijo);
-      let padreFound = await Padre.findOne({nombre: 'Jose'}).populate({
-        path: 'hijos',
       });
-      padreFound.hijos[0].nombre.should.equal(h.nombre);
     });
   });
 });
