@@ -3,11 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="e7a9abe2-3258-4e29-965b-f7b49373ba66" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controller/estudiantes.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/estudiantes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controller/pagos.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/pagos.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/estudiante.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/estudiante.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/padre.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/padre.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/dbTest.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/dbTest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/pago.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/pago.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/dbTest.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/test/models/estudiante_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/models/estudiante_test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/models/padre_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/models/padre_test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/models/pago_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/models/pago_test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/utils_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/utils_test.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,20 +29,22 @@
     <session id="193353705">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.28" value="1" />
           <entry key="project.open.time.43" value="1" />
           <entry key="project.open.time.46" value="1" />
           <entry key="project.open.time.54" value="1" />
-          <entry key="project.open.time.56" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.open.time.56" value="2" />
+          <entry key="project.open.time.57" value="1" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="593" value="1" />
           <entry key="eslintrc" value="1" />
-          <entry key="js" value="39" />
+          <entry key="js" value="63" />
           <entry key="json" value="6" />
           <entry key="md" value="3" />
           <entry key="npmignore" value="1" />
@@ -45,7 +54,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JSON" value="7" />
-          <entry key="JavaScript" value="39" />
+          <entry key="JavaScript" value="64" />
           <entry key="Markdown" value="3" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="TypeScript" value="1" />
@@ -53,21 +62,21 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="6862" />
+          <entry key="js" value="11455" />
           <entry key="json" value="104" />
-          <entry key="txt" value="80" />
+          <entry key="txt" value="177" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="104" />
-          <entry key="JavaScript" value="6862" />
-          <entry key="PLAIN_TEXT" value="80" />
+          <entry key="JavaScript" value="11455" />
+          <entry key="PLAIN_TEXT" value="177" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="ESLintLanguageService" value="5" />
+          <entry key="ESLintLanguageService" value="7" />
           <entry key="TypeScriptServerServiceImpl" value="2" />
         </counts>
       </usages-collector>
@@ -79,69 +88,82 @@
   <component name="FileEditorManager">
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/test/models/padre_test.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="286">
-                  <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
-                  <folding>
-                    <element signature="e#358#481#0" />
-                    <element signature="e#556#557#0" expanded="true" />
-                    <element signature="e#586#587#0" expanded="true" />
-                    <element signature="e#840#890#0" />
-                    <element signature="e#2059#2487#0" />
-                    <element signature="e#2085#2479#0" />
-                    <element signature="e#2098#2442#0" />
-                    <element signature="e#2531#3486#0" />
-                    <element signature="e#2571#2907#0" />
-                    <element signature="e#2584#2870#0" />
-                    <element signature="e#2958#3478#0" />
-                    <element signature="e#2971#3441#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
+        <leaf>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/test/utils.js">
+            <entry file="file://$PROJECT_DIR$/app/controller/pagos.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="180">
-                  <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+                  <caret line="48" column="58" lean-forward="true" selection-start-line="48" selection-start-column="58" selection-end-line="48" selection-end-column="58" />
+                  <folding>
+                    <element signature="e#266#531#0" />
+                    <element signature="e#407#527#0" />
+                    <element signature="e#432#479#0" />
+                    <element signature="e#485#523#0" />
+                    <element signature="e#579#981#0" />
+                    <element signature="e#783#974#0" />
+                    <element signature="e#800#886#0" />
+                    <element signature="e#892#968#0" />
+                    <element signature="e#1011#1463#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/controller/estudiantes.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="535">
+                  <caret line="213" column="1" selection-start-line="213" selection-start-column="1" selection-end-line="213" selection-end-column="1" />
+                  <folding>
+                    <element signature="e#559#1254#0" />
+                    <element signature="e#1008#1243#0" />
+                    <element signature="e#1023#1077#0" />
+                    <element signature="e#1083#1239#0" />
+                    <element signature="e#1302#2724#0" />
+                    <element signature="e#1422#1975#0" />
+                    <element signature="e#1453#1588#0" />
+                    <element signature="e#1470#1581#0" />
+                    <element signature="e#1619#1730#0" />
+                    <element signature="e#1637#1723#0" />
+                    <element signature="e#1736#1850#0" />
+                    <element signature="e#1752#1843#0" />
+                    <element signature="e#1856#1914#0" />
+                    <element signature="e#1920#1970#0" />
+                    <element signature="e#2025#2271#0" />
+                    <element signature="e#2144#2265#0" />
+                    <element signature="e#2152#2258#0" />
+                    <element signature="e#2277#2722#0" />
+                    <element signature="e#2435#2716#0" />
+                    <element signature="e#2454#2518#0" />
+                    <element signature="e#2524#2708#0" />
+                    <element signature="e#2804#3222#0" />
+                    <element signature="e#3014#3171#0" />
+                    <element signature="e#3046#3087#0" />
+                    <element signature="e#3093#3165#0" />
+                    <element signature="e#3297#3560#0" />
+                    <element signature="e#3622#4146#0" />
+                    <element signature="e#3725#3761#0" />
+                    <element signature="e#3956#4095#0" />
+                    <element signature="e#3981#4022#0" />
+                    <element signature="e#4028#4089#0" />
+                    <element signature="e#4241#4651#0" />
+                    <element signature="e#4437#4641#0" />
+                    <element signature="e#4490#4635#0" />
+                    <element signature="e#4515#4570#0" />
+                    <element signature="e#4863#5248#0" />
+                    <element signature="e#5292#5463#0" />
+                    <element signature="e#5502#5531#0" />
+                    <element signature="e#5576#5612#0" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/test/dbTest.js">
+            <entry file="file://$PROJECT_DIR$/app/routes/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="396">
-                  <caret line="50" column="2" selection-start-line="50" selection-start-column="2" selection-end-line="50" selection-end-column="2" />
-                  <folding>
-                    <element signature="e#409#506#0" />
-                    <element signature="e#559#928#0" />
-                    <element signature="e#748#801#0" />
-                    <element signature="e#1140#1490#0" />
-                    <element signature="e#1176#1482#0" />
-                    <element signature="e#1234#1437#0" />
-                    <element signature="e#1720#2186#0" />
-                    <element signature="e#1883#1905#0" />
-                    <element signature="e#2217#2564#0" />
-                    <element signature="e#2264#2500#0" />
-                    <element signature="e#2610#3251#0" />
-                    <element signature="e#2660#2757#0" />
-                    <element signature="e#2817#2972#0" />
-                    <element signature="e#3032#3243#0" />
-                    <element signature="e#3339#4912#0" />
-                    <element signature="e#3357#3448#0" />
-                    <element signature="e#3527#3611#0" />
-                    <element signature="e#3657#4375#0" />
-                    <element signature="e#3722#4330#0" />
-                    <element signature="e#4025#4242#0" />
-                    <element signature="e#4384#4386#0" />
-                    <element signature="e#4441#4904#0" />
-                    <element signature="e#4799#4835#0" />
-                  </folding>
+                <state relative-caret-position="257">
+                  <caret line="59" column="45" selection-start-line="59" selection-start-column="45" selection-end-line="59" selection-end-column="45" />
                 </state>
               </provider>
             </entry>
@@ -151,10 +173,28 @@
       <split-second>
         <leaf>
           <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/controller/pagos.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="180">
+                  <caret line="17" column="15" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/models/padre.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="373">
+                  <caret line="75" column="43" lean-forward="true" selection-start-line="75" selection-start-column="43" selection-end-line="75" selection-end-column="43" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/models/estudiante.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="198">
-                  <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+                <state relative-caret-position="342">
+                  <caret line="68" column="56" selection-start-line="68" selection-start-column="23" selection-end-line="68" selection-end-column="56" />
                   <folding>
                     <element signature="e#174#739#0" />
                     <element signature="e#186#262#0" />
@@ -165,82 +205,18 @@
                     <element signature="e#609#690#0" />
                     <element signature="e#615#685#0" />
                     <element signature="e#742#764#0" />
-                    <element signature="e#1034#1052#0" />
-                    <element signature="e#1120#1332#0" />
-                    <element signature="e#1129#1295#0" />
-                    <element signature="e#1337#1355#0" />
-                    <element signature="e#1380#2136#0" />
-                    <element signature="e#1414#1720#0" />
-                    <element signature="e#1423#1674#0" />
-                    <element signature="e#1446#1523#0" />
-                    <element signature="e#1685#1716#0" />
-                    <element signature="e#1774#1866#0" />
-                    <element signature="e#1904#2133#0" />
-                    <element signature="e#1914#2096#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/test/models/estudiante_test.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="468">
-                  <caret line="113" column="7" lean-forward="true" selection-start-line="72" selection-start-column="4" selection-end-line="113" selection-end-column="7" />
-                  <folding>
-                    <element signature="e#619#730#0" />
-                    <element signature="e#785#1444#0" />
-                    <element signature="e#798#1376#0" />
-                    <element signature="e#1395#1434#0" />
-                    <element signature="e#1522#2369#0" />
-                    <element signature="e#1667#1872#0" />
-                    <element signature="e#1680#1835#0" />
-                    <element signature="e#1925#2361#0" />
-                    <element signature="e#1939#2324#0" />
-                    <element signature="e#2411#2859#0" />
-                    <element signature="e#2437#2851#0" />
-                    <element signature="e#2450#2814#0" />
-                    <element signature="e#2903#3858#0" />
-                    <element signature="e#2943#3279#0" />
-                    <element signature="e#2956#3242#0" />
-                    <element signature="e#3330#3850#0" />
-                    <element signature="e#3343#3813#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/models/padre.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="348">
-                  <caret line="75" column="33" selection-start-line="75" selection-start-column="33" selection-end-line="75" selection-end-column="33" />
-                  <folding>
-                    <element signature="e#205#755#0" />
-                    <element signature="e#217#293#0" />
-                    <element signature="e#307#383#0" />
-                    <element signature="e#394#450#0" />
-                    <element signature="e#459#515#0" />
-                    <element signature="e#526#607#0" />
-                    <element signature="e#532#602#0" />
-                    <element signature="e#618#706#0" />
-                    <element signature="e#624#701#0" />
-                    <element signature="e#758#780#0" />
-                    <element signature="e#947#973#0" />
-                    <element signature="e#1128#1146#0" />
-                    <element signature="e#2205#2473#0" />
-                    <element signature="e#2247#2382#0" />
-                    <element signature="e#2584#2697#0" />
-                    <element signature="e#2592#2613#0" />
-                    <element signature="e#2706#2724#0" />
-                    <element signature="e#2797#2889#0" />
-                    <element signature="e#2941#3033#0" />
-                    <element signature="e#3112#3181#0" />
-                    <element signature="e#3221#3355#0" />
-                    <element signature="e#3744#4001#0" />
-                    <element signature="e#3778#3946#0" />
-                    <element signature="e#3850#3883#0" />
-                    <element signature="e#3959#3997#0" />
+                    <element signature="e#1006#1032#0" />
+                    <element signature="e#1112#1130#0" />
+                    <element signature="e#1198#1410#0" />
+                    <element signature="e#1207#1373#0" />
+                    <element signature="e#1539#1557#0" />
+                    <element signature="e#1616#1922#0" />
+                    <element signature="e#1625#1876#0" />
+                    <element signature="e#1648#1725#0" />
+                    <element signature="e#1887#1918#0" />
+                    <element signature="e#1976#2068#0" />
+                    <element signature="e#2106#2286#0" />
+                    <element signature="e#2356#2529#0" />
                   </folding>
                 </state>
               </provider>
@@ -263,6 +239,8 @@
       <find>unexpec</find>
       <find>requi</find>
       <find>console.log</find>
+      <find>bancos</find>
+      <find>exports.</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -276,13 +254,17 @@
         <option value="$PROJECT_DIR$/app/app.js" />
         <option value="$PROJECT_DIR$/.eslintrc.json" />
         <option value="$PROJECT_DIR$/test/utils_test.js" />
-        <option value="$PROJECT_DIR$/test/utils.js" />
-        <option value="$PROJECT_DIR$/test/models/pago_test.js" />
-        <option value="$PROJECT_DIR$/test/models/estudiante_test.js" />
-        <option value="$PROJECT_DIR$/app/models/estudiante.js" />
         <option value="$PROJECT_DIR$/test/dbTest.js" />
+        <option value="$PROJECT_DIR$/test/models/pago_test.js" />
+        <option value="$PROJECT_DIR$/test/utils.js" />
+        <option value="$PROJECT_DIR$/app/models/pago.js" />
+        <option value="$PROJECT_DIR$/app/models/estudiante.js" />
+        <option value="$PROJECT_DIR$/test/models/estudiante_test.js" />
         <option value="$PROJECT_DIR$/app/models/padre.js" />
         <option value="$PROJECT_DIR$/test/models/padre_test.js" />
+        <option value="$PROJECT_DIR$/app/models/index.js" />
+        <option value="$PROJECT_DIR$/app/controller/pagos.js" />
+        <option value="$PROJECT_DIR$/app/controller/estudiantes.js" />
       </list>
     </option>
   </component>
@@ -302,11 +284,56 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-2" />
     <option name="y" value="23" />
     <option name="width" value="1444" />
     <option name="height" value="879" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+          <State>
+            <id>Assignment issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Code style issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Control flow issuesJavaScript</id>
+          </State>
+          <State>
+            <id>DOM issuesJavaScript</id>
+          </State>
+          <State>
+            <id>ECMAScript 6 migration aidsJavaScript</id>
+          </State>
+          <State>
+            <id>General</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript function metricsJavaScript</id>
+          </State>
+          <State>
+            <id>Potentially confusing code constructsJavaScript</id>
+          </State>
+          <State>
+            <id>Probable bugsJavaScript</id>
+          </State>
+          <State>
+            <id>XPath</id>
+          </State>
+          <State>
+            <id>XSLT</id>
+          </State>
+        </expanded-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -316,7 +343,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -328,6 +354,12 @@
               <item name="orcaestra-finanzas" type="b2602c69:ProjectViewProjectNode" />
               <item name="orcaestra-finanzas" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="orcaestra-finanzas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="orcaestra-finanzas" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="orcaestra-finanzas" type="b2602c69:ProjectViewProjectNode" />
@@ -350,10 +382,11 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="estudiante.js&#9;FILE&#9;file:///home/ale/Development/orcaestra-finanzas/app/models/estudiante.js&#10;estu&#9;FILE&#9;file:///home/ale/Development/orcaestra-finanzas/app/models/estudiante.js&#10;padre&#9;FILE&#9;file:///home/ale/Development/orcaestra-finanzas/app/models/padre.js&#10;seed&#9;FILE&#9;file:///home/ale/Development/orcaestra-finanzas/app/seeds.js&#10;db&#9;FILE&#9;file:///home/ale/Development/orcaestra-finanzas/test/dbTest.js" />
+    <property name="SearchEverywhereHistoryKey" value="est&#9;FILE&#9;file:///home/ale/Development/orcaestra-finanzas/app/models/estudiante.js&#10;hijo&#9;null&#9;null&#10;padre.js&#9;FILE&#9;file:///home/ale/Development/orcaestra-finanzas/app/models/padre.js&#10;estudiante.js&#9;FILE&#9;file:///home/ale/Development/orcaestra-finanzas/app/models/estudiante.js&#10;estu&#9;FILE&#9;file:///home/ale/Development/orcaestra-finanzas/app/models/estudiante.js&#10;padre&#9;FILE&#9;file:///home/ale/Development/orcaestra-finanzas/app/models/padre.js&#10;seed&#9;FILE&#9;file:///home/ale/Development/orcaestra-finanzas/app/seeds.js&#10;db&#9;FILE&#9;file:///home/ale/Development/orcaestra-finanzas/test/dbTest.js" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="10.12.0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../orcaestra-sinfonica-server/tests/utils/randomData.ts" />
@@ -367,7 +400,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RunDashboard">
@@ -382,14 +415,44 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Mocha.Padres.methods..agregarPago() (1)">
+  <component name="RunManager" selected="Mocha.Padres">
+    <configuration name="Estudiantes" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options>-b</extra-mocha-options>
+      <test-kind>SUITE</test-kind>
+      <test-file>$PROJECT_DIR$/test/models/estudiante_test.js</test-file>
+      <test-names>
+        <name value="Estudiantes" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Estudiantes.statics.deberia transferirPago" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options>-b</extra-mocha-options>
+      <test-kind>TEST</test-kind>
+      <test-file>$PROJECT_DIR$/test/models/estudiante_test.js</test-file>
+      <test-names>
+        <name value="Estudiantes" />
+        <name value="statics" />
+        <name value="deberia transferirPago" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <configuration name="Padres" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <working-directory>$PROJECT_DIR$</working-directory>
       <pass-parent-env>true</pass-parent-env>
       <ui>bdd</ui>
-      <extra-mocha-options />
+      <extra-mocha-options>-b</extra-mocha-options>
       <test-kind>SUITE</test-kind>
       <test-file>$PROJECT_DIR$/test/models/padre_test.js</test-file>
       <test-names>
@@ -397,84 +460,63 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="Padres.methods..agregarHijo()" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
+    <configuration name="Padres.methods" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <working-directory>$PROJECT_DIR$</working-directory>
       <pass-parent-env>true</pass-parent-env>
       <ui>bdd</ui>
-      <extra-mocha-options />
-      <test-kind>TEST</test-kind>
-      <test-file>$PROJECT_DIR$/test/models/padre_test.js</test-file>
-      <test-names>
-        <name value="Padres" />
-        <name value="methods" />
-        <name value=".agregarHijo()" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="Padres.methods..agregarPago() (1)" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <ui>bdd</ui>
-      <extra-mocha-options />
-      <test-kind>TEST</test-kind>
-      <test-file>$PROJECT_DIR$/test/models/padre_test.js</test-file>
-      <test-names>
-        <name value="Padres" />
-        <name value="methods" />
-        <name value=".agregarPago()" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="Padres.methods..agregarPago()" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <ui>bdd</ui>
-      <extra-mocha-options />
+      <extra-mocha-options>-b</extra-mocha-options>
       <test-kind>SUITE</test-kind>
       <test-file>$PROJECT_DIR$/test/models/padre_test.js</test-file>
       <test-names>
         <name value="Padres" />
         <name value="methods" />
-        <name value=".agregarPago()" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="Padres.pre-remove hook.deberia eliminar todo lo que lleva adentro" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
+    <configuration name="Padres.methods..quitarPago()" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <working-directory>$PROJECT_DIR$</working-directory>
       <pass-parent-env>true</pass-parent-env>
       <ui>bdd</ui>
-      <extra-mocha-options />
+      <extra-mocha-options>-b</extra-mocha-options>
       <test-kind>TEST</test-kind>
       <test-file>$PROJECT_DIR$/test/models/padre_test.js</test-file>
       <test-names>
         <name value="Padres" />
-        <name value="pre-remove hook" />
-        <name value="deberia eliminar todo lo que lleva adentro" />
+        <name value="methods" />
+        <name value=".quitarPago()" />
       </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <ui />
+      <extra-mocha-options>-b</extra-mocha-options>
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Mocha.Padres.methods..agregarPago()" />
+      <item itemvalue="Mocha.Estudiantes" />
+      <item itemvalue="Mocha.Estudiantes.statics.deberia transferirPago" />
       <item itemvalue="Mocha.Padres" />
-      <item itemvalue="Mocha.Padres.pre-remove hook.deberia eliminar todo lo que lleva adentro" />
-      <item itemvalue="Mocha.Padres.methods..agregarHijo()" />
-      <item itemvalue="Mocha.Padres.methods..agregarPago() (1)" />
+      <item itemvalue="Mocha.Padres.methods..quitarPago()" />
+      <item itemvalue="Mocha.Padres.methods" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Mocha.Padres.methods..agregarPago() (1)" />
-        <item itemvalue="Mocha.Padres.methods..agregarHijo()" />
-        <item itemvalue="Mocha.Padres.pre-remove hook.deberia eliminar todo lo que lleva adentro" />
         <item itemvalue="Mocha.Padres" />
-        <item itemvalue="Mocha.Padres.methods..agregarPago()" />
+        <item itemvalue="Mocha.Padres.methods" />
+        <item itemvalue="Mocha.Padres.methods..quitarPago()" />
+        <item itemvalue="Mocha.Estudiantes" />
+        <item itemvalue="Mocha.Estudiantes.statics.deberia transferirPago" />
       </list>
     </recent_temporary>
   </component>
@@ -493,43 +535,50 @@
       <option name="project" value="LOCAL" />
       <updated>1540422394847</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Tests for models/estudiantes done.&#10;Although I'm not so sure about the quality of the test">
+      <created>1540437074803</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1540437074803</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Padres_pre-remove_hook_deberia_eliminar_todo_lo_que_lleva_adentro - 2018.10.24 at 22h 55m 01s.xml">
-      <configuration name="Padres.pre-remove hook.deberia eliminar todo lo que lleva adentro" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Padres - 2018.10.25 at 16h 33m 03s.xml">
+      <configuration name="Padres" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Padres_pre-remove_hook_deberia_eliminar_todo_lo_que_lleva_adentro - 2018.10.24 at 22h 55m 54s.xml">
-      <configuration name="Padres.pre-remove hook.deberia eliminar todo lo que lleva adentro" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Padres - 2018.10.25 at 16h 35m 39s.xml">
+      <configuration name="Padres" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Padres_pre-remove_hook_deberia_eliminar_todo_lo_que_lleva_adentro - 2018.10.24 at 22h 56m 42s.xml">
-      <configuration name="Padres.pre-remove hook.deberia eliminar todo lo que lleva adentro" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Padres - 2018.10.25 at 16h 35m 50s.xml">
+      <configuration name="Padres" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Padres_methods__agregarHijo() - 2018.10.24 at 23h 07m 24s.xml">
-      <configuration name="Padres.methods..agregarHijo()" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Padres - 2018.10.25 at 16h 39m 00s.xml">
+      <configuration name="Padres" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Padres_methods__agregarHijo() - 2018.10.24 at 23h 08m 01s.xml">
-      <configuration name="Padres.methods..agregarHijo()" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Padres_methods - 2018.10.25 at 16h 39m 08s.xml">
+      <configuration name="Padres.methods" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Padres_methods__agregarHijo() - 2018.10.24 at 23h 08m 20s.xml">
-      <configuration name="Padres.methods..agregarHijo()" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Padres_methods - 2018.10.25 at 16h 39m 25s.xml">
+      <configuration name="Padres.methods" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Padres_methods__agregarPago()_(1) - 2018.10.24 at 23h 09m 16s.xml">
-      <configuration name="Padres.methods..agregarPago() (1)" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Padres_methods - 2018.10.25 at 16h 40m 45s.xml">
+      <configuration name="Padres.methods" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Padres_methods__agregarPago()_(1) - 2018.10.24 at 23h 09m 29s.xml">
-      <configuration name="Padres.methods..agregarPago() (1)" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Padres_methods - 2018.10.25 at 16h 41m 56s.xml">
+      <configuration name="Padres.methods" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Padres_methods__agregarPago()_(1) - 2018.10.24 at 23h 09m 38s.xml">
-      <configuration name="Padres.methods..agregarPago() (1)" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Padres_methods - 2018.10.25 at 16h 42m 09s.xml">
+      <configuration name="Padres.methods" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Padres_methods__agregarPago()_(1) - 2018.10.24 at 23h 10m 17s.xml">
-      <configuration name="Padres.methods..agregarPago() (1)" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Padres - 2018.10.25 at 16h 42m 23s.xml">
+      <configuration name="Padres" configurationId="mocha-javascript-test-runner" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2" y="-34" width="1444" height="936" extended-state="0" />
+    <frame x="-2" y="23" width="1444" height="879" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.24930556" />
@@ -537,14 +586,14 @@
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" weight="0.3298611" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4409722" weight="0.32672113" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.5590278" side_tool="true" visible="true" weight="0.32672113" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49930555" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.43125" weight="0.34875" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.56875" side_tool="true" weight="0.34875" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.3715278" weight="0.3185531" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.36458334" weight="0.3175" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5590278" side_tool="true" weight="0.32672113" />
       <window_info anchor="bottom" id="TypeScript" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -553,28 +602,6 @@
       <window_info anchor="right" id="Mongo Explorer" order="3" />
       <window_info anchor="right" id="Key Promoter X" order="4" />
     </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24930556" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="2" side_tool="true" />
-      <window_info id="Favorites" order="3" side_tool="true" weight="0.3298611" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32672113" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.6284722" side_tool="true" visible="true" weight="0.3185531" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.3715278" visible="true" weight="0.3185531" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="TypeScript" order="10" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Mongo Explorer" order="3" />
-      <window_info anchor="right" id="Key Promoter X" order="4" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -583,8 +610,43 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="Starting Tests for Everything.&#10;Tests for models/pago done" />
-    <option name="LAST_COMMIT_MESSAGE" value="Starting Tests for Everything.&#10;Tests for models/pago done" />
+    <MESSAGE value="Tests for models/estudiantes done.&#10;Although I'm not so sure about the quality of the test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tests for models/estudiantes done.&#10;Although I'm not so sure about the quality of the test" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/test/models/estudiante_test.js</url>
+          <line>112</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/test/models/estudiante_test.js</url>
+          <line>113</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/test/models/estudiante_test.js</url>
+          <line>115</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/test/models/padre_test.js</url>
+          <line>122</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+      </breakpoints>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/test/quicktest.js" />
@@ -664,20 +726,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/pago.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="37" column="42" lean-forward="true" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/models/pago_test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="14" lean-forward="true" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/seeds.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
@@ -696,10 +744,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
           <caret line="120" column="20" selection-start-line="120" selection-start-column="20" selection-end-line="120" selection-end-column="20" />
-          <folding>
-            <element signature="e#3176#3177#0" expanded="true" />
-            <element signature="e#3244#3245#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -742,43 +786,145 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test/models/pago_test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/padres.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-50">
+          <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+          <folding>
+            <element signature="e#242#521#0" />
+            <element signature="e#275#332#0" />
+            <element signature="e#371#510#0" />
+            <element signature="e#388#446#0" />
+            <element signature="e#452#504#0" />
+            <element signature="e#567#1149#0" />
+            <element signature="e#621#879#0" />
+            <element signature="e#692#827#0" />
+            <element signature="e#709#820#0" />
+            <element signature="e#913#1138#0" />
+            <element signature="e#928#982#0" />
+            <element signature="e#988#1134#0" />
+            <element signature="e#1152#1211#0" />
+            <element signature="e#1287#1325#0" />
+            <element signature="e#2170#2182#0" />
+            <element signature="e#3088#3476#0" />
+            <element signature="e#3283#3425#0" />
+            <element signature="e#3310#3351#0" />
+            <element signature="e#3357#3419#0" />
+            <element signature="e#3554#3786#0" />
+            <element signature="e#3856#4284#0" />
+            <element signature="e#4099#4233#0" />
+            <element signature="e#4124#4165#0" />
+            <element signature="e#4171#4227#0" />
+            <element signature="e#4382#4777#0" />
+            <element signature="e#4568#4767#0" />
+            <element signature="e#4616#4761#0" />
+            <element signature="e#4641#4696#0" />
+            <element signature="e#4837#5217#0" />
+            <element signature="e#5243#5587#0" />
+            <element signature="e#5261#5432#0" />
+            <element signature="e#5471#5500#0" />
+            <element signature="e#5538#5567#0" />
+            <element signature="e#5611#5835#0" />
+            <element signature="e#5629#5725#0" />
+            <element signature="e#5729#5775#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/models/padre_test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="64" column="6" selection-start-line="64" selection-start-column="6" selection-end-line="64" selection-end-column="6" />
+          <folding>
+            <element signature="e#365#495#0" />
+            <element signature="e#642#755#0" />
+            <element signature="e#1139#1715#0" />
+            <element signature="e#798#1100#0" />
+            <element signature="e#2105#2218#0" />
+            <element signature="e#4084#4611#0" />
+            <element signature="e#4624#5122#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/models/estudiante_test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="113" column="7" lean-forward="true" selection-start-line="72" selection-start-column="4" selection-end-line="113" selection-end-column="7" />
+        <state relative-caret-position="504">
+          <caret line="79" column="10" lean-forward="true" selection-start-line="58" selection-start-column="4" selection-end-line="79" selection-end-column="7" />
           <folding>
-            <element signature="e#619#730#0" />
-            <element signature="e#785#1444#0" />
-            <element signature="e#798#1376#0" />
-            <element signature="e#1395#1434#0" />
-            <element signature="e#1522#2369#0" />
-            <element signature="e#1667#1872#0" />
-            <element signature="e#1680#1835#0" />
-            <element signature="e#1925#2361#0" />
-            <element signature="e#1939#2324#0" />
-            <element signature="e#2411#2859#0" />
-            <element signature="e#2437#2851#0" />
-            <element signature="e#2450#2814#0" />
-            <element signature="e#2903#3858#0" />
-            <element signature="e#2943#3279#0" />
-            <element signature="e#2956#3242#0" />
-            <element signature="e#3330#3850#0" />
-            <element signature="e#3343#3813#0" />
+            <element signature="e#484#1617#0" />
+            <element signature="e#619#734#0" />
+            <element signature="e#789#1369#0" />
+            <element signature="e#1368#1591#0" />
+            <element signature="e#1749#1895#0" />
+            <element signature="e#1924#2014#0" />
+            <element signature="e#1596#1751#0" />
+            <element signature="e#1805#2227#0" />
+            <element signature="e#2277#2634#0" />
+            <element signature="e#2838#3097#0" />
+            <element signature="e#3148#3641#0" />
+            <element signature="e#4085#4517#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/utils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+        <state relative-caret-position="396">
+          <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
+          <folding>
+            <element signature="e#332#570#0" />
+            <element signature="e#347#551#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/pago.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="42" column="35" lean-forward="true" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
+          <folding>
+            <element signature="e#42#73#0" />
+            <element signature="e#113#135#0" />
+            <element signature="e#173#450#0" />
+            <element signature="e#184#244#0" />
+            <element signature="e#260#320#0" />
+            <element signature="e#331#377#0" />
+            <element signature="e#388#447#0" />
+            <element signature="e#454#476#0" />
+            <element signature="e#477#501#0" />
+            <element signature="e#503#521#0" />
+            <element signature="e#674#750#0" />
+            <element signature="e#799#882#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/padre.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="75" column="43" lean-forward="true" selection-start-line="75" selection-start-column="43" selection-end-line="75" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/estudiante.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+        <state relative-caret-position="342">
+          <caret line="68" column="56" selection-start-line="68" selection-start-column="23" selection-end-line="68" selection-end-column="56" />
           <folding>
             <element signature="e#174#739#0" />
             <element signature="e#186#262#0" />
@@ -789,73 +935,91 @@
             <element signature="e#609#690#0" />
             <element signature="e#615#685#0" />
             <element signature="e#742#764#0" />
-            <element signature="e#1034#1052#0" />
-            <element signature="e#1120#1332#0" />
-            <element signature="e#1129#1295#0" />
-            <element signature="e#1337#1355#0" />
-            <element signature="e#1380#2136#0" />
-            <element signature="e#1414#1720#0" />
-            <element signature="e#1423#1674#0" />
-            <element signature="e#1446#1523#0" />
-            <element signature="e#1685#1716#0" />
-            <element signature="e#1774#1866#0" />
-            <element signature="e#1904#2133#0" />
-            <element signature="e#1914#2096#0" />
+            <element signature="e#1006#1032#0" />
+            <element signature="e#1112#1130#0" />
+            <element signature="e#1198#1410#0" />
+            <element signature="e#1207#1373#0" />
+            <element signature="e#1539#1557#0" />
+            <element signature="e#1616#1922#0" />
+            <element signature="e#1625#1876#0" />
+            <element signature="e#1648#1725#0" />
+            <element signature="e#1887#1918#0" />
+            <element signature="e#1976#2068#0" />
+            <element signature="e#2106#2286#0" />
+            <element signature="e#2356#2529#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/padre.js">
+    <entry file="file://$PROJECT_DIR$/app/controller/pagos.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="75" column="33" selection-start-line="75" selection-start-column="33" selection-end-line="75" selection-end-column="33" />
+        <state relative-caret-position="180">
+          <caret line="48" column="58" lean-forward="true" selection-start-line="48" selection-start-column="58" selection-end-line="48" selection-end-column="58" />
           <folding>
-            <element signature="e#205#755#0" />
-            <element signature="e#217#293#0" />
-            <element signature="e#307#383#0" />
-            <element signature="e#394#450#0" />
-            <element signature="e#459#515#0" />
-            <element signature="e#526#607#0" />
-            <element signature="e#532#602#0" />
-            <element signature="e#618#706#0" />
-            <element signature="e#624#701#0" />
-            <element signature="e#758#780#0" />
-            <element signature="e#947#973#0" />
-            <element signature="e#1128#1146#0" />
-            <element signature="e#2205#2473#0" />
-            <element signature="e#2247#2382#0" />
-            <element signature="e#2584#2697#0" />
-            <element signature="e#2592#2613#0" />
-            <element signature="e#2706#2724#0" />
-            <element signature="e#2797#2889#0" />
-            <element signature="e#2941#3033#0" />
-            <element signature="e#3112#3181#0" />
-            <element signature="e#3221#3355#0" />
-            <element signature="e#3744#4001#0" />
-            <element signature="e#3778#3946#0" />
-            <element signature="e#3850#3883#0" />
-            <element signature="e#3959#3997#0" />
+            <element signature="e#266#531#0" />
+            <element signature="e#407#527#0" />
+            <element signature="e#432#479#0" />
+            <element signature="e#485#523#0" />
+            <element signature="e#579#981#0" />
+            <element signature="e#783#974#0" />
+            <element signature="e#800#886#0" />
+            <element signature="e#892#968#0" />
+            <element signature="e#1011#1463#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/models/padre_test.js">
+    <entry file="file://$PROJECT_DIR$/app/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
+        <state relative-caret-position="257">
+          <caret line="59" column="45" selection-start-line="59" selection-start-column="45" selection-end-line="59" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/estudiantes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="213" column="1" selection-start-line="213" selection-start-column="1" selection-end-line="213" selection-end-column="1" />
           <folding>
-            <element signature="e#358#481#0" />
-            <element signature="e#556#557#0" expanded="true" />
-            <element signature="e#586#587#0" expanded="true" />
-            <element signature="e#840#890#0" />
-            <element signature="e#2059#2487#0" />
-            <element signature="e#2085#2479#0" />
-            <element signature="e#2098#2442#0" />
-            <element signature="e#2531#3486#0" />
-            <element signature="e#2571#2907#0" />
-            <element signature="e#2584#2870#0" />
-            <element signature="e#2958#3478#0" />
-            <element signature="e#2971#3441#0" />
+            <element signature="e#559#1254#0" />
+            <element signature="e#1008#1243#0" />
+            <element signature="e#1023#1077#0" />
+            <element signature="e#1083#1239#0" />
+            <element signature="e#1302#2724#0" />
+            <element signature="e#1422#1975#0" />
+            <element signature="e#1453#1588#0" />
+            <element signature="e#1470#1581#0" />
+            <element signature="e#1619#1730#0" />
+            <element signature="e#1637#1723#0" />
+            <element signature="e#1736#1850#0" />
+            <element signature="e#1752#1843#0" />
+            <element signature="e#1856#1914#0" />
+            <element signature="e#1920#1970#0" />
+            <element signature="e#2025#2271#0" />
+            <element signature="e#2144#2265#0" />
+            <element signature="e#2152#2258#0" />
+            <element signature="e#2277#2722#0" />
+            <element signature="e#2435#2716#0" />
+            <element signature="e#2454#2518#0" />
+            <element signature="e#2524#2708#0" />
+            <element signature="e#2804#3222#0" />
+            <element signature="e#3014#3171#0" />
+            <element signature="e#3046#3087#0" />
+            <element signature="e#3093#3165#0" />
+            <element signature="e#3297#3560#0" />
+            <element signature="e#3622#4146#0" />
+            <element signature="e#3725#3761#0" />
+            <element signature="e#3956#4095#0" />
+            <element signature="e#3981#4022#0" />
+            <element signature="e#4028#4089#0" />
+            <element signature="e#4241#4651#0" />
+            <element signature="e#4437#4641#0" />
+            <element signature="e#4490#4635#0" />
+            <element signature="e#4515#4570#0" />
+            <element signature="e#4863#5248#0" />
+            <element signature="e#5292#5463#0" />
+            <element signature="e#5502#5531#0" />
+            <element signature="e#5576#5612#0" />
           </folding>
         </state>
       </provider>

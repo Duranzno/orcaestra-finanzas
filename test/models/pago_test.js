@@ -8,12 +8,12 @@ describe('Pagos', () => {
   after(() => mongoose.disconnect());
   afterEach(() => Pago.deleteMany({}));
   it('deberia crear pagoNuevo', async() => {
-    let expected=mockData.getPago();
+    let expected=mockData.getMockPago();
     let result=await Pago.crear(expected);
     expected.referencia.should.be.equal(result.referencia);
   });
   it('deberia crear pagoNuevo reemplazando', async() => {
-    let expected=mockData.getPago();
+    let expected=mockData.getMockPago();
     await Pago.crear(expected);
 
     expected.monto="42";
@@ -21,5 +21,6 @@ describe('Pagos', () => {
     result.monto.should.be.equal(42);
 
   });
+
 
 });

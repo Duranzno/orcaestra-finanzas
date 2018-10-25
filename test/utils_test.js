@@ -4,19 +4,19 @@ chai.should();
 const dataMock = require("./utils");
 describe('Utils', async() => {
   it('deberia crear Estudiante', async() => {
-     let estudiante=dataMock.getStudent();
+     let estudiante=dataMock.getMockStudent();
      estudiante.should.be.an('object');
      estudiante.should.have.property('nombre');
      console.log(estudiante);
   });
   it('deberia crear Pago', async() => {
-    let pago=dataMock.getPago();
+    let pago=dataMock.getMockPago();
     pago.should.be.an('object');
     pago.should.have.property('banco');
     console.log(pago);
   });
   it('deberia crear Pago', async() => {
-    let padre=dataMock.getPadre();
+    let padre=dataMock.getMockPadre();
     padre.should.be.an('object');
     padre.should.have.property('nombre');
     console.log(padre);

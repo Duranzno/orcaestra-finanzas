@@ -1,9 +1,14 @@
+const chai=require('chai');
+const expect=chai.expect;
 const Bancos= require('../app/models/bancos');
 const Grupos= require('../app/models/grupos');
 const NameArray=["Alejandro","Fernando","Dominga","Armando","Arturo","Lennittza","Ricardo","Eduardo","Paola","Ramon"];
 const LastNameArray=["Duran","Aparicio","Cova","Martinez","Brito","Zorrilla","Hernandez"];
 module.exports={
-  getPago(){
+  assertSameId(result, expected){
+    expect(result._id.toString()).to.equal(expected._id.toString());
+  },
+  getMockPago(){
     const a= {
       banco: Bancos[Math.floor(Math.random() * Bancos.length)],
       referencia: Math.floor(Math.random() * 1000 + 100).toString(),
@@ -11,7 +16,7 @@ module.exports={
     };
     return a;
   },
-  getStudent(){
+  getMockStudent(){
     const a={
       nombre:NameArray[Math.floor(Math.random() * NameArray.length)],
       apellido:LastNameArray[Math.floor(Math.random() * LastNameArray.length)],
@@ -22,7 +27,7 @@ module.exports={
     a.email=`${a.nombre}_${a.apellido}@noexiste.com`;
     return a;
   },
-  getPadre(){
+  getMockPadre(){
     const a={
       nombre:NameArray[Math.floor(Math.random() * NameArray.length)],
       apellido:LastNameArray[Math.floor(Math.random() * LastNameArray.length)],

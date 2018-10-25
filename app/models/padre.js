@@ -5,6 +5,7 @@ const TAG = 'modelRepresentante|';
 const Pago = require('./pago');
 const Estudiante = require('./estudiante');
 
+const updateOptions = {multi: true,safe:true,runValidators:true,upsert:true};
 const PadreSchema = new mongoose.Schema({
   nombre: {
     type: String,
@@ -42,34 +43,16 @@ const PadreSchema = new mongoose.Schema({
   ],
   createdAt: {type: Date, default: Date.now},
 });
+
 /**
  * Validations
  */
 PadreSchema.path('nombre').required(true, 'Nombre no puede estar en blanco');
 PadreSchema.path('apellido').required(true,'Apellido no puede estar en blanco');
 /**
- * Pre-remove hook
- */
-
-
-/**
  * Methods
  */
 PadreSchema.methods = {
-  agregarHijo2: async function(hijoNuevo) {
-    let padThis = this;
-    let hijo = await Estudiante.crear(hijoNuevo);
-    padThis.hijos.addToSet(hijo._id);
-    await padThis.save();
-    console.log(
-      TAG,
-      `Se agrego ${hijo.nombre} ${hijo.apellido} a ${padThis.nombre} ${
-        padThis.apellido
-      }`
-    );
-    let letmesee = await Estudiante.findById(hijo._id);
-    return letmesee;
-  },
   agregarHijo:async function(hijoNuevo){
     try{
       let padThis = this;
@@ -80,46 +63,26 @@ PadreSchema.methods = {
     }
     catch (e) {console.error(e)}
   },
+  quitarHijo:async function(hijoEliminable){
+    await this.update({$pull:{"hijos":hijoEliminable._id}},
+      updateOptions)
+  },
   agregarPago: async function(pagoNuevo) {
-    try{
-      let padThis = this;
       let pago = await Pago.crear(pagoNuevo);
-      padThis.pagos.addToSet(pago._id);
-      await padThis.save();
+      this.pagos.addToSet(pago._id);
+      await this.save();
       return pago;
-    }
-    catch (e) {console.error(e)}
   },
-  eliminar: () => {
-    let padThis = this;
-    Promise.all([
-      padThis.eliminarPago(padThis.pagos),
-      padThis.eliminarHijo(padThis.hijos),
-      padThis.remove({_id: padThis._id}),
-    ]).then(() => {
-      console.log('Se elimino el padre, con sus hijos y pagos');
-    });
-  },
-  eliminarPago: async function() {
-    if (argument.constructor !== Array) {
-      //El pago se eliminar
-      //Se saca de Padre
-      //Si el padre tiene hijos se saca de los hijos
-    }
-  },
+  quitarPago:async function(pagoEliminable){
+    await this.update({$pull:{"pagos":pagoEliminable._id}},
+      updateOptions)
+  }
 };
+
 /**
  * Statics
  */
 PadreSchema.statics = {
-  agregarHijo: async function(padId, hijoNuevo) {
-    let pad = await this.findById(padId);
-    return await pad.agregarHijo(hijoNuevo);
-  },
-  crearPagoById: async function(padId, pagoNuevo) {
-    let pad = await this.findById(padId);
-    return await pad.agregarPago(pagoNuevo);
-  },
   crear: async function(pNuevo) {
     let padThis = this;
     const filtro = {
@@ -144,17 +107,15 @@ PadreSchema.statics = {
     );
     return letmesee;
   },
-  eliminarById: async function(padId) {
-    let padThis = this;
-    try {
-      let pad = await padThis.findById(padId);
-      if (pad != null) {
-        pad.eliminar();
-      } else console.log(TAG, 'No se ha encontrado este padre');
-    } catch (err) {
-      console.error(TAG, err);
-    }
+  transferirPago:async function(trasnferidorId,transferidoId,pagoId){
+    await this.update({'_id':transferidoId} ,{$push:{pagos:pagoId}},updateOptions);
+    await this.update({'_id':trasnferidorId},{$pull:{pagos:pagoId}},updateOptions);
   },
+  transferirHijo:async function(trasnferidorId,transferidoId,hijoId){
+    await this.update({'_id':transferidoId} ,{$push:{hijos:hijoId}},updateOptions);
+    await this.update({'_id':trasnferidorId},{$pull:{hijos:hijoId}},updateOptions);
+  }
+
 };
 
 module.exports = mongoose.model('Padres', PadreSchema);

@@ -49,6 +49,7 @@ StudentSchema.path('grupo').required(true, 'Grupo no puede estar en blanco');
 /**
  * Pre-remove hook
  */
+const updateOptions = {multi: true,safe:true,runValidators:true,upsert:true};
 
 /**
  * Methods
@@ -63,6 +64,9 @@ StudentSchema.methods = {
       return pago;
     }
     catch (e) {console.error(e)}
+  },
+  quitarPago:async function(pagoEliminable){
+    await this.update({$pull:{"pagos":pagoEliminable._id}},updateOptions)
   },
 };
 /**
@@ -87,13 +91,14 @@ StudentSchema.statics = {
     return await est.agregarPago(pagoNuevo);
   },
   eliminarById:async function(estId){
-    try {
       let est= await this.findOne({"_id":estId});
       if (est.pagos&&est.pagos.length>0) await Pago.remove({_id: {$in: est.pagos}});
       await this.remove({"_id":estId});
-    }
-    catch (e) {console.error(e)}
   },
+  transferirPago:async function(trasnferidorId,transferidoId,pagoId){
+    await this.update({'_id':transferidoId} ,{$push:{pagos:pagoId}},updateOptions);
+    await this.update({'_id':trasnferidorId},{$pull:{pagos:pagoId}},updateOptions);
+  }
 };
 
 module.exports = mongoose.model('Estudiantes', StudentSchema);

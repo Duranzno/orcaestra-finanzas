@@ -2,9 +2,9 @@ const chai   = require('chai');
 chai.should();
 const expect=chai.expect;
 const mongoose = require('mongoose');
-const mockData=require('../utils');
-const Estudiante=require('../../app/models/estudiante');
+const utils=require('../utils');
 const Pago=require('../../app/models/pago');
+const Estudiante=require('../../app/models/estudiante');
 
 describe('Estudiantes', () => {
   before(()=>mongoose.connect('mongodb://localhost:27017/testdb',{useNewUrlParser: true}));
@@ -12,109 +12,115 @@ describe('Estudiantes', () => {
   afterEach(() => Estudiante.deleteMany({}));
 
   describe('methods', () => {
-    describe('.agregarPago()',() => {
-      let expectedEst,est;
-      after(() => Pago.deleteMany({}));
-      before(async () => {
-        expectedEst = mockData.getStudent();
-        est      = await Estudiante.create(expectedEst);
-      });
-
-      it('deberia agregarPago inicial', async() => {
-        try{
-          let expected=mockData.getPago();
-          console.log(expected);
-          let result=await est.agregarPago(expected);
-          console.log(result);
-          est=await Estudiante.findOne({});
-          console.log(est);
-          est.pagos.should.include(result._id);
-          result.referencia.should.be.equal(expected.referencia);
-          result.banco.should.be.equal(expected.banco);
-          result=await Pago.findOne({});
-          result.referencia.should.be.equal(expected.referencia);
-          result.banco.should.be.equal(expected.banco);
-
-        }
-        catch (e) {
-          console.error(e);
-        }
-
-
-      });
+    let expectedEst,est,expectedPago;
+    before(async () => {
+      expectedEst = utils.getMockStudent();
+      est      = await Estudiante.create(expectedEst);
+      expectedPago=utils.getMockPago();
     });
+    afterEach(() => Pago.deleteMany({}));
+
+    it('.agregarPago()', async() => {
+        let expected=utils.getMockPago();
+        console.log(expected);
+        let result=await est.agregarPago(expected);
+        console.log(result);
+        est=await Estudiante.findOne({});
+        console.log(est);
+        est.pagos.should.include(result._id);
+        result.referencia.should.be.equal(expected.referencia);
+        result.banco.should.be.equal(expected.banco);
+        result=await Pago.findOne({});
+        result.referencia.should.be.equal(expected.referencia);
+        result.banco.should.be.equal(expected.banco);
+
+    });
+    it('.quitarPago()', async() => {
+        est=await Estudiante.create(expectedEst);
+        let resultPago=await est.agregarPago(expectedPago);
+        await est.quitarPago(resultPago);
+        est= await Estudiante.findOne({});
+        est.pagos.should.have.lengthOf(0);
+      });
   });
+
   describe('statics', () => {
+    let expectedEst,est,expectedPago;
+    before(async() => {
+      expectedPago=utils.getMockPago();
+      expectedEst = utils.getMockStudent();
+    });
+    afterEach(async() => {
+      await   Estudiante.deleteMany({});
+      await   Pago.deleteMany({});
+
+    });
+
     describe('.crear()', () => {
       let expected;
       before(() => {
-        expected = mockData.getStudent();
+        expected = utils.getMockStudent();
       });
 
       it('deberia crear nuevo', async function() {
-        try{
           let result=await Estudiante.crear(expected);
           result.nombre.should.be.equal(expected.nombre);
           console.log(result);
-        } catch (e) {console.error(e)}
-      });
+        });
+
       it('deberia devolver ya creado', async() => {
-        try {
           const changedEmail="noemail@email.com";
+          await Estudiante.crear(expected);
           let originalResult=await Estudiante.findOne({});
           originalResult.nombre.should.be.equal(expected.nombre);
           expected.email=changedEmail;
           let changedResult=await Estudiante.crear(expected);
-          changedResult.nombre.should.equal(changedEmail).but.not.equal.to(originalResult.email)
-
-        } catch (e) {console.error(e)}
+          changedResult.email.should.equal(changedEmail).but.not.equal(originalResult.email)
       });
     });
-    describe('.crearPagoById()', () => {
-      it('', async() => {
-        try{
-          const expectedPago=mockData.getPago();
-          const expectedEst=mockData.getStudent();
+    it('.agregarPagoById()', async() => {
+          const expectedPago=utils.getMockPago();
+          const expectedEst=utils.getMockStudent();
           let result=await Estudiante.crear(expectedEst);
           const id=result._id;
-          let resultPago=Estudiante.crearPagoById(id, expectedPago);
+          let resultPago=await Estudiante.agregarPagoById(id, expectedPago);
           resultPago.referencia.should.be.equal(expectedPago.referencia);
-
-        } catch (e) {console.error(e)}
       });
+    it('.eliminarById()', async() => {
+        const expected=utils.getMockStudent();
+        let result =await Estudiante.create(expected);
+        await Estudiante.eliminarById(result._id);
+        result = await Estudiante.find({});
+        result.should.have.lengthOf(0);
     });
-    describe('.eliminarById', async() => {
-      it('eliminarById()', async() => {
-        try{
+    it('.eliminarById() with Pago', async() => {
           Estudiante.deleteMany({});
-          const expected=mockData.getStudent();
-          let result =await Estudiante.create(expected);
-          await Estudiante.eliminarById(result._id);
-          result = await Estudiante.find({});
-          result.should.be.empty;
-        }catch (e) {console.error(e)}
-
-      });
-      it('eliminarById() with Pago', async() => {
-        try{
-          Estudiante.deleteMany({});
-          const expectedEst=mockData.getStudent();
-          const expectedPago=mockData.getPago();
+          const expectedEst=utils.getMockStudent();
+          const expectedPago=utils.getMockPago();
           let result =await Estudiante.create(expectedEst);
           await result.agregarPago(expectedPago);
           await Estudiante.eliminarById(result._id);
           result = await Pago.find({});
-          result.should.be.empty;
+          result.should.have.lengthOf(0);
           result = await Estudiante.find({});
-          expect(result).to.be.empty;
+          expect(result).to.have.lengthOf(0);
 
-        }catch (e) {console.error(e)}
 
       });
+    it('.transferirPago()', async() => {
+      est      = await Estudiante.create(expectedEst);
+
+      let pago = await est.agregarPago(expectedPago);
+      let secondEst = await Estudiante.create(utils.getMockStudent());
+
+      await Estudiante.transferirPago(est._id, secondEst._id, pago._id);
+
+      est = await Estudiante.findOne({'_id': est._id});
+      secondEst = await Estudiante.findOne({'_id': secondEst._id});
+
+      est.pagos.should.have.lengthOf(0);
+      secondEst.pagos.should.have.lengthOf(1);
+      utils.assertSameId(secondEst.pagos[0], pago)
     });
   });
-
-
-
-
 });
