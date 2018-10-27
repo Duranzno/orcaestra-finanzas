@@ -3,8 +3,8 @@ chai.should();
 const expect=chai.expect;
 const mongoose = require('mongoose');
 const utils=require('../utils');
-const Pago=require('../../app/models/pago');
-const Estudiante=require('../../app/models/estudiante');
+const Pago=require('../../src/models/pago');
+const Estudiante=require('../../src/models/estudiante');
 
 describe('Estudiantes', () => {
   before(()=>mongoose.connect('mongodb://localhost:27017/testdb',{useNewUrlParser: true}));

@@ -1,24 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e7a9abe2-3258-4e29-965b-f7b49373ba66" name="Default Changelist" comment="">
+    <list default="true" id="e7a9abe2-3258-4e29-965b-f7b49373ba66" name="Default Changelist" comment="Finalized Tests for models.&#10;Now going for controllers">
+      <change afterPath="$PROJECT_DIR$/src/routes/estudiantes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/excel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/paddres.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/padres.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/pagos.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/routes/pagos_routes_test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controller/estudiantes.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/estudiantes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controller/pagos.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/pagos.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/estudiante.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/estudiante.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/padre.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/padre.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/pago.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/pago.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/dbTest.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controller/estudiantes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/estudiantes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controller/help.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/help.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controller/padres.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/padres.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controller/pagos.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/pagos.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/bancos.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/bancos.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/estudiante.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/estudiante.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/grupos.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/grupos.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/padre.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/padre.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/pago.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/pago.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/js/lib/bootstrap-datepicker.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/lib/bootstrap-datepicker.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/js/lib/bootstrap.bundle.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/lib/bootstrap.bundle.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/js/lib/datatables.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/lib/datatables.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/js/lib/feather.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/lib/feather.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/js/lib/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/lib/jquery.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/resources/details_close.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/resources/details_close.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/resources/details_open.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/resources/details_open.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/resources/favicon-16x16.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/resources/favicon-16x16.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/resources/favicon-32x32.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/resources/favicon-32x32.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/resources/favicon-96x96.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/resources/favicon-96x96.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/resources/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/resources/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/stylesheets/bootstrap-datepicker3.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/stylesheets/bootstrap-datepicker3.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/stylesheets/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/stylesheets/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/stylesheets/bootstrap.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/stylesheets/bootstrap.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/stylesheets/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/stylesheets/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/stylesheets/bootstrap.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/stylesheets/bootstrap.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/stylesheets/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/stylesheets/dashboard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/stylesheets/datatables.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/stylesheets/datatables.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/stylesheets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/stylesheets/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/uploads/planilla-1536400673273.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/uploads/planilla-1536400673273.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/uploads/planilla-1536402234181.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/uploads/planilla-1536402234181.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/uploads/planilla-1536407719390.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/uploads/planilla-1536407719390.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/uploads/planilla-1536409141909.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/uploads/planilla-1536409141909.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/uploads/planilla-1536432952082.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/uploads/planilla-1536432952082.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/seeds.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/seeds.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/excel/extractXLSX.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/excel/extractXLSX.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/excel/extractXLSXMarwan.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/excel/extractXLSXMarwan.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/excel/handleXLSX.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/excel/handleXLSX.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/excel/parseDate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/excel/parseDate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/excel/parseRegex.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/excel/parseRegex.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/index.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/partials/forms/estudiante.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/partials/forms/estudiante.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/partials/forms/pago.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/partials/forms/pago.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/partials/head.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/partials/head.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/partials/intro.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/partials/intro.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/partials/modals.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/partials/modals.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/partials/nav.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/partials/nav.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/partials/scripts.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/partials/scripts.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/partials/sidebar.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/partials/sidebar.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/partials/tables.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/partials/tables.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/bin/www" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/models/estudiante_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/models/estudiante_test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/models/padre_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/models/padre_test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/models/pago_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/models/pago_test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/utils_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/utils_test.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
+    <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,22 +86,26 @@
     <session id="193353705">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.28" value="1" />
+          <entry key="project.open.time.36" value="1" />
           <entry key="project.open.time.43" value="1" />
           <entry key="project.open.time.46" value="1" />
+          <entry key="project.open.time.52" value="1" />
           <entry key="project.open.time.54" value="1" />
           <entry key="project.open.time.56" value="2" />
           <entry key="project.open.time.57" value="1" />
-          <entry key="project.opened" value="8" />
+          <entry key="project.open.time.70" value="1" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="593" value="1" />
           <entry key="eslintrc" value="1" />
-          <entry key="js" value="63" />
+          <entry key="http" value="2" />
+          <entry key="js" value="116" />
           <entry key="json" value="6" />
           <entry key="md" value="3" />
           <entry key="npmignore" value="1" />
@@ -53,30 +114,34 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="HTTP Request" value="1" />
           <entry key="JSON" value="7" />
-          <entry key="JavaScript" value="64" />
+          <entry key="JavaScript" value="117" />
           <entry key="Markdown" value="3" />
           <entry key="PLAIN_TEXT" value="1" />
+          <entry key="Scratch" value="1" />
           <entry key="TypeScript" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="11455" />
+          <entry key="http" value="4" />
+          <entry key="js" value="13273" />
           <entry key="json" value="104" />
-          <entry key="txt" value="177" />
+          <entry key="txt" value="232" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="104" />
-          <entry key="JavaScript" value="11455" />
-          <entry key="PLAIN_TEXT" value="177" />
+          <entry key="JavaScript" value="13273" />
+          <entry key="PLAIN_TEXT" value="232" />
+          <entry key="Scratch" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="ESLintLanguageService" value="7" />
+          <entry key="ESLintLanguageService" value="10" />
           <entry key="TypeScriptServerServiceImpl" value="2" />
         </counts>
       </usages-collector>
@@ -86,145 +151,38 @@
     <favorites_list name="orcaestra-finanzas" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/controller/pagos.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="48" column="58" lean-forward="true" selection-start-line="48" selection-start-column="58" selection-end-line="48" selection-end-column="58" />
-                  <folding>
-                    <element signature="e#266#531#0" />
-                    <element signature="e#407#527#0" />
-                    <element signature="e#432#479#0" />
-                    <element signature="e#485#523#0" />
-                    <element signature="e#579#981#0" />
-                    <element signature="e#783#974#0" />
-                    <element signature="e#800#886#0" />
-                    <element signature="e#892#968#0" />
-                    <element signature="e#1011#1463#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/controller/estudiantes.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="535">
-                  <caret line="213" column="1" selection-start-line="213" selection-start-column="1" selection-end-line="213" selection-end-column="1" />
-                  <folding>
-                    <element signature="e#559#1254#0" />
-                    <element signature="e#1008#1243#0" />
-                    <element signature="e#1023#1077#0" />
-                    <element signature="e#1083#1239#0" />
-                    <element signature="e#1302#2724#0" />
-                    <element signature="e#1422#1975#0" />
-                    <element signature="e#1453#1588#0" />
-                    <element signature="e#1470#1581#0" />
-                    <element signature="e#1619#1730#0" />
-                    <element signature="e#1637#1723#0" />
-                    <element signature="e#1736#1850#0" />
-                    <element signature="e#1752#1843#0" />
-                    <element signature="e#1856#1914#0" />
-                    <element signature="e#1920#1970#0" />
-                    <element signature="e#2025#2271#0" />
-                    <element signature="e#2144#2265#0" />
-                    <element signature="e#2152#2258#0" />
-                    <element signature="e#2277#2722#0" />
-                    <element signature="e#2435#2716#0" />
-                    <element signature="e#2454#2518#0" />
-                    <element signature="e#2524#2708#0" />
-                    <element signature="e#2804#3222#0" />
-                    <element signature="e#3014#3171#0" />
-                    <element signature="e#3046#3087#0" />
-                    <element signature="e#3093#3165#0" />
-                    <element signature="e#3297#3560#0" />
-                    <element signature="e#3622#4146#0" />
-                    <element signature="e#3725#3761#0" />
-                    <element signature="e#3956#4095#0" />
-                    <element signature="e#3981#4022#0" />
-                    <element signature="e#4028#4089#0" />
-                    <element signature="e#4241#4651#0" />
-                    <element signature="e#4437#4641#0" />
-                    <element signature="e#4490#4635#0" />
-                    <element signature="e#4515#4570#0" />
-                    <element signature="e#4863#5248#0" />
-                    <element signature="e#5292#5463#0" />
-                    <element signature="e#5502#5531#0" />
-                    <element signature="e#5576#5612#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/routes/index.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="257">
-                  <caret line="59" column="45" selection-start-line="59" selection-start-column="45" selection-end-line="59" selection-end-column="45" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/controller/pagos.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="17" column="15" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/models/padre.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="373">
-                  <caret line="75" column="43" lean-forward="true" selection-start-line="75" selection-start-column="43" selection-end-line="75" selection-end-column="43" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/models/estudiante.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="342">
-                  <caret line="68" column="56" selection-start-line="68" selection-start-column="23" selection-end-line="68" selection-end-column="56" />
-                  <folding>
-                    <element signature="e#174#739#0" />
-                    <element signature="e#186#262#0" />
-                    <element signature="e#276#352#0" />
-                    <element signature="e#363#419#0" />
-                    <element signature="e#430#533#0" />
-                    <element signature="e#542#598#0" />
-                    <element signature="e#609#690#0" />
-                    <element signature="e#615#685#0" />
-                    <element signature="e#742#764#0" />
-                    <element signature="e#1006#1032#0" />
-                    <element signature="e#1112#1130#0" />
-                    <element signature="e#1198#1410#0" />
-                    <element signature="e#1207#1373#0" />
-                    <element signature="e#1539#1557#0" />
-                    <element signature="e#1616#1922#0" />
-                    <element signature="e#1625#1876#0" />
-                    <element signature="e#1648#1725#0" />
-                    <element signature="e#1887#1918#0" />
-                    <element signature="e#1976#2068#0" />
-                    <element signature="e#2106#2286#0" />
-                    <element signature="e#2356#2529#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/routes/pagos_routes_test.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+              <folding>
+                <element signature="e#879#880#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/rest-api.http">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="26" selection-start-column="26" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -263,8 +221,19 @@
         <option value="$PROJECT_DIR$/app/models/padre.js" />
         <option value="$PROJECT_DIR$/test/models/padre_test.js" />
         <option value="$PROJECT_DIR$/app/models/index.js" />
-        <option value="$PROJECT_DIR$/app/controller/pagos.js" />
         <option value="$PROJECT_DIR$/app/controller/estudiantes.js" />
+        <option value="$PROJECT_DIR$/test/controller/estudiantes_controller_test.js" />
+        <option value="$PROJECT_DIR$/test/controller/pagos_controller_test.js" />
+        <option value="$PROJECT_DIR$/app/controller/pagos.js" />
+        <option value="$PROJECT_DIR$/app/routes/index.js" />
+        <option value="$PROJECT_DIR$/src/routes/estudiantes.js" />
+        <option value="$PROJECT_DIR$/src/server.js" />
+        <option value="$PROJECT_DIR$/src/routes/padres.js" />
+        <option value="$PROJECT_DIR$/src/routes/index.js" />
+        <option value="$PROJECT_DIR$/src/routes/pagos.js" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" />
+        <option value="$PROJECT_DIR$/src/app.js" />
+        <option value="$PROJECT_DIR$/test/routes/pagos_routes_test.js" />
       </list>
     </option>
   </component>
@@ -284,11 +253,10 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-2" />
-    <option name="y" value="23" />
-    <option name="width" value="1444" />
-    <option name="height" value="879" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="25" />
+    <option name="width" value="720" />
+    <option name="height" value="875" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -353,30 +321,24 @@
             <path>
               <item name="orcaestra-finanzas" type="b2602c69:ProjectViewProjectNode" />
               <item name="orcaestra-finanzas" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="orcaestra-finanzas" type="b2602c69:ProjectViewProjectNode" />
               <item name="orcaestra-finanzas" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="orcaestra-finanzas" type="b2602c69:ProjectViewProjectNode" />
               <item name="orcaestra-finanzas" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="orcaestra-finanzas" type="b2602c69:ProjectViewProjectNode" />
-              <item name="orcaestra-finanzas" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="orcaestra-finanzas" type="b2602c69:ProjectViewProjectNode" />
               <item name="orcaestra-finanzas" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -403,6 +365,37 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="RestClientSettings">
+    <option name="REQUEST_HISTORY">
+      <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:3000" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+      </list>
+    </option>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -415,37 +408,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Mocha.Padres">
-    <configuration name="Estudiantes" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <ui>bdd</ui>
-      <extra-mocha-options>-b</extra-mocha-options>
-      <test-kind>SUITE</test-kind>
-      <test-file>$PROJECT_DIR$/test/models/estudiante_test.js</test-file>
-      <test-names>
-        <name value="Estudiantes" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="Estudiantes.statics.deberia transferirPago" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <ui>bdd</ui>
-      <extra-mocha-options>-b</extra-mocha-options>
-      <test-kind>TEST</test-kind>
-      <test-file>$PROJECT_DIR$/test/models/estudiante_test.js</test-file>
-      <test-names>
-        <name value="Estudiantes" />
-        <name value="statics" />
-        <name value="deberia transferirPago" />
-      </test-names>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Mocha./pago.deberia no implementado ">
     <configuration name="Padres" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -475,7 +438,21 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="Padres.methods..quitarPago()" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
+    <configuration name="/pago" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options>-b</extra-mocha-options>
+      <test-kind>SUITE</test-kind>
+      <test-file>$PROJECT_DIR$/test/routes/pagos_routes_test.js</test-file>
+      <test-names>
+        <name value="/pago" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="/pago.deberia devolver ${expectedPago.nombre} " type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <working-directory>$PROJECT_DIR$</working-directory>
@@ -483,11 +460,25 @@
       <ui>bdd</ui>
       <extra-mocha-options>-b</extra-mocha-options>
       <test-kind>TEST</test-kind>
-      <test-file>$PROJECT_DIR$/test/models/padre_test.js</test-file>
+      <test-file>$PROJECT_DIR$/test/routes/pagos_routes_test.js</test-file>
       <test-names>
-        <name value="Padres" />
-        <name value="methods" />
-        <name value=".quitarPago()" />
+        <name value="/pago" />
+        <name value="deberia devolver ${expectedPago.nombre} " />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="/pago.deberia no implementado " type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options>-b</extra-mocha-options>
+      <test-kind>TEST</test-kind>
+      <test-file>$PROJECT_DIR$/test/routes/pagos_routes_test.js</test-file>
+      <test-names>
+        <name value="/pago" />
+        <name value="deberia no implementado " />
       </test-names>
       <method v="2" />
     </configuration>
@@ -504,19 +495,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Mocha.Estudiantes" />
-      <item itemvalue="Mocha.Estudiantes.statics.deberia transferirPago" />
       <item itemvalue="Mocha.Padres" />
-      <item itemvalue="Mocha.Padres.methods..quitarPago()" />
       <item itemvalue="Mocha.Padres.methods" />
+      <item itemvalue="Mocha./pago" />
+      <item itemvalue="Mocha./pago.deberia devolver ${expectedPago.nombre} " />
+      <item itemvalue="Mocha./pago.deberia no implementado " />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Mocha./pago.deberia no implementado " />
+        <item itemvalue="Mocha./pago" />
+        <item itemvalue="Mocha./pago.deberia devolver ${expectedPago.nombre} " />
         <item itemvalue="Mocha.Padres" />
         <item itemvalue="Mocha.Padres.methods" />
-        <item itemvalue="Mocha.Padres.methods..quitarPago()" />
-        <item itemvalue="Mocha.Estudiantes" />
-        <item itemvalue="Mocha.Estudiantes.statics.deberia transferirPago" />
       </list>
     </recent_temporary>
   </component>
@@ -542,53 +533,61 @@
       <option name="project" value="LOCAL" />
       <updated>1540437074803</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Finalized Tests for models.&#10;Now going for controllers">
+      <created>1540501679714</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1540501679714</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Padres - 2018.10.25 at 16h 33m 03s.xml">
-      <configuration name="Padres" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="_pago_deberia_no_implementado_ - 2018.10.27 at 12h 44m 48s.xml">
+      <configuration name="/pago.deberia no implementado " configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Padres - 2018.10.25 at 16h 35m 39s.xml">
-      <configuration name="Padres" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="_pago - 2018.10.27 at 12h 53m 12s.xml">
+      <configuration name="/pago" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Padres - 2018.10.25 at 16h 35m 50s.xml">
-      <configuration name="Padres" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="_pago_deberia_no_implementado_ - 2018.10.27 at 12h 54m 29s.xml">
+      <configuration name="/pago.deberia no implementado " configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Padres - 2018.10.25 at 16h 39m 00s.xml">
-      <configuration name="Padres" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="_pago - 2018.10.27 at 12h 54m 35s.xml">
+      <configuration name="/pago" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Padres_methods - 2018.10.25 at 16h 39m 08s.xml">
-      <configuration name="Padres.methods" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="_pago_deberia_no_implementado_ - 2018.10.27 at 12h 56m 14s.xml">
+      <configuration name="/pago.deberia no implementado " configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Padres_methods - 2018.10.25 at 16h 39m 25s.xml">
-      <configuration name="Padres.methods" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="_pago_deberia_no_implementado_ - 2018.10.27 at 13h 00m 01s.xml">
+      <configuration name="/pago.deberia no implementado " configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Padres_methods - 2018.10.25 at 16h 40m 45s.xml">
-      <configuration name="Padres.methods" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="_pago_deberia_no_implementado_ - 2018.10.27 at 13h 00m 20s.xml">
+      <configuration name="/pago.deberia no implementado " configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Padres_methods - 2018.10.25 at 16h 41m 56s.xml">
-      <configuration name="Padres.methods" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="_pago_deberia_no_implementado_ - 2018.10.27 at 13h 01m 39s.xml">
+      <configuration name="/pago.deberia no implementado " configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Padres_methods - 2018.10.25 at 16h 42m 09s.xml">
-      <configuration name="Padres.methods" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="_pago_deberia_no_implementado_ - 2018.10.27 at 13h 01m 58s.xml">
+      <configuration name="/pago.deberia no implementado " configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Padres - 2018.10.25 at 16h 42m 23s.xml">
-      <configuration name="Padres" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="_pago_deberia_no_implementado_ - 2018.10.27 at 13h 03m 29s.xml">
+      <configuration name="/pago.deberia no implementado " configurationId="mocha-javascript-test-runner" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2" y="23" width="1444" height="879" extended-state="0" />
+    <frame x="-2" y="23" width="1444" height="879" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24930556" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.30625" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" weight="0.3298611" />
+      <window_info anchor="bottom" id="REST Client" sideWeight="0.49930555" weight="0.3625" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49930555" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.43125" weight="0.34875" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.56875" side_tool="true" weight="0.34875" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.42916667" weight="0.34875" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.5708333" side_tool="true" visible="true" weight="0.34875" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -613,7 +612,8 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="Starting Tests for Everything.&#10;Tests for models/pago done" />
     <MESSAGE value="Tests for models/estudiantes done.&#10;Although I'm not so sure about the quality of the test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tests for models/estudiantes done.&#10;Although I'm not so sure about the quality of the test" />
+    <MESSAGE value="Finalized Tests for models.&#10;Now going for controllers" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalized Tests for models.&#10;Now going for controllers" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -621,25 +621,21 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/test/models/estudiante_test.js</url>
           <line>112</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/test/models/estudiante_test.js</url>
           <line>113</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/test/models/estudiante_test.js</url>
           <line>115</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/test/models/padre_test.js</url>
           <line>122</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="47" />
         </line-breakpoint>
       </breakpoints>
@@ -650,20 +646,6 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/test/quicktest.js" />
-    <entry file="file://$PROJECT_DIR$/app/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="702">
@@ -726,13 +708,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/seeds.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../orcaestra-sinfonica-server/tests/utils/randomData.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
@@ -754,87 +729,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/dbTest.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="50" column="2" selection-start-line="50" selection-start-column="2" selection-end-line="50" selection-end-column="2" />
-          <folding>
-            <element signature="e#409#506#0" />
-            <element signature="e#559#928#0" />
-            <element signature="e#748#801#0" />
-            <element signature="e#1140#1490#0" />
-            <element signature="e#1176#1482#0" />
-            <element signature="e#1234#1437#0" />
-            <element signature="e#1720#2186#0" />
-            <element signature="e#1883#1905#0" />
-            <element signature="e#2217#2564#0" />
-            <element signature="e#2264#2500#0" />
-            <element signature="e#2610#3251#0" />
-            <element signature="e#2660#2757#0" />
-            <element signature="e#2817#2972#0" />
-            <element signature="e#3032#3243#0" />
-            <element signature="e#3339#4912#0" />
-            <element signature="e#3357#3448#0" />
-            <element signature="e#3527#3611#0" />
-            <element signature="e#3657#4375#0" />
-            <element signature="e#3722#4330#0" />
-            <element signature="e#4025#4242#0" />
-            <element signature="e#4384#4386#0" />
-            <element signature="e#4441#4904#0" />
-            <element signature="e#4799#4835#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/test/dbTest.js" />
     <entry file="file://$PROJECT_DIR$/test/models/pago_test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
           <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/padres.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-50">
-          <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
-          <folding>
-            <element signature="e#242#521#0" />
-            <element signature="e#275#332#0" />
-            <element signature="e#371#510#0" />
-            <element signature="e#388#446#0" />
-            <element signature="e#452#504#0" />
-            <element signature="e#567#1149#0" />
-            <element signature="e#621#879#0" />
-            <element signature="e#692#827#0" />
-            <element signature="e#709#820#0" />
-            <element signature="e#913#1138#0" />
-            <element signature="e#928#982#0" />
-            <element signature="e#988#1134#0" />
-            <element signature="e#1152#1211#0" />
-            <element signature="e#1287#1325#0" />
-            <element signature="e#2170#2182#0" />
-            <element signature="e#3088#3476#0" />
-            <element signature="e#3283#3425#0" />
-            <element signature="e#3310#3351#0" />
-            <element signature="e#3357#3419#0" />
-            <element signature="e#3554#3786#0" />
-            <element signature="e#3856#4284#0" />
-            <element signature="e#4099#4233#0" />
-            <element signature="e#4124#4165#0" />
-            <element signature="e#4171#4227#0" />
-            <element signature="e#4382#4777#0" />
-            <element signature="e#4568#4767#0" />
-            <element signature="e#4616#4761#0" />
-            <element signature="e#4641#4696#0" />
-            <element signature="e#4837#5217#0" />
-            <element signature="e#5243#5587#0" />
-            <element signature="e#5261#5432#0" />
-            <element signature="e#5471#5500#0" />
-            <element signature="e#5538#5567#0" />
-            <element signature="e#5611#5835#0" />
-            <element signature="e#5629#5725#0" />
-            <element signature="e#5729#5775#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -854,76 +753,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/models/estudiante_test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="79" column="10" lean-forward="true" selection-start-line="58" selection-start-column="4" selection-end-line="79" selection-end-column="7" />
-          <folding>
-            <element signature="e#484#1617#0" />
-            <element signature="e#619#734#0" />
-            <element signature="e#789#1369#0" />
-            <element signature="e#1368#1591#0" />
-            <element signature="e#1749#1895#0" />
-            <element signature="e#1924#2014#0" />
-            <element signature="e#1596#1751#0" />
-            <element signature="e#1805#2227#0" />
-            <element signature="e#2277#2634#0" />
-            <element signature="e#2838#3097#0" />
-            <element signature="e#3148#3641#0" />
-            <element signature="e#4085#4517#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
-          <folding>
-            <element signature="e#332#570#0" />
-            <element signature="e#347#551#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/pago.js">
+    <entry file="file://$PROJECT_DIR$/src/models/pago.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="42" column="35" lean-forward="true" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
-          <folding>
-            <element signature="e#42#73#0" />
-            <element signature="e#113#135#0" />
-            <element signature="e#173#450#0" />
-            <element signature="e#184#244#0" />
-            <element signature="e#260#320#0" />
-            <element signature="e#331#377#0" />
-            <element signature="e#388#447#0" />
-            <element signature="e#454#476#0" />
-            <element signature="e#477#501#0" />
-            <element signature="e#503#521#0" />
-            <element signature="e#674#750#0" />
-            <element signature="e#799#882#0" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/padre.js">
+    <entry file="file://$PROJECT_DIR$/src/models/padre.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="75" column="43" lean-forward="true" selection-start-line="75" selection-start-column="43" selection-end-line="75" selection-end-column="43" />
+        <state relative-caret-position="1350">
+          <caret line="75" column="43" selection-start-line="75" selection-start-column="43" selection-end-line="75" selection-end-column="43" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/index.js">
+    <entry file="file://$PROJECT_DIR$/src/models/estudiante.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/estudiante.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
+        <state relative-caret-position="324">
           <caret line="68" column="56" selection-start-line="68" selection-start-column="23" selection-end-line="68" selection-end-column="56" />
           <folding>
             <element signature="e#174#739#0" />
@@ -951,76 +797,180 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/pagos.js">
+    <entry file="file://$PROJECT_DIR$/test/controller/estudiantes_controller_test.js" />
+    <entry file="file://$PROJECT_DIR$/test/controller/pagos_controller_test.js" />
+    <entry file="file://$PROJECT_DIR$/src/controller/help.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/padres.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/seeds.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="42" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/paddres.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/padres.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/excel.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="69" column="31" lean-forward="true" selection-start-line="69" selection-start-column="31" selection-end-line="69" selection-end-column="31" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/models/estudiante_test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="9" column="47" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
+          <folding>
+            <element signature="e#484#1617#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/estudiantes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/estudiantes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="58" selection-start-column="58" selection-end-column="58" />
+          <folding>
+            <element signature="e#187#472#0" />
+            <element signature="e#229#261#0" />
+            <element signature="e#307#465#0" />
+            <element signature="e#326#390#0" />
+            <element signature="e#396#457#0" />
+            <element signature="e#510#1157#0" />
+            <element signature="e#573#848#0" />
+            <element signature="e#643#792#0" />
+            <element signature="e#662#783#0" />
+            <element signature="e#887#1142#0" />
+            <element signature="e#904#964#0" />
+            <element signature="e#970#1136#0" />
+            <element signature="e#1205#2755#0" />
+            <element signature="e#1331#1942#0" />
+            <element signature="e#1366#1515#0" />
+            <element signature="e#1385#1506#0" />
+            <element signature="e#1550#1671#0" />
+            <element signature="e#1570#1662#0" />
+            <element signature="e#1679#1803#0" />
+            <element signature="e#1697#1794#0" />
+            <element signature="e#1811#1873#0" />
+            <element signature="e#1881#1935#0" />
+            <element signature="e#1994#2268#0" />
+            <element signature="e#2123#2260#0" />
+            <element signature="e#2133#2251#0" />
+            <element signature="e#2274#2751#0" />
+            <element signature="e#2440#2743#0" />
+            <element signature="e#2461#2531#0" />
+            <element signature="e#2537#2733#0" />
+            <element signature="e#2837#3283#0" />
+            <element signature="e#3059#3228#0" />
+            <element signature="e#3093#3138#0" />
+            <element signature="e#3144#3220#0" />
+            <element signature="e#3360#3639#0" />
+            <element signature="e#3703#4261#0" />
+            <element signature="e#3812#3852#0" />
+            <element signature="e#4055#4206#0" />
+            <element signature="e#4082#4127#0" />
+            <element signature="e#4133#4198#0" />
+            <element signature="e#4358#4792#0" />
+            <element signature="e#4564#4780#0" />
+            <element signature="e#4619#4772#0" />
+            <element signature="e#4646#4705#0" />
+            <element signature="e#4846#5231#0" />
+            <element signature="e#5258#5616#0" />
+            <element signature="e#5276#5447#0" />
+            <element signature="e#5486#5515#0" />
+            <element signature="e#5560#5596#0" />
+            <element signature="e#5641#5856#0" />
+            <element signature="e#5659#5755#0" />
+            <element signature="e#5801#5836#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/pagos.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/pagos.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="48" column="58" lean-forward="true" selection-start-line="48" selection-start-column="58" selection-end-line="48" selection-end-column="58" />
+          <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/restClient/lib/restClient.jar!/com/intellij/ws/rest/client/requests/collection/get-requests.http">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/rest-api.http">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="26" selection-start-column="26" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
           <folding>
-            <element signature="e#266#531#0" />
-            <element signature="e#407#527#0" />
-            <element signature="e#432#479#0" />
-            <element signature="e#485#523#0" />
-            <element signature="e#579#981#0" />
-            <element signature="e#783#974#0" />
-            <element signature="e#800#886#0" />
-            <element signature="e#892#968#0" />
-            <element signature="e#1011#1463#0" />
+            <element signature="e#879#880#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/index.js">
+    <entry file="file://$PROJECT_DIR$/test/routes/pagos_routes_test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="59" column="45" selection-start-line="59" selection-start-column="45" selection-end-line="59" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/estudiantes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="213" column="1" selection-start-line="213" selection-start-column="1" selection-end-line="213" selection-end-column="1" />
-          <folding>
-            <element signature="e#559#1254#0" />
-            <element signature="e#1008#1243#0" />
-            <element signature="e#1023#1077#0" />
-            <element signature="e#1083#1239#0" />
-            <element signature="e#1302#2724#0" />
-            <element signature="e#1422#1975#0" />
-            <element signature="e#1453#1588#0" />
-            <element signature="e#1470#1581#0" />
-            <element signature="e#1619#1730#0" />
-            <element signature="e#1637#1723#0" />
-            <element signature="e#1736#1850#0" />
-            <element signature="e#1752#1843#0" />
-            <element signature="e#1856#1914#0" />
-            <element signature="e#1920#1970#0" />
-            <element signature="e#2025#2271#0" />
-            <element signature="e#2144#2265#0" />
-            <element signature="e#2152#2258#0" />
-            <element signature="e#2277#2722#0" />
-            <element signature="e#2435#2716#0" />
-            <element signature="e#2454#2518#0" />
-            <element signature="e#2524#2708#0" />
-            <element signature="e#2804#3222#0" />
-            <element signature="e#3014#3171#0" />
-            <element signature="e#3046#3087#0" />
-            <element signature="e#3093#3165#0" />
-            <element signature="e#3297#3560#0" />
-            <element signature="e#3622#4146#0" />
-            <element signature="e#3725#3761#0" />
-            <element signature="e#3956#4095#0" />
-            <element signature="e#3981#4022#0" />
-            <element signature="e#4028#4089#0" />
-            <element signature="e#4241#4651#0" />
-            <element signature="e#4437#4641#0" />
-            <element signature="e#4490#4635#0" />
-            <element signature="e#4515#4570#0" />
-            <element signature="e#4863#5248#0" />
-            <element signature="e#5292#5463#0" />
-            <element signature="e#5502#5531#0" />
-            <element signature="e#5576#5612#0" />
-          </folding>
+        <state relative-caret-position="175">
+          <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
         </state>
       </provider>
     </entry>

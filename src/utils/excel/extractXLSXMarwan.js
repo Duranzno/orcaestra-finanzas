@@ -1,7 +1,7 @@
 const XLSX = require('xlsx'),
-  Pago = require('../../../app/models/pago'),
-  Estudiante = require('../../../app/models/estudiante'),
-  Grupos = require('../../../app/models/grupos'),
+  Pago = require('../../models/pago'),
+  Estudiante = require('../../models/estudiante'),
+  Grupos = require('../../models/grupos'),
   regex = require('./parseRegex'),
   dateUtil = require('./parseDate'),
   TAG = `extractXLSXMarwan|`;

@@ -1,5 +1,6 @@
-const {Pago,Estudiante,Padre} = require('../models/');
+const {Pago,Estudiante,Padre} = require('../models/index');
 const {sendOk, sendError, newPago} = require('./help');
+
 module.exports = {
 //READ Obtener JSON de un pago especifico
   findOne: function(req, res) {

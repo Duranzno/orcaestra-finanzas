@@ -1,7 +1,7 @@
 const chai   = require('chai');
 chai.should();
 const mongoose = require('mongoose');
-const Pago = require('../../app/models/pago');
+const Pago = require('../../src/models/pago');
 const mockData=require('../utils');
 describe('Pagos', () => {
   before(()=>mongoose.connect('mongodb://localhost:27017/testdb',{useNewUrlParser: true}));

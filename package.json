@@ -41,6 +41,7 @@
     "eslint": "^5.7.0",
     "eslint-config-strongloop": "^2.1.0",
     "mocha": "^5.2.0",
+    "supertest": "^3.3.0",
     "uglify-js": "^3.4.9"
   },
   "engines": {

@@ -1,6 +1,6 @@
 const Padre = require('../models/padre'),
-  Estudiante = require(`../models/estudiante`),
-  Pago = require(`../models/pago`);
+  Estudiante = require(`./src/models/estudiante`),
+  Pago = require(`./src/models/pago`);
 
 const {sendOk, sendError} = require('./help');
 

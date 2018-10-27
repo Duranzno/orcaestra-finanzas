@@ -2,9 +2,9 @@ const chai   = require('chai');
 chai.should();
 const mongoose = require('mongoose');
 const utils=require('../utils');
-const Pago=require('../../app/models/pago');
-const Padre=require('../../app/models/padre');
-const Estudiante=require('../../app/models/estudiante');
+const Pago=require('../../src/models/pago');
+const Padre=require('../../src/models/padre');
+const Estudiante=require('../../src/models/estudiante');
 
 describe('Padres', function() {
   let expectedPad;

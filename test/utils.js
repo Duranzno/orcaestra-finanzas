@@ -1,7 +1,7 @@
 const chai=require('chai');
 const expect=chai.expect;
-const Bancos= require('../app/models/bancos');
-const Grupos= require('../app/models/grupos');
+const Bancos= require('../src/models/bancos');
+const Grupos= require('../src/models/grupos');
 const NameArray=["Alejandro","Fernando","Dominga","Armando","Arturo","Lennittza","Ricardo","Eduardo","Paola","Ramon"];
 const LastNameArray=["Duran","Aparicio","Cova","Martinez","Brito","Zorrilla","Hernandez"];
 module.exports={

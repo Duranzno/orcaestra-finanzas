@@ -1,4 +1,4 @@
-const {Estudiante,Bancos} = require(`../models`);
+const {Estudiante,Bancos} = require(`./src/models/index`);
 const {sendOk, sendError} = require('./help');
 module.exports  = {
   //READ Obtener todos los JSON
