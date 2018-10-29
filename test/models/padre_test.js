@@ -48,6 +48,8 @@ describe('Padres', function() {
       await pad.quitarPago(resultPago);
       pad= await Padre.findOne({});
       pad.pagos.should.have.lengthOf(0);
+      pag=await Pago.find({});
+      pag.should.have.lengthOf(0);
     });
     it('.agregarPago() con Hijos', async() => {
       let expected=utils.getMockPago();
@@ -76,22 +78,22 @@ describe('Padres', function() {
       pad=await Padre.create(expectedPad);
       await pad.agregarHijo(utils.getMockStudent());
       await pad.agregarHijo(utils.getMockStudent());
-      let resultPago=await pad.agregarPago(utils.getMockPago());
+      let pag=await pad.agregarPago(utils.getMockPago());
       await pad.agregarPago(utils.getMockPago());
       await pad.agregarPago(utils.getMockPago());
 
       pad= await Padre.findOne({});
       pad.pagos.should.have.lengthOf(3);
 
-      await pad.quitarPago(resultPago);
+      await pad.quitarPago(pag);
 
+      let resPago=await Pago.find({});
       resHijo=await Estudiante.findOne({});
       pad= await Padre.findOne({});
+      resPago.should.have.lengthOf(2);
       pad.pagos.should.have.lengthOf(2);
       resHijo.pagos.should.have.lengthOf(2);
     });
-
-
     it('.agregarHijo()', async () => {
       const expectedEst=utils.getMockStudent();
       let resultPad=await Padre.create(expectedPad);
@@ -103,11 +105,16 @@ describe('Padres', function() {
     it('.quitarHijo()', async() => {
       pad=await Padre.create(expectedPad);
       let resultHijo=await pad.agregarHijo(utils.getMockStudent());
+      est=await Estudiante.find({});est.should.have.lengthOf(1);
       pad= await Padre.findOne({});
       pad.hijos.should.have.lengthOf(1);
+
       await pad.quitarHijo(resultHijo);
+
       pad= await Padre.findOne({});
       pad.hijos.should.have.lengthOf(0);
+      est=await Estudiante.find({});
+      est.should.have.lengthOf(0);
     });
   });
   describe('statics', () => {
@@ -166,6 +173,29 @@ describe('Padres', function() {
       pad.hijos.should.have.lengthOf(0);
       secondPad.hijos.should.have.lengthOf(1);
       utils.assertSameId(secondPad.hijos[0], hijo)
+    });
+    describe('eliminar()', function(){
+      var pad;
+        before(async function()  {
+        pad = await Padre.crear(expectedPad);
+        await pad.agregarHijo(utils.getMockStudent());
+        await pad.agregarHijo(utils.getMockStudent());
+        await pad.agregarPago(utils.getMockPago());
+        await pad.agregarPago(utils.getMockPago());
+        await pad.agregarPago(utils.getMockPago());
+      });
+
+    it('.eliminar()', async function(){
+      // (await Padre.find({})      ).should.have.lengthOf(1);
+      // (await Estudiante.find({}) ).should.have.lengthOf(2);
+      // (await Pago.find({})       ).should.have.lengthOf(3);
+      await Padre.eliminar(pad._id);
+
+      (await Padre.find({})      ).should.have.lengthOf(0);
+      (await Estudiante.find({}) ).should.have.lengthOf(0);
+      (await Pago.find({})       ).should.have.lengthOf(0);
+
+    });
     });
 
   });

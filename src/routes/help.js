@@ -49,5 +49,22 @@ let newEstudiante=function(req) {
   }
   return newData;
 };
+let newPadre=function(req) {
+  let newData = {
+    nombre: req.body.nombre,
+    apellido: req.body.apellido,
+    email: req.body.email,
+    tlf: req.body.tlf,
+    pagos: req.body.pagos,
+    hijos:req.body.hijos,
+  };
+  if (!Array.isArray(newData.pagos)) {
+    newData.pagos = [];
+  }
+  if (!Array.isArray(newData.hijos)) {
+    newData.hijos= [];
+  }
+  return newData;
+};
 
-module.exports = {sendOk, sendError, newPago,newEstudiante};
+module.exports = {sendOk, sendError, newPago,newEstudiante,newPadre};

@@ -64,6 +64,12 @@ PadreSchema.methods = {
     catch (e) {console.error(e)}
   },
   quitarHijo:async function(hijoEliminable){
+    let id=hijoEliminable._id;
+    if (typeof hijoEliminable!=='object'){
+      let {_id}= await Estudiante.find({"nombre":hijoEliminable.nombre,"apellido":hijoEliminable.apellido,'grupo':hijoEliminable.grupo});
+      id = _id;
+    }
+    await Estudiante.findByIdAndRemove(id);
     await this.update({$pull:{"hijos":hijoEliminable._id}},
       updateOptions)
   },
@@ -78,18 +84,22 @@ PadreSchema.methods = {
     return pago;
   },
   quitarPago:async function(pagoEliminable){
+
     let id=pagoEliminable._id;
     if (typeof pagoEliminable!=='object'){
       let {_id}= await Pago.find({"referencia":pagoEliminable.referencia,"banco":pagoEliminable.banco});
       id = _id;
     }
-    await Estudiante.updateMany(
-      {"_id":{$in:this.hijos}},
-      {$pull:{pagos:id}}
-    );
-    await this.update({$pull:{"pagos":id}},
-      updateOptions)
-  }
+      await Pago.remove(
+        {"_id":id});
+      await Estudiante.updateMany(
+        {"_id":{$in:this.hijos}},
+        {$pull:{pagos:id}}
+      );
+    await  this.update(
+        {$pull:{"pagos":id}}, updateOptions
+      );
+  },
 };
 
 /**
@@ -112,13 +122,7 @@ PadreSchema.statics = {
     await padThis
       .findOneAndUpdate(filtro, pNuevo, {upsert: true, runValidators: true})
       .catch(err => console.error(err));
-    let letmesee = await padThis.findOne(filtro);
-    console.log(
-      TAG,
-      `SE ENCONTRÓ\\CREÓ Estudiante ${letmesee.nombre} ${letmesee.apellido}`,
-      '\n'
-    );
-    return letmesee;
+    return await padThis.findOne(filtro);
   },
   transferirPago:async function(trasnferidorId,transferidoId,pagoId){
     await this.update({'_id':transferidoId} ,{$push:{pagos:pagoId}},updateOptions);
@@ -127,8 +131,14 @@ PadreSchema.statics = {
   transferirHijo:async function(trasnferidorId,transferidoId,hijoId){
     await this.update({'_id':transferidoId} ,{$push:{hijos:hijoId}},updateOptions);
     await this.update({'_id':trasnferidorId},{$pull:{hijos:hijoId}},updateOptions);
-  }
+  },
+  eliminar:async function(id){
+    let p=await this.findById(id);
+    await Estudiante.remove({"_id":{$in:p.hijos}});
+    await Pago.remove({"_id":{$in:p.pagos}});
+    await this.remove({"_id":id});
 
+  },
 };
 
 module.exports = mongoose.model('Padres', PadreSchema);
