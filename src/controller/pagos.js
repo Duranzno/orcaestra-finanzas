@@ -1,5 +1,5 @@
 const {Pago,Estudiante,Padre} = require('../models/index');
-const {sendOk, sendError, newPago} = require('./help');
+const {sendOk, sendError, newPago} = require('../routes/help');
 
 module.exports = {
 //READ Obtener JSON de un pago especifico

@@ -49,7 +49,6 @@ PagoSchema.statics = {
     return await pThis.findOneAndUpdate(
       {
         referencia: pagoNuevo.referencia,
-        banco: pagoNuevo.banco,
       },
       pagoNuevo,
       {upsert: true, runValidators: true, new: true}

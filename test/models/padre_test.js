@@ -9,6 +9,7 @@ const Estudiante=require('../../src/models/estudiante');
 describe('Padres', function() {
   let expectedPad;
   before(async ()=>{
+
     expectedPad=utils.getMockPadre();
     await mongoose.connect('mongodb://localhost:27017/testdb',{useNewUrlParser: true})
   });
@@ -48,6 +49,49 @@ describe('Padres', function() {
       pad= await Padre.findOne({});
       pad.pagos.should.have.lengthOf(0);
     });
+    it('.agregarPago() con Hijos', async() => {
+      let expected=utils.getMockPago();
+      let expHijo=utils.getMockStudent();
+      let resultPadre=await Padre.crear(expectedPad);
+      let resHijo=await resultPadre.agregarHijo(expHijo);
+      await resultPadre.agregarHijo(utils.getMockStudent());
+      await resultPadre.agregarHijo(utils.getMockStudent());
+      let resultPago=await resultPadre.agregarPago(expected);
+      await resultPadre.agregarPago(utils.getMockPago());
+
+      await resultPadre.agregarPago(utils.getMockPago());
+
+
+
+
+      resultPadre=await Padre.findOne({});
+      resHijo=await Estudiante.findOne({});
+
+      utils.assertSameId(resultPadre.pagos[0],resultPago);
+      resHijo.pagos.should.have.lengthOf(3);
+      utils.assertSameId(resHijo.pagos[0],resultPago);
+
+    });
+    it('.quitarPago() con Hijos', async() => {
+      pad=await Padre.create(expectedPad);
+      await pad.agregarHijo(utils.getMockStudent());
+      await pad.agregarHijo(utils.getMockStudent());
+      let resultPago=await pad.agregarPago(utils.getMockPago());
+      await pad.agregarPago(utils.getMockPago());
+      await pad.agregarPago(utils.getMockPago());
+
+      pad= await Padre.findOne({});
+      pad.pagos.should.have.lengthOf(3);
+
+      await pad.quitarPago(resultPago);
+
+      resHijo=await Estudiante.findOne({});
+      pad= await Padre.findOne({});
+      pad.pagos.should.have.lengthOf(2);
+      resHijo.pagos.should.have.lengthOf(2);
+    });
+
+
     it('.agregarHijo()', async () => {
       const expectedEst=utils.getMockStudent();
       let resultPad=await Padre.create(expectedPad);
@@ -56,7 +100,7 @@ describe('Padres', function() {
       resultPad=await Padre.findOne({});
       utils.assertSameId(resultPad.hijos[0],resultEst)
     });
-    it('.qsuitarHijo()', async() => {
+    it('.quitarHijo()', async() => {
       pad=await Padre.create(expectedPad);
       let resultHijo=await pad.agregarHijo(utils.getMockStudent());
       pad= await Padre.findOne({});

@@ -1,5 +1,4 @@
 const mongoose = require('mongoose'),
-  app = require('./app'),
   db = 'mongodb://127.0.0.1/orcaestra';
 
 // const databaseUri="mongodb://admin:ale123.@ds157522.mlab.com:57522/orcaestra"
@@ -11,6 +10,7 @@ mongoose.connect(db,{useNewUrlParser: true})
     process.exit();
   });
 
+const app = require('./app')(mongoose);
 app.listen(process.env.PORT || 3000, function() {
   console.log(
     `Servidor Node escuchando en ${process.env.IP}/:${process.env.PORT}`

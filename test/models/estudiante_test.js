@@ -1,13 +1,16 @@
 const chai   = require('chai');
 chai.should();
 const expect=chai.expect;
-const mongoose = require('mongoose');
 const utils=require('../utils');
-const Pago=require('../../src/models/pago');
-const Estudiante=require('../../src/models/estudiante');
+const mongoose = require('mongoose');
+let Estudiante,Pago;
 
 describe('Estudiantes', () => {
-  before(()=>mongoose.connect('mongodb://localhost:27017/testdb',{useNewUrlParser: true}));
+  before(()=>{
+    mongoose.connect('mongodb://localhost:27017/testdb',{useNewUrlParser: true});
+    Pago=require('../../src/models/pago');
+    Estudiante=require('../../src/models/estudiante');
+  });
   after(() => mongoose.disconnect());
   afterEach(() => Estudiante.deleteMany({}));
 
@@ -33,6 +36,8 @@ describe('Estudiantes', () => {
         result=await Pago.findOne({});
         result.referencia.should.be.equal(expected.referencia);
         result.banco.should.be.equal(expected.banco);
+
+        console.log(await Estudiante.find({}).populate({'path':'pagos'}));
 
     });
     it('.quitarPago()', async() => {

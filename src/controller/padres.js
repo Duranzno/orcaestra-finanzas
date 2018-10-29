@@ -2,14 +2,10 @@ const Padre = require('../models/padre'),
   Estudiante = require(`./src/models/estudiante`),
   Pago = require(`./src/models/pago`);
 
-const {sendOk, sendError} = require('./help');
+const {sendOk, sendError} = require('../routes/help');
 
 //READ Obtener todos los JSON
 exports.findAll = function(req, res) {
-  Padre.find({})
-    .populate({
-      path: 'hijos', //! Populate hijos AND pagos
-    })
     .exec(function(err, todosPadres) {
       if (err) {
         console.log(err);

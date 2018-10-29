@@ -32,7 +32,7 @@ const PadreSchema = new mongoose.Schema({
   pagos: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Pago',
+      ref: 'Pagos',
     },
   ],
   hijos: [
@@ -68,13 +68,26 @@ PadreSchema.methods = {
       updateOptions)
   },
   agregarPago: async function(pagoNuevo) {
-      let pago = await Pago.crear(pagoNuevo);
-      this.pagos.addToSet(pago._id);
-      await this.save();
-      return pago;
+    let pago = await Pago.crear(pagoNuevo);
+    this.pagos.addToSet(pago._id);
+    await this.save();
+    await Estudiante.updateMany(
+        {"_id":{$in:this.hijos}},
+        {$push:{pagos:pago}}
+      );
+    return pago;
   },
   quitarPago:async function(pagoEliminable){
-    await this.update({$pull:{"pagos":pagoEliminable._id}},
+    let id=pagoEliminable._id;
+    if (typeof pagoEliminable!=='object'){
+      let {_id}= await Pago.find({"referencia":pagoEliminable.referencia,"banco":pagoEliminable.banco});
+      id = _id;
+    }
+    await Estudiante.updateMany(
+      {"_id":{$in:this.hijos}},
+      {$pull:{pagos:id}}
+    );
+    await this.update({$pull:{"pagos":id}},
       updateOptions)
   }
 };

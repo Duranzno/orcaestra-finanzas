@@ -1,8 +1,8 @@
 'use strict';
-const mongoose = require('mongoose');
 const gruposDisponibles = require('./grupos');
-
+const mongoose = require('mongoose');
 const Pago = require('./pago');
+
 const StudentSchema = new mongoose.Schema({
   nombre: {
     type: String,
@@ -35,7 +35,7 @@ const StudentSchema = new mongoose.Schema({
   pagos: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Pago',
+      ref: 'Pagos',
     },
   ],
   createdAt: {type: Date, default: Date.now},

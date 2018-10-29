@@ -1,22 +1,8 @@
 const {Estudiante,Bancos} = require(`./src/models/index`);
-const {sendOk, sendError} = require('./help');
+const {sendOk, sendError} = require('../routes/help');
 module.exports  = {
   //READ Obtener todos los JSON
-  findAll:function(req, res) {
-    Estudiante.find({})
-      .populate({
-        path: 'pagos',
-      })
-      .exec(function(err, todosEstudiantes) {
-        if (err) {
-          console.log(err);
-          res.send(err);
-        } else {
-          res.status(200).json(todosEstudiantes);
-        }
-      });
 
-  },
   findAllByBanco:function(req, res) {
     const banco = req.params.banco;
     Estudiante.aggregate([
@@ -130,16 +116,6 @@ module.exports  = {
   },
 
   //CREATE -- Añadir Nuevo estudiante a la DB
-  create:function(req, res) {
-    let newData = nuevoEst(req);
-    console.log(`Se va a crear: ${newData.nombre}`);
-
-    Estudiante.create(newData)
-      .then(est => {
-        sendOk('Se creo al estudiante:', res, est);
-      })
-      .catch(err => sendError('No se creo ningun estudiante', res, err));
-  },
 
   //UPDATE -- Actualizar Usuario
   update:function(req, res) {
@@ -195,31 +171,4 @@ module.exports  = {
   // pago.then(p => {console.log(p);res.send(p)});
 }
 };
-nuevoEst=function(req) {
-  let newData = {
-    nombre: req.body.nombre,
-    apellido: req.body.apellido,
-    email: req.body.email,
-    grupo: req.body.grupo,
-    tlf: req.body.tlf,
-    pagos: req.body.pagos,
-  };
-  if (!Array.isArray(newData.pagos)) {
-    newData.pagos = [];
-  }
-  if (Grupos.indexOf(newData.grupo) === -1) {
-    newData.grupo = Grupos[0];
-  }
-  return newData;
-};
-newPago=function (req) {
-  let newData = {
-    banco: req.body.banco,
-    referencia: req.body.referencia,
-    monto: req.body.monto,
-  };
-  if (Bancos.indexOf(newData.banco) === -1) {
-    newData.banco = Bancos[0]
-  }
-  return newData;
-};
+

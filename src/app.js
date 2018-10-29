@@ -29,13 +29,13 @@ module.exports = function (mongoose){
   app.use(favicon(path.join(__dirname, 'public', 'resources', 'favicon.ico')));
 
 //Routes
-  app.get('/', function(req, res){
-    res.status(200).json('hello world');
-  });
+//   app.get('/', function(req, res){
+//     res.status(200).json('hello world');
+//   });
 
-//   app.use('/', MainRoutes);
-//   app.use("/api/pagos",PagosRoutes);
-  // app.use("/api/estudiantes",EstudiantesRoutes);
-  // app.use("/api/padres",PadresRoutes);
+  app.use("/api/estudiantes",EstudiantesRoutes);
+  app.use("/api/padres",PadresRoutes);
+  app.use("/api/pagos",PagosRoutes);
+  app.use('/', MainRoutes);
   return app;
 };

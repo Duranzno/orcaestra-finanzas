@@ -1,5 +1,4 @@
 //TODO EL Programa va a preferir pensar que tiene dos nombres y un apellido a dos apellidos y un nombre
-const TAG = 'parseRegex|';
 exports.extraerNombreApellido = function(texto, e) {
   if (typeof e === 'undefined') {
     e = {nombre: '', apellido: ''};
@@ -81,11 +80,11 @@ exports.extraerNombreApellido = function(texto, e) {
 *
 * */
 exports.extraerPosibleColumnaMultiple = function(texto) {
-  if (/\//.test(texto)) {
+  if (/\//.test(texto))
     return /[^\/]+/g[Symbol.match](texto);
-  } else {
+  else
     // console.log(TAG,extraerNombreApellido(nombre))
     // console.log(TAG,nombre);
     return texto;
-  }
+
 };

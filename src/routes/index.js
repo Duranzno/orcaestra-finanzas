@@ -68,9 +68,9 @@
 // // router.get('*',(req,res)=>res.send("Wrong Get"));
 // module.exports = router;
 const MainRoutes=require("./excel"),
-  PagosRoutes=require("./pagos"),
-  EstudiantesRoutes="a",//require("./estudiantes"),
-  PadresRoutes="b";//require("./padres");
+  PagosRoutes=require("./pagosRoutes"),
+  EstudiantesRoutes=require("./estudiantes"),
+  PadresRoutes=require("./padres");
 module.exports={
   MainRoutes,
   PagosRoutes,
