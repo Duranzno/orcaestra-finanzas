@@ -1,0 +1,14 @@
+GET http://localhost:3000
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-10-27T125614.200.html
+
+###
+
+GET http://localhost:3000/resources
+Accept: */*
+Cache-Control: no-cache
+
+###
+

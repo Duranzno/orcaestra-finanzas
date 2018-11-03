@@ -30,17 +30,6 @@ describe('/api/pagos', function(){
   });
   afterEach(() => Pago.deleteMany({}));
 
-  it(`GET /`, function(done){
-    request(app)
-      .get(`/`)
-      .expect(200)
-      // .set('Accept','application/json')
-      // .expect('Content-Type','/json/')
-      .end(function(err, res) {
-        expect(res.body).to.equal("hello world");
-        done()
-      })
-  });
   it(`GET /api/pagos/:pagoid`, function(done){
     request(app)
       .get(`/api/pagos/${pago._id}`)
