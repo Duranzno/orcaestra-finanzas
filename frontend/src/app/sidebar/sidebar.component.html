@@ -37,6 +37,8 @@
               <a 
                 class="nav-link mes-actual btn-fecha" 
                 href="#"
+                [id]={{month.}}
+                (click)="select(month)" 
                 >
                 <i-file-text></i-file-text>
                 {{ month?.name }}
