@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {sbDate} from './sidebar.date'
+import {SbDate} from './sidebar.date'
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -7,11 +7,12 @@ import {sbDate} from './sidebar.date'
 })
 export class SidebarComponent implements OnInit {
 
-  months:Array<sbDate>;
+  months:Array<SbDate>;
   constructor() { }
 
   ngOnInit() {
-    this.months=this.sbDate.getMonthArray();
+    this.months=SbDate.getMonthArray();
+    // this.months=this.SbDate.getMonthArray();
   }
 
 }

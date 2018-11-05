@@ -12,8 +12,8 @@ export const monthNames=[
     'Noviembre',
     'Diciembre'
 ];
-
-export class sbDate{
+//Just in Case SbDate comes from Side Bar Date
+export class SbDate{
     public name:string;
     public url:string;
     
@@ -37,16 +37,16 @@ export class sbDate{
     }
     
     
-    static getMonthArray():Array<sbDate> {
-      let meses: sbDate[] = [];
+    static getMonthArray():Array<SbDate> {
+      let meses: SbDate[] = [];
       let date = new Date();
       let nMonth = date.getMonth();
       let nYear = date.getFullYear();
       for (let i = 0; i < 12; i++) {
-        meses.push(new sbDate(new Date(nYear - 1, i))); //AGREGO AL Array los meses del año pasado
+        meses.push(new SbDate(new Date(nYear - 1, i))); //AGREGO AL Array los meses del año pasado
       }
       for (let i = 0; i <= nMonth; i++) {
-        meses.push(new sbDate(new Date(nYear, i))); //AGREGO AL Array los meses de este año hasta el actual
+        meses.push(new SbDate(new Date(nYear, i))); //AGREGO AL Array los meses de este año hasta el actual
       }
       meses=meses.reverse();
       return meses;
