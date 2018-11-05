@@ -33,7 +33,17 @@
 	                <i-file-text></i-file-text>Mes Actual
                 </a>
             </li>
+          <li *ngFor="let month of months" >
+              <a 
+                class="nav-link mes-actual btn-fecha" 
+                href="#"
+                >
+                <i-file-text></i-file-text>
+                {{ month?.name }}
+                </a>
+            </li>
         </ul>
+        
     </div>
 </nav>
 
