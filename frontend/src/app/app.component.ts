@@ -3,7 +3,10 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PagoFormComponent} from './shared/pago-form/pago-form.component';
 import { EstudianteFormComponent} from './shared/estudiante-form/estudiante-form.component';
 import { PadreFormComponent} from './shared/padre-form/padre-form.component';
+import { FileUploader } from 'ng2-file-upload';
 
+
+const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
 
 @Component({
   selector: 'app-root',
@@ -12,13 +15,29 @@ import { PadreFormComponent} from './shared/padre-form/padre-form.component';
 
 })
 export class AppComponent {
+  fileName = 'shit and giggles';
+  uploadUrl = 'path_to_stuff';
+  public uploader: FileUploader = new FileUploader({'url': URL, 'disableMultipart': true});
   title = 'orcaestra-finanzas';
   parentIsCollapsed = true;
   studentIsCollapsed = true;
-  constructor(private modalService: NgbModal) { }
+  constructor(
+    private modalService: NgbModal) {
+     }
+  openFileBrowser(event: any, url: string) {
+    event.preventDefault();
+    const element: HTMLElement = document.getElementById('uploadInput') as HTMLElement;
+    // uploadPlantillaTo(url)
+    console.log(url);
+    element.click();
+  }
+  onFileChange(event: any) {
+    const files = event.target.files;
+    this.fileName = files[0].name;
+    console.log(files);
+  }
   modalStudent() {
     const modalRef = this.modalService.open(PagoFormComponent);
     // modalRef.componentInstance.name = 'World';
   }
-
 }
