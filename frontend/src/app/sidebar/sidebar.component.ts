@@ -15,7 +15,7 @@ export class SidebarComponent implements OnInit {
     // this.months=this.SbDate.getMonthArray();
   }
   select(month:SbDate){
-    console.log(month?.url)
+    console.log("hi")
   }
 
 }

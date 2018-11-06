@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
-import { IconHome, IconUsers,IconUser, IconPlusCircle, IconFileText } from 'angular-feather';
+import { IconHome, IconUsers,IconUser, IconPlusCircle, IconFileText,IconCalendar } from 'angular-feather';
 
 const icons = [
   IconHome,
   IconUsers,
   IconUser,
   IconPlusCircle,
-  IconFileText
+  IconFileText,
+  IconCalendar
 ];
 
 @NgModule({
