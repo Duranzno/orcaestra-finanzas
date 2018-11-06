@@ -1,0 +1,21 @@
+{
+    "remotePath": "/home/pi/Development/Orcaestra-Finanzas",  
+    "path":"/home/ale/Development/orcaestra-finanzas",  
+    "host": "192.168.1.141",
+    "username": "pi",
+    "password": "raspberry",
+    "port": 22,
+    "secure": false,
+    "protocol": "sftp",
+    "uploadOnSave": true,
+    "passive": false,
+    "debug": false,
+    "privateKeyPath": null,
+    "passphrase": null,
+    "ignore": [
+        "\\.vscode",
+        "\\.git",
+        "\\.DS_Store",
+        "/node_modules"
+    ]
+}
