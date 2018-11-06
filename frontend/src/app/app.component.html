@@ -6,13 +6,53 @@
 
         <app-sidebar></app-sidebar>
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-          <h1>{{title}}</h1>
-          <button class="btn btn-primary">Click Me</button>            <!--<intro></intro>-->
-            <!--<app-tables></app-tables>-->
-            <i-home></i-home>
-            <app-estudiante-form></app-estudiante-form>
-            <app-padre-form></app-padre-form>
-            <app-pago-form></app-pago-form>
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h1">Dashboard</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group mr-2">
+                        <button type="button" class="btn btn btn-sm btn-outline-secondary" 
+                            [attr.aria-expanded]="!parentIsCollapsed" aria-controls="collapseExample"
+                            (click)="parentIsCollapsed = !parentIsCollapsed">
+                            Agregar Padre    
+                        </button>
+                        
+                        <button type="button " class="btn btn-sm btn-outline-secondary"
+                            [attr.aria-expanded]="!studentIsCollapsed" aria-controls="collapseExample" 
+                            (click)="studentIsCollapsed = !studentIsCollapsed">
+                            Agregar Estudiante    
+                        </button>
+                        <!--<input type="file" class="inputP" style="display: none" />-->
+                        <button class="btn btn-sm btn-outline-secondary" id="importarPaola">Importar Planillas</button>
+
+                        <input type="file" name="planilla" id="inputP" style="display: none"/>
+
+                        <input type="file" name="planilla" id="inputM" style="display: none"/>
+
+                        <button class="btn btn-sm btn-outline-secondary" id="importarMarwan">Importar Forms</button>
+                        <button class="btn btn-lg btn-outline-primary" (click)="modalStudent()">Launch demo modal</button>
+
+                    </div>
+                </div>
+            </div>
+             
+            <div id="collapseExample" [ngbCollapse]="studentIsCollapsed">
+                <div class="card">
+                  <div class="card-body">
+                    <app-estudiante-form></app-estudiante-form>
+                    <app-pago-form></app-pago-form>
+                  </div>
+                </div>
+            </div>
+              
+            <div id="collapseExample" [ngbCollapse]="parentIsCollapsed">
+            <div class="card">
+                <div class="card-body">
+                <app-padre-form></app-padre-form>
+                <app-pago-form></app-pago-form>
+                </div>
+            </div>
+            </div>
+
         </main>
     </div>
 </div>
