@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+// import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { IconsModule } from './icons/icons.module'
 import { SharedModule }      from './shared/shared.module';
@@ -18,7 +18,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     FormsModule,
     SharedModule,
     //Theming
-    NgbModule,
+    // NgbModule,
   ],
   declarations: [
     AppComponent,
