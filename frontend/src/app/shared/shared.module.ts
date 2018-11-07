@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {NgbDatepickerModule} from '@ng-bootstrap/ng-bootstrap/';
+import { NgbDatepickerModule} from '@ng-bootstrap/ng-bootstrap/';
 import { IconsModule } from '../icons/icons.module'
 
 import { FormsModule }   from '@angular/forms';

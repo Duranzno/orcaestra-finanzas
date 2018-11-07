@@ -1,9 +1,10 @@
 const mongoose = require('mongoose'),
-  db = 'mongodb://127.0.0.1/orcaestra';
-
-// const databaseUri="mongodb://admin:ale123.@ds157522.mlab.com:57522/orcaestra"
-//  process.env.MONGODB_URI || 'mongodb://localhost:27017/orcaestra';
-mongoose.connect(db,{useNewUrlParser: true})
+  DB = process.env.MONGODB_URI || 'mongodb://localhost:27017/orcaestra',
+  IP=process.env.IP || 'localhost' ,
+  PORT=process.env.PORT || 1234;
+// const databaseUri="mongoDB://admin:ale123.@ds157522.mlab.com:57522/orcaestra"
+//  process.env.MONGODB_URI || 'mongoDB://localhost:27017/orcaestra';
+mongoose.connect(DB,{useNewUrlParser: true})
   .then(() => console.log(`Base de Datos Conectada`))
   .catch(err => {
     console.log(`Error de Conexion de Base de Datos: ${err.message}`);
@@ -11,8 +12,9 @@ mongoose.connect(db,{useNewUrlParser: true})
   });
 
 const app = require('./app')(mongoose);
-app.listen(process.env.PORT || 3000, function() {
+app.listen(PORT, function() {
+	console.log(process.env);
   console.log(
-    `Servidor Node escuchando en ${process.env.IP}/:${process.env.PORT}`
+    `Servidor Node escuchando en http://${IP}/:${PORT}`
   );
 });

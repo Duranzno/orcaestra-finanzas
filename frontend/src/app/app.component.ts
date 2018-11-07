@@ -3,7 +3,6 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PagoFormComponent} from './shared/pago-form/pago-form.component';
 import { EstudianteFormComponent} from './shared/estudiante-form/estudiante-form.component';
 import { PadreFormComponent} from './shared/padre-form/padre-form.component';
-import { FileUploader } from 'ng2-file-upload';
 
 
 const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
@@ -16,8 +15,6 @@ const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
 })
 export class AppComponent {
   fileName = 'shit and giggles';
-  uploadUrl = 'path_to_stuff';
-  public uploader: FileUploader = new FileUploader({'url': URL, 'disableMultipart': true});
   title = 'orcaestra-finanzas';
   parentIsCollapsed = true;
   studentIsCollapsed = true;

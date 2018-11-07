@@ -4,20 +4,20 @@
   "description": "Servidor para Orquesta",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node src/server.js",
     "test": "mocha",
     "pretest": "eslint --ignore-path .gitignore ."
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Duranzno/Orkesta.git"
+    "url": "git+https://github.com/Duranzno/orcaestra-finanzas.git"
   },
   "author": "duranzno",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Duranzno/Orkesta/issues"
+    "url": "https://github.com/Duranzno/orcaaestra-finanzas/issues"
   },
-  "homepage": "https://github.com/Duranzno/Orkesta#readme",
+  "homepage": "https://github.com/Duranzno/orcaaestra-finanzas#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
