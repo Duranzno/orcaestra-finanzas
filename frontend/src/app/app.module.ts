@@ -4,21 +4,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 //Libraries Modules
 import {NgbCollapseModule, NgbModalModule} from '@ng-bootstrap/ng-bootstrap';
+import { Http, HttpModule} from '@angular/http';
+import { IconsModule } from './icons/icons.module';
 
 //My modules
-import { IconsModule } from './icons/icons.module';
 import { SharedModule } from './shared/shared.module';
 import { TableModule } from './table/table.module';
 
 //My Components
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-//Shared Components
-import { EstudianteFormComponent} from './shared/estudiante-form/estudiante-form.component';
-import { PadreFormComponent} from './shared/padre-form/padre-form.component';
-import { PagoFormComponent} from './shared/pago-form/pago-form.component';
-import { DatatablesComponent} from './table/datatables/datatables.component';
+import { SidebarComponent } from './sidebar.component';
 
 
 @NgModule({
@@ -26,6 +22,9 @@ import { DatatablesComponent} from './table/datatables/datatables.component';
     BrowserModule,
     IconsModule,
     FormsModule,
+    HttpModule,
+
+    //Shared Modules
     SharedModule,
     TableModule,
     // Libraries
@@ -36,13 +35,8 @@ import { DatatablesComponent} from './table/datatables/datatables.component';
     AppComponent,
     NavbarComponent,
     SidebarComponent,
-    // DatatablesComponent
   ],
-  providers: [FormsModule],
-  bootstrap: [AppComponent],
-  entryComponents: [
-    PagoFormComponent,
-    EstudianteFormComponent,
-    PadreFormComponent]
+  providers: [Http,FormsModule],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

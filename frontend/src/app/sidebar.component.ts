@@ -3,7 +3,7 @@ import {SbDate} from './sidebar.date'
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  // styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
 

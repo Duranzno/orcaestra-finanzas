@@ -1,7 +1,7 @@
 let express=require('express'),
   router=express.Router(),
   {sendOk,sendError} =require('./help');
-
+const addr="/api/pagos/";
 let Pago=require('../models/pago');
 //Obtener pago directo
 

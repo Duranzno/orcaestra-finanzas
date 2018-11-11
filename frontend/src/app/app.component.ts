@@ -5,7 +5,6 @@ import { EstudianteFormComponent} from './shared/estudiante-form/estudiante-form
 import { PadreFormComponent} from './shared/padre-form/padre-form.component';
 
 
-const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
 
 @Component({
   selector: 'app-root',

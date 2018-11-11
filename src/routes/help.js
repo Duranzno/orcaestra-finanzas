@@ -4,7 +4,7 @@ const   {Bancos,Grupos}=require('../models/');
 
 let sendOk=function(okMsg, res, object) {
   console.log(`rest| ${okMsg} `);
-  if (object == null) {
+ if (typeof object === "null") {
     res.status(200).json(okMsg);
   } else {
     res.status(200).json(object);

@@ -17,11 +17,13 @@ router.get('/', async function(req, res) {
 //READ Obtener JSON de un estudiante especifico
 router.get('/:id',async function(req, res) {
   const estId = req.params.id;
+  let e=await Estudiante.findById(estId).populate('pagos');
+  console.log(e);
   try {
     sendOk(
      ` GET ${addr}:id Se encontro al estudiante ${estId}`,
      res,
-     await Estudiante.findOne({_id: estId}).populate('pagos')
+     e
    )
   }catch (e) {
     sendError(`${addr}:id No existe el estudiante ${estId}`,res,e)

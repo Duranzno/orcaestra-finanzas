@@ -13,7 +13,7 @@ mongoose.connect(DB,{useNewUrlParser: true})
 
 const app = require('./app')(mongoose);
 app.listen(PORT, function() {
-	console.log(process.env);
+	// console.log(process.env);
   console.log(
     `Servidor Node escuchando en http://${IP}/:${PORT}`
   );
