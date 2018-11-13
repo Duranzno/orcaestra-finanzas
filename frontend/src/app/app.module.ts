@@ -2,9 +2,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { provide } from ‘@angular/core’
+
 //Libraries Modules
 import {NgbCollapseModule, NgbModalModule} from '@ng-bootstrap/ng-bootstrap';
-import { Http, HttpModule} from '@angular/http';
+import { Http, HttpModule, BrowserXhr} from '@angular/http';
 import { IconsModule } from './icons/icons.module';
 
 //My modules
@@ -12,6 +14,7 @@ import { SharedModule } from './shared/shared.module';
 import { TableModule } from './table/table.module';
 
 //My Components
+import { CustExtBrowserXhr} from './cust-ext-browser-xhr';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar.component';
 import { SidebarComponent } from './sidebar.component';
@@ -36,7 +39,12 @@ import { SidebarComponent } from './sidebar.component';
     NavbarComponent,
     SidebarComponent,
   ],
-  providers: [Http,FormsModule],
+  providers: [
+    Http,
+    FormsModule,
+    {provide: BrowserXhr, useClass:CustExtBrowserXhr,
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

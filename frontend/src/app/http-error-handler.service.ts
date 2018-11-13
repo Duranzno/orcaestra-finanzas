@@ -9,6 +9,7 @@ export type HandleError =
 @Injectable()
 export class HttpErrorHandler {
   /** Create curried handleError function that already knows the service name */
+  constructor(){ }
   createHandleError = (serviceName = '') => <T>
     (operation = 'operation', result = {} as T) => this.handleError(serviceName, operation, result);
   /**

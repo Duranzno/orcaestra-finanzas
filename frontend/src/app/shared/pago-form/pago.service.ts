@@ -21,7 +21,7 @@ import { HttpErrorHandler, HandleError } from '../../http-error-handler.service'
 export class PagoService {
 //   constructor() { }
   pagoUrl='';
-//   private handleError:HandleError;
+  private handleError:HandleError;
 
   constructor(
     private http: HttpClient,

@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
-import { Http, HttpModule} from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+
 import { CommonModule } from '@angular/common';
 import { NgbDatepickerModule} from '@ng-bootstrap/ng-bootstrap/';
 import { IconsModule } from '../icons/icons.module'
 
+import { HttpErrorHandler }     from '../http-error-handler.service';
 import { FormsModule }   from '@angular/forms';
 import { PagoService }   from './pago-form/pago.service'
 import { PagoFormComponent } from './pago-form/pago-form.component';
@@ -17,14 +19,14 @@ import { PadreFormComponent } from './padre-form/padre-form.component';
     PadreFormComponent
   ],
   providers: [
-    Http,
+    HttpErrorHandler,  
     PagoService,
   ],
   imports: [
     CommonModule,
     FormsModule,
     IconsModule,
-    HttpModule,
+    HttpClientModule,
     NgbDatepickerModule,
   ],
   exports:[

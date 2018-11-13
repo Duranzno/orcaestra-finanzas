@@ -1,4 +1,5 @@
 <form (ngSubmit)="onSubmit()" #estForm="ngForm">
+    <h3 class="display-6">Agregar Padre</h3>
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="nombre">Nombre</label>
@@ -21,4 +22,5 @@
               [(ngModel)]="model.tlf" name="tlf">
         </div>
     </div>
+    <app-pago-form></app-pago-form>
   </form>

@@ -1,29 +1,26 @@
-<form (ngSubmit)="onSubmit()" #pagoForm="ngForm">
-<div class="form-row">
-        <div class="form-group col-md-3 col-sm-12">
-            <label for="banco">Banco</label>
-            <select class="form-control custom-select" id="banco" required
-                [(ngModel)]="model.banco" name="banco">
-                <option *ngFor="let banco of bancos" [value]="banco">
-                    {{banco}}
-                </option>
-            </select>        
-        </div>
+<fieldset  ngModelGroup="pago">
+    <div class="form-row">
+      <div class="form-group col-md-3 col-sm-12">
+        <label for="banco">Banco</label>
+        <select class="form-control custom-select" id="banco" required
+            name="banco" [(ngModel)]="model.banco">
+          <option *ngFor="let banco of bancos" [value]="banco" >
+            {{banco}}
+          </option >
+        </select>        
+      </div>
 
-        <div class="form-group col-md-3 col-sm-12">
-            <label for="monto">Monto</label>
-            <input type="number" class="form-control" id="monto"  placeholder="Monto"
-                 [(ngModel)]="model.monto" name="monto" required>
+    <div class="form-group col-md-3 col-sm-12">
+      <label for="monto">Monto</label>
+      <input type="number" class="form-control" id="monto"  placeholder="Monto"
+        name="monto" required ngModel>
+    </div>
 
-        </div>
-
-        <div class="form-group col-md-3 col-sm-12">
-            <label for="referencia">Referencia</label>
-            <input type="text" class="form-control" id="referencia" placeholder="Referencia"
-                [(ngModel)]="model.referencia" name="referencia">
-        </div>
-    
-        <div class="form-group col-md-3 col-sm-12 input-group">
+    <div class="form-group col-md-3 col-sm-12">
+      <label for="referencia">Referencia</label>
+      <input type="text" class="form-control" id="referencia" placeholder="Referencia" name="referencia" ngModel>
+    </div>
+    <div class="form-group col-md-3 col-sm-12 input-group">
             <label for="fecha">Fecha de Pago</label>
             <div class="input-group-append">
             <input class="form-control" placeholder="YYYY-MM-DD" id="fecha"
@@ -34,13 +31,9 @@
             </button>
             </div>
         </div>
-        <button type="submit" class="btn btn-success" >Submit</button>
-
-            TODO: remove this: {{model|json}}
-
-</div>
-</form>
-<ng-template #footerTemplate>
+  </div>
+  </fieldset>
+  <ng-template #footerTemplate>
         <hr class="my-0">
         <button class="btn btn-primary btn-sm m-2 float-left" (click)="model.fecha = today; d.close()">Hoy</button>
         <button class="btn btn-secondary btn-sm m-2 float-right" (click)="d.close()">Cerrar</button>

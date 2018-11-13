@@ -1,4 +1,5 @@
-<form (ngSubmit)="onSubmit()" #estForm="ngForm">
+<form (ngSubmit)="onSubmit(estForm.value)" #estForm="ngForm">
+  <h3 class="display-6">Agregar Estudiante</h3>
   <div class="form-row">
       <div class="form-group col-md-6">
           <label for="nombre">Nombre</label>
@@ -10,7 +11,7 @@
           <input autocomplete='family-name' type="text" class="form-control" id="apellido"placeholder="Apellido"
           [(ngModel)]="model.apellido" name="apellido">
       </div>
-      <div class="form-group col-md-4">
+      <div class="form-group col-md-5">
           <label for="correo">Correo</label>
           <input type="email" class="form-control" id="correo" placeholder="Correo"
           [(ngModel)]="model.email" name="email">
@@ -30,4 +31,11 @@
           </select>        
       </div>
   </div>
+  <app-pago-form></app-pago-form>
+  <div class="row">
+    <div class="col-md-10" ></div>
+    <button  type="submit" class="col-md-2 " type="submit" class="btn btn-primary"
+      >Agregar Estudiante</button>
+  </div>
+    <pre>    TODO: remove this: {{estForm.value|json}}</pre>
 </form>

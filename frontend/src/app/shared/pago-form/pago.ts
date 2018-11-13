@@ -26,13 +26,13 @@ export interface Pago{
     fecha?:Date;
 }
 export class PagoImpl implements Pago{   
-    banco:string;
-    referencia:string;
+    public banco:string;
+    public referencia:string;
     public monto:number;
     constructor(              
-        banco:string="",
+        banco:string='Desconocido',
         referencia:string="",
         monto:number=0,    
-        fecha?:Date,  
+        public fecha:Date=new Date(),  
     ){}
 }

@@ -80,8 +80,9 @@ StudentSchema.statics = {
       await this.findOneAndUpdate(filtro,eNuevo,
         {upsert: true, runValidators: true}
       );
-
-      return await this.findOne(filtro);
+    let est=  await this.findOne(filtro);
+    if (eNuevo.hasOwnProperty('pago')) {est.agregarPago(eNuevo.pago)}
+    return est;
     } catch (e) {
       console.error(e);
     }

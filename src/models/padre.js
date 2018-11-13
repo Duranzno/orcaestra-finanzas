@@ -112,6 +112,7 @@ PadreSchema.statics = {
       nombre: pNuevo.nombre,
       apellido: pNuevo.apellido,
     };
+
     if (pNuevo.hasOwnProperty('_id')) {
       console.log(
         TAG,
@@ -122,7 +123,10 @@ PadreSchema.statics = {
     await padThis
       .findOneAndUpdate(filtro, pNuevo, {upsert: true, runValidators: true})
       .catch(err => console.error(err));
-    return await padThis.findOne(filtro);
+    
+    let pad= await padThis.findOne(filtro);
+    if (pNuevo.hasOwnProperty('pago')) {await pad.agregarPago(pNuevo.pago)}
+    return pad;
   },
   transferirPago:async function(trasnferidorId,transferidoId,pagoId){
     await this.update({'_id':transferidoId} ,{$push:{pagos:pagoId}},updateOptions);

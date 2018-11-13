@@ -11,13 +11,13 @@
                     <div class="btn-group mr-2">
                         <button type="button" class="btn btn btn-sm btn-outline-secondary" 
                             [attr.aria-expanded]="!parentIsCollapsed" aria-controls="collapseExample"
-                            (click)="parentIsCollapsed = !parentIsCollapsed">
+                            (click)="parentIsCollapsed = !parentIsCollapsed; studentIsCollapsed=true;">
                             Agregar Padre    
                         </button>
                         
                         <button type="button " class="btn btn-sm btn-outline-secondary"
                             [attr.aria-expanded]="!studentIsCollapsed" aria-controls="collapseExample" 
-                            (click)="studentIsCollapsed = !studentIsCollapsed">
+                            (click)="studentIsCollapsed = !studentIsCollapsed; parentIsCollapsed=true;">
                             Agregar Estudiante    
                         </button>
                         <button class="btn btn-sm btn-outline-secondary" (click)="openFileBrowser($event,'uploadPaola')" id="importarMarwan">Importar Planillas</button>
@@ -31,7 +31,6 @@
                 </div>
             </div>
             {{fileName}}
-            <app-datatables></app-datatables>
             
             <div id="collapseExample" [ngbCollapse]="studentIsCollapsed">
                 <div class="card">
@@ -40,7 +39,6 @@
                   </div>
                 </div>
             </div>
-              
             <div id="collapseExample" [ngbCollapse]="parentIsCollapsed">
             <div class="card">
                 <div class="card-body">
@@ -48,7 +46,8 @@
                 </div>
             </div>
             </div>
-
+         
+            <app-datatables></app-datatables>
         </main>
     </div>
 </div>
