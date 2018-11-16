@@ -85,24 +85,20 @@ body {
     border-color: transparent;
     box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
 }
-
 td.details-control {
-    /*background: url('../resources/details_open.png') no-repeat center center;*/
+    background: url('/assets/details_open.png') no-repeat center center;
     cursor: pointer;
 }
 
-.shown td.details-control {
-    /*background: url('../resources/details_close.png') no-repeat center center;*/
+tr.shown td.details-control {
+    background: url('/assets/details_close.png') no-repeat center center;
 }
+
 
 .edit-student {
-    /*background: url('../resources/details_open.png') no-repeat center center;*/
     cursor: pointer;
 }
 
-/*tr.shown td.edit-student {*/
-/*    background: url('../resources/details_close.png') no-repeat center center;*/
-/*}*/
 .border-top {
     border-top: 1px solid #e5e5e5;
 }

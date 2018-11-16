@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSubmit()" #estForm="ngForm">
+<form (ngSubmit)="onSubmit(padForm.value)" #padForm="ngForm">
     <h3 class="display-6">Agregar Padre</h3>
     <div class="form-row">
         <div class="form-group col-md-6">
@@ -23,4 +23,10 @@
         </div>
     </div>
     <app-pago-form></app-pago-form>
+    <div class="row">
+        <div class="col-md-10" ></div>
+        <button  type="submit" class="col-md-2 " type="submit" class="btn btn-primary"
+        >Agregar Padre</button>
+        <i-home></i-home>
+    </div>
   </form>

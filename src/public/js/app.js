@@ -44,11 +44,11 @@ function oneTimeEventsSetup() {
       monto: $('#monto').val(),
       fecha: $('#fecha').val(),
     };
-    $.post('/estudiante/new', student, 'json')
+    $.post('api/estudiante/new', student, 'json')
       .done(function(est) {
         console.log(est._id);
         student._id = est._id;
-        $.post(`/estudiante/${est._id}/pago`, pago, 'json').done(function(
+        $.post(`api/estudiante/${est._id}/pago`, pago, 'json').done(function(
           data
         ) {
           console.log(data);
@@ -204,7 +204,7 @@ function DatatablesModule() {
   function setupDT() {
     table = $('#table').DataTable({
       ajax: {
-        url: website + '/estudiantes',
+        url: website + '/api/estudiantes',
         dataSrc: '',
         deferRender: true,
       },

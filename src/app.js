@@ -14,7 +14,8 @@ const {
 } =require('./routes');
 
 const  originsWhitelist=[
-  'http:localhost:4200',
+  'http://localhost:4200',
+  'http://192.168.1.141:4200',
   'http://productionurl.com'
 ]
 let corsOptions = {

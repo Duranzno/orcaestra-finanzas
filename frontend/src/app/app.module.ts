@@ -2,7 +2,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { provide } from ‘@angular/core’
 
 //Libraries Modules
 import {NgbCollapseModule, NgbModalModule} from '@ng-bootstrap/ng-bootstrap';
@@ -42,8 +41,7 @@ import { SidebarComponent } from './sidebar.component';
   providers: [
     Http,
     FormsModule,
-    {provide: BrowserXhr, useClass:CustExtBrowserXhr,
-    {provide: LocationStrategy, useClass: HashLocationStrategy},
+    {provide: BrowserXhr, useClass:CustExtBrowserXhr },
   ],
   bootstrap: [AppComponent]
 })

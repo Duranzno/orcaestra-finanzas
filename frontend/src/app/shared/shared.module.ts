@@ -7,7 +7,6 @@ import { IconsModule } from '../icons/icons.module'
 
 import { HttpErrorHandler }     from '../http-error-handler.service';
 import { FormsModule }   from '@angular/forms';
-import { PagoService }   from './pago-form/pago.service'
 import { PagoFormComponent } from './pago-form/pago-form.component';
 import { EstudianteFormComponent } from './estudiante-form/estudiante-form.component';
 import { PadreFormComponent } from './padre-form/padre-form.component';
@@ -20,7 +19,6 @@ import { PadreFormComponent } from './padre-form/padre-form.component';
   ],
   providers: [
     HttpErrorHandler,  
-    PagoService,
   ],
   imports: [
     CommonModule,
