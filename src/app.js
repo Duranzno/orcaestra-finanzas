@@ -42,7 +42,7 @@ module.exports = function (mongoose){
   app.use(favicon(path.join(__dirname, 'public', 'resources', 'favicon.ico')));
   // Add headers
   
-  seed();
+  // seed();
 //Routes
 //   app.get('/', function(req, res){
 //     res.status(200).json('hello world');

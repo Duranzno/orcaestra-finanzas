@@ -2,11 +2,12 @@
   "name": "orcaestra-finanzas",
   "version": "0.1.0",
   "description": "Servidor para Orquesta",
-  "main": "server.js",
+  "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
     "test": "mocha",
-    "pretest": "eslint --ignore-path .gitignore ."
+    "pretest": "eslint --ignore-path .gitignore .",
+    "nd":"nodemon src/server.js"
   },
   "repository": {
     "type": "git",
@@ -41,6 +42,7 @@
     "chai-as-promised": "^7.1.1",
     "eslint": "^5.7.0",
     "mocha": "^5.2.0",
+    "nodemon": "^1.18.6",
     "supertest": "^3.3.0",
     "uglify-js": "^3.4.9"
   },

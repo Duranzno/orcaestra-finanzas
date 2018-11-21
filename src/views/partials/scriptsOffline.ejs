@@ -1,0 +1,40 @@
+<script 
+	src="../../public/js/lib/jquery.min.js">
+</script>
+
+<script>
+  if (typeof($.fn.modal) === 'undefined') {
+    document.write('<script src="../../public/js/lib/bootstrap.bundle.min.js"><\/script>') 
+  }
+</script>
+
+<script 
+	type="text/javascript" 
+	src="../../public/js/lib/feather.min.js">
+</script>
+
+<script 
+	src="../../public/js/lib/datatables.min.js">
+</script>
+
+<script 
+	type="text/javascript" 
+	src="../../public/js/lib/bootstrap-datepicker.min.js">
+</script>
+
+<script 
+	type="text/javascript" 
+	src="../../public/js/app.js">
+</script>
+
+<!--CSS-->
+
+<script>
+  $(document).ready(function () {
+    let bodyColor = $('body').css('color');
+    if (bodyColor !== 'rgb(51, 51, 51)') {
+      $("head").prepend('<link rel="stylesheet" href="../../public/stylesheets/bootstrap.css">');
+     	$("head").prepend('<link rel="stylesheet" href="../../public/stylesheets/bootstrap-datepicker.css">'); 
+    }
+  });
+</script>

@@ -1,0 +1,504 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"order",
+				"ordering"
+			],
+			[
+				"estudi",
+				"estudiantes"
+			],
+			[
+				"isS",
+				"isStudentTable"
+			],
+			[
+				"dt",
+				"dtOptions"
+			],
+			[
+				"H",
+				"HttpClientModule"
+			],
+			[
+				"da",
+				"datatableElement"
+			],
+			[
+				"colu",
+				"columns"
+			],
+			[
+				"chil",
+				"child-rows"
+			],
+			[
+				"show",
+				"showChildRow"
+			],
+			[
+				"colum",
+				"columnDefs"
+			],
+			[
+				"min",
+				"minlength\tAttr"
+			],
+			[
+				"Mat",
+				"MatInputModule"
+			],
+			[
+				"Ma",
+				"MatButtonModule"
+			],
+			[
+				"B",
+				"BrowserAnimationsModule"
+			],
+			[
+				"P",
+				"PadreService"
+			],
+			[
+				"comp",
+				"component"
+			],
+			[
+				"S",
+				"ShaComponent"
+			],
+			[
+				"co",
+				"component"
+			],
+			[
+				"dataS",
+				"dataSet"
+			],
+			[
+				"Ht",
+				"http"
+			],
+			[
+				"ON",
+				"OnDestroy"
+			],
+			[
+				"sus",
+				"subscribe\tmethod"
+			],
+			[
+				"l",
+				"limit\tparameter"
+			],
+			[
+				"Pip",
+				"PipeTransform\talias"
+			],
+			[
+				"Course",
+				"CoursesService\talias"
+			]
+		]
+	},
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"TypeScrip",
+				"TypeScript: Format Block"
+			],
+			[
+				"Typesho",
+				"TypeScript: Show Error List"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 152.851150513,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/ale/Development/orcaestra-finanzas/frontend/src/app/table/datatables.component.html",
+		"/home/ale/Development/orcaestra-finanzas/frontend/src/app/table/datatables.component.ts",
+		"/home/ale/Development/orcaestra-finanzas/frontend/src/app/table/table.ts",
+		"/home/ale/Development/orcaestra-finanzas/orcaestra-finanzas.sublime-project",
+		"/home/ale/Development/orcaestra-finanzas/frontend/src/app/app.module.ts",
+		"/home/ale/.cache/.fr-Vpvhiy/rsync_ssh.py",
+		"/home/ale/Development/orcaestra-finanzas/frontend/src/app/app.component.css",
+		"/home/ale/Development/orcaestra-finanzas/frontend/src/app/shared/padre-form/padre.ts",
+		"/home/ale/Development/orcaestra-finanzas/frontend/src/app/shared/estudiante-form/estudiante.ts",
+		"/home/ale/Development/orcaestra-finanzas/frontend/src/app/table/estudiantes.service.ts",
+		"/home/ale/Development/orcaestra-finanzas/frontend/src/index.html",
+		"/home/ale/Development/orcaestra-finanzas/frontend/src/app/app.component.html",
+		"/home/ale/Development/orcaestra-finanzas/frontend/src/app/navbar.component.html",
+		"/home/ale/Development/orcaestra-finanzas/frontend/src/app/shared/estudiante-form/estudiante-form.component.html",
+		"/home/ale/Development/orcaestra-finanzas/frontend/src/app/table/table.module.ts",
+		"/home/ale/Development/orcaestra-finanzas/frontend/src/app/shared/estudiante-form/estudiante.service.ts",
+		"/home/ale/Development/orcaestra-finanzas/frontend/src/app/shared/estudiante-form/estudiante-form.component.ts",
+		"/home/ale/Development/orcaestra-finanzas/frontend/src/app/shared/shared.module.ts",
+		"/home/ale/Development/orcaestra-finanzas/src/public/js/app.js",
+		"/home/ale/Development/orcaestra-finanzas/frontend/src/app/table/child-rows.ts",
+		"/home/ale/Desktop/a.html",
+		"/home/ale/Development/orcaestra-sinfonica/src/main.ts",
+		"/home/ale/Development/orcaestra-sinfonica/src/app/app.module.ts",
+		"/home/ale/Development/orcaestra-sinfonica/src/app/material.module.ts",
+		"/home/ale/Development/orcaestra-sinfonica/src/app/auth/signup/signup.component.css",
+		"/home/ale/Development/orcaestra-sinfonica/src/app/app-routing.module.ts",
+		"/home/ale/Development/orcaestra-sinfonica/src/app/app.component.html",
+		"/home/ale/Development/orcaestra-sinfonica/src/styles.css",
+		"/home/ale/Development/orcaestra-sinfonica/src/index.html",
+		"/home/ale/Templates/Angular/material-rx/optimizations-05-finished/src/index.html",
+		"/home/ale/Development/orcaestra-finanzas/.gitignore",
+		"/home/ale/Development/orcaestra-sinfonica/.gitignore",
+		"/home/ale/Development/orcaestra-finanzas/frontend/src/styles.css",
+		"/home/ale/Development/orcaestra-finanzas/frontend/angular.json",
+		"/home/ale/Development/orcaestra-finanzas/frontend/src/app/table/datatables.component.css"
+	],
+	"find":
+	{
+		"height": 27.972027972
+	},
+	"find_in_files":
+	{
+		"height": 106.897102356,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"a",
+			"datatableElement",
+			"console",
+			"htmlFil",
+			"getF",
+			"modules",
+			"table",
+			"getFecha",
+			"callback",
+			"details",
+			"config",
+			";",
+			"eNuevo",
+			"Estudiante"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"dtEl",
+			"exportedModules",
+			"pNuevo",
+			"Padre"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"incremental_find":
+	{
+		"height": 27.972027972
+	},
+	"input":
+	{
+		"height": 43.96003996
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.doc":
+	{
+		"height": 0.0
+	},
+	"output.errorlist":
+	{
+		"height": 127.876121521
+	},
+	"output.exec":
+	{
+		"height": 127.876121521
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/TypeScript/TypeScript.sublime-build",
+	"replace":
+	{
+		"height": 51.9480519481
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"table.ts",
+				"frontend/src/app/table/table.ts"
+			],
+			[
+				"table.com",
+				"frontend/src/app/table/datatables.component.ts"
+			],
+			[
+				"app.mo",
+				"frontend/src/app/app.module.ts"
+			],
+			[
+				"app.comp",
+				"frontend/src/app/app.component.css"
+			],
+			[
+				"orc",
+				"orcaestra-finanzas.sublime-project"
+			],
+			[
+				"datatable",
+				"frontend/src/app/table/datatables.component.ts"
+			],
+			[
+				"estudiantes ser",
+				"frontend/src/app/table/estudiantes.service.ts"
+			],
+			[
+				"shared html",
+				"frontend/src/app/shared/estudiante-form/estudiante-form.component.html"
+			],
+			[
+				"navba",
+				"frontend/src/app/navbar.component.html"
+			],
+			[
+				"app html",
+				"frontend/src/app/app.component.html"
+			],
+			[
+				"index",
+				"frontend/src/index.html"
+			],
+			[
+				"Padre",
+				"frontend/src/app/shared/padre-form/padre.ts"
+			],
+			[
+				"estudiante",
+				"frontend/src/app/shared/estudiante-form/estudiante.ts"
+			],
+			[
+				"table",
+				"frontend/src/app/table/table.ts"
+			],
+			[
+				"datatab html",
+				"frontend/src/app/table/datatables.component.html"
+			],
+			[
+				"estudiante-fo",
+				"frontend/src/app/shared/estudiante-form/estudiante-form.component.ts"
+			],
+			[
+				"estudiante-f",
+				"frontend/src/app/shared/estudiante-form/estudiante-form.component.html"
+			],
+			[
+				"table mod",
+				"frontend/src/app/table/table.module.ts"
+			],
+			[
+				"shared",
+				"frontend/src/app/shared/shared.module.ts"
+			],
+			[
+				"estudiante.ser",
+				"frontend/src/app/shared/estudiante-form/estudiante.service.ts"
+			],
+			[
+				"table modu",
+				"frontend/src/app/table/table.module.ts"
+			],
+			[
+				"datatables html",
+				"frontend/src/app/table/datatables.component.html"
+			],
+			[
+				"app.",
+				"src/public/js/app.js"
+			],
+			[
+				"datatable.com",
+				"frontend/src/app/table/datatables.component.ts"
+			],
+			[
+				"signup",
+				"src/app/auth/signup/signup.component.html"
+			],
+			[
+				"datatables.html",
+				"src/app/table/datatables/datatables.component.html"
+			],
+			[
+				"padre",
+				"src/app/shared/padre-form/padre-form.component.ts"
+			],
+			[
+				"http",
+				"src/app/http-error-handler.service.ts"
+			],
+			[
+				"modu",
+				"src/app/app.module.ts"
+			],
+			[
+				"hero",
+				"Angular/angular.io-http/src/app/heroes/heroes.service.ts"
+			],
+			[
+				"shared.mod",
+				"frontend/src/app/shared/shared.module.ts"
+			],
+			[
+				"shared.mo",
+				"frontend/src/app/shared/shared.module.ts"
+			],
+			[
+				"app.com",
+				"src/app/app.component.ts"
+			],
+			[
+				"routing",
+				"app/app.routing.ts"
+			],
+			[
+				" post.compo",
+				"src/app/posts/posts.component.html"
+			],
+			[
+				"posts",
+				"src/app/posts/posts.component.ts"
+			],
+			[
+				"app",
+				"src/app/app.module.ts"
+			],
+			[
+				"styles",
+				"src/styles.css"
+			],
+			[
+				"ser",
+				"api-testing-with-node/server.js"
+			],
+			[
+				"Padre.",
+				"app/models/padre.ts"
+			],
+			[
+				"DbTe",
+				"test/dbTest.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 340.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
