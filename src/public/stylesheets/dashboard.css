@@ -1,7 +1,7 @@
 body {
     font-size: .875rem;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
 .dataTables_filter {
     display: none;
 }
@@ -13,10 +13,14 @@ body {
 /*#table .feather {
     width: 10px;
     height: 10px;
+}*/
+/*#table .btn {
+   width:16px;
+   height: 16px; 
 }
-#table .btn {
-    width:12px;
-    height:12px;
+#table svg{
+    width:10px;
+    height: 10px;   
 }*/
 .sidebar {
     position: fixed;
