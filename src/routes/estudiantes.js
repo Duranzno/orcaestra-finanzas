@@ -29,7 +29,7 @@ router.get('/:id',async function(req, res) {
     sendError(`${addr}:id No existe el estudiante ${estId}`,res,e)
   }
 });
-
+//READ Obtener JSON por fecha especifica (mes/ano)
 router.get('/:ano/:mes',async function(req, res) {
   const filtroMes = req.params.mes,
     filtroAno = req.params.ano;
@@ -70,7 +70,6 @@ router.get('/:ano/:mes',async function(req, res) {
   }
   catch (e) {sendError(`GET ${addr}/:ano/:mes`,res,e)}
 });
-
 
 //READ Obtener JSON de los estudiantes que han hecho pagos desde tal banco
 router.get('/:banco', async function(req, res) {
@@ -142,6 +141,21 @@ router.post('/:id/pago', async function(req, res) {
   try{
     await  Estudiante.agregarPagoById(estId, pagoNuevo);
     sendOk(`POST ${addr}/:id/pago`,
+     res)
+  } catch (e) {sendError(`POST ${addr}:id/pago`,res,e)}
+
+});
+router.delete('/:id/pago/:pagoId', async function(req, res) {
+  const estId = req.params.id,pagoNuevo = newPago(req);
+  const pagoId = req.params.pagoId||pagoNuevo._id;
+  console.log('estId',JSON.stringify(estId));
+  console.log('pagoId',JSON.stringify(pagoId));
+  console.log('pagoNuevo',JSON.stringify(pagoNuevo));
+  if(typeof pagoNuevo._id=="undefined"){pagoNuevo._id=pagoId}
+  try{
+    let est=await  Estudiante.findById(estId);
+    est.quitarPago(pagoNuevo);
+    sendOk(`DELETE ${addr}:id/pago`,
      res)
   } catch (e) {sendError(`POST ${addr}/:id/pago`,res,e)}
 

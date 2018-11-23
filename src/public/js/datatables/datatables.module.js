@@ -1,12 +1,16 @@
 (async function() {
+  try{
+  await $.getScript( "/public/js/datatables/options.const.js",()=>console.log("cargado options.c"));
+  console.log(website);
   await Promise.all([  
-    $.getScript( "/public/js/datatables/options.const.js",()=>console.log("cargado options.c")),
     $.getScript( "/public/js/datatables/modal.js", 
       ( )=> console.log("Cargado modal.js")),
     $.getScript( "/public/js/datatables/subrow.js", 
-      ( )=> console.log("Cargado funcion para filas hijos")),
+      ( )=> {console.log("Cargado funcion para filas hijos"), subRow();}),
     ]);
   console.log("Cargados scripts dentro de datatables.module");
+  }
+  catch(e){console.log(e)}
 })()
 
 function DatatablesModule(fecha) {
@@ -41,9 +45,7 @@ function DatatablesModule(fecha) {
     console.log(url)
     newAjaxSrc(url);
   });
-  
   //LLamada a toda la configuracion de filas de Pago
-  subRow(table);
 
   return {
     table:table,

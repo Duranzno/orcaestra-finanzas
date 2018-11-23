@@ -1,5 +1,8 @@
-function subRow(table) {
+function subRow() {
+	let table=$('#table').DataTable({"retrieve": true});
+  console.log('subrow executed');
   $('#table tbody').on('click', 'td.details-control', function() {
+  console.log('subrow click added');
     let tr = $(this).closest('tr');
     let filasPagos = table.row(tr);
     if (filasPagos.child.isShown()) {
@@ -16,6 +19,7 @@ function subRow(table) {
     } 
     
   });
+
   function htmlFila(d,titulo,hijo) {
     return `
     	<table class="table table-striped">
@@ -46,7 +50,7 @@ function subRow(table) {
           		<span data-feather="edit-2"></span> 
         		</button>
             <button type="button" data-pagoId="${d.pagos[i]._id}"
-                class="btn btn-remove-pago btn-outline-dark btn-sm">
+                class="btn btn-delete-pago btn-outline-dark btn-sm">
               <span data-feather="file-minus"></span> 
             </button>
           </td> 

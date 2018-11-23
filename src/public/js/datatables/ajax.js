@@ -1,42 +1,73 @@
 class Ajax{
-	constructor(url) {
-		this.url=url||'http://localhost:1234/api/estudiantes/';
+	constructor(baseURL,url) {
+		this.baseURL= baseURL?baseURL:'http//localhost:1234/api'
+		this.urlSet('e')
+
 	}
-	// putPago(){console.log('asfasd');}
-	// putEstudiante(){return "PUT PAGO";}
-	// putPadre(){}
-	// deletePago(){}
-	deleteEstudiante(id){
+	urlSet(url){
+		if(url==="e"){this.url=`/api/estudiantes`}
+		else if(url==="p"){this.url=`/api/padres`}
+		else {
+			throw console.error('modificador de url desconocido');
+		}
+	}
+	put(d){
 		$.ajax({
-        type: 'DELETE',
-        url: this.url + id,
-        dataType: 'json',
-      })
-		.then(()=>{
-    	// newAjaxSrc();
-			console.log('Se eliminó el estudiante'+id)
+			type: "PUT",
+			url: `${this.url}/${d._id}`,
+			data: d,
+			dataType: "json",
+			success:newAjaxSrc(this.url)
+		});
+	}
+	post(d){
+		$.ajax({
+			type: "POST",
+			url: `${this.url}/${d._id}`,
+			data: d,
+			dataType: "json",
+			success:newAjaxSrc(this.url)
+		});
+	}
+	delete(d){
+		$.ajax({
+			type: 'DELETE',
+			url: `${this.url}/${d._id}`,
+			dataType: 'json',
+			success:newAjaxSrc(this.url)
 		})
 	}
-// 
-
-			// deletePadre(){}
-	// postPago(){}
-	// function postHijo(){
-	// 	console.log("a");
-	// }
-	// console.log("AJAX")
+	postPago(d,p){
+		$.ajax({
+			type: "POST",
+			url: `${this.url}/${p._id}/pago`,
+			data: p,
+			dataType: "json",
+			success:newAjaxSrc(this.url)
+		});
+	}
+	putPago(p){
+		$.ajax({
+			type: "PUT",
+			url: `api/pagos/${p._id}`,
+			data: p,
+			dataType: "json",
+			success: newAjaxSrc(this.url)
+		});
+	}
+	deletePago(d,p){
+		$.ajax({
+			type: "DELETE",
+			url:`${this.url}/${d._id}/pago/${p._id}`,
+			data: p,
+			dataType: "json",
+			// success: newAjaxSrc(this.url)
+		});
+	}
 }
-    // $.ajax({
-    //   type: 'PUT',
-    //   url: 'http://localhost:1234/api/estudiante/' + id,
-    //   data: e,
-    //   dataType: 'json',
-    // });
-    // newAjaxSrc();
-
-    // 
-// let newAjaxSrc = function(url) {
-//   url = url ? url : 'http://localhost:1234';
-//   console.log(url);
-//   table.ajax.url(url).load();
-// };
+async function newAjaxSrc(url) {
+	let dt=$('#table').DataTable({"retrieve": true});
+	// console.log(dt.ajax)
+	await dt.ajax.url(url);
+	await dt.ajax.reload();
+};

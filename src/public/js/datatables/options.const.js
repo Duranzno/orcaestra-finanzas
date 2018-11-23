@@ -14,7 +14,7 @@ const grupos = [
     'Juvenil',
     'Kinder Musical',
   ];
-const website = "http://localhost:1234" || location.href.slice(0, -1) || 'http://localhost:5000/';
+var website = "http://localhost:1234" || location.href.slice(0, -1) || 'http://localhost:5000/';
 const columnDefsEst = [
   {
     title:'Pagos',

@@ -11,9 +11,8 @@ $(document).ready(async function() {
     ])
   let fecha = DateModule();
   const dt = DatatablesModule(fecha);
-
+  
   (CalendarModule()).configCalendar();
-
   setupClickEvents();
   setupSideBar(fecha);
   feather.replace();
