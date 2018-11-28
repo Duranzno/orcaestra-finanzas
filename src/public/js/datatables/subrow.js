@@ -1,8 +1,6 @@
 function subRow() {
 	let table=$('#table').DataTable({"retrieve": true});
-  console.log('subrow executed');
   $('#table tbody').on('click', 'td.details-control', function() {
-  console.log('subrow click added');
     let tr = $(this).closest('tr');
     let filasPagos = table.row(tr);
     if (filasPagos.child.isShown()) {

@@ -31,7 +31,7 @@ module.exports={
     const a={
       nombre:NameArray[Math.floor(Math.random() * NameArray.length)],
       apellido:LastNameArray[Math.floor(Math.random() * LastNameArray.length)],
-      tlf: Math.random()*Math.random()*10,
+      tlf: Math.floor(Math.random()*1000),
       pagos:[],
       hijos:[]
     };

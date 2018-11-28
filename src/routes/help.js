@@ -33,17 +33,19 @@ let newPago=function(req) {
   return newData;
 };
 let newEstudiante=function(req) {
+  // console.log("NEWESTUDIANTE")
+  // console.log("PAGOS DE newEstudiante",req.body.pagos)
   let newData = {
     nombre: req.body.nombre,
     apellido: req.body.apellido,
     email: req.body.email,
     grupo: req.body.grupo,
     tlf: req.body.tlf,
-    pagos: req.body.pagos,
+    // pagos: req.body.pagos,
   };
-  if (!Array.isArray(newData.pagos)) {
-    newData.pagos = [];
-  }
+  // if (!Array.isArray(newData.pagos)) {
+  //   newData.pagos = [];
+  // }
   if (Grupos.indexOf(newData.grupo) === -1) {
     newData.grupo = Grupos[0];
   }

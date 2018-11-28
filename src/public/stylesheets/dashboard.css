@@ -10,6 +10,9 @@ body {
     height: 16px;
     vertical-align: text-bottom;
 }
+#estudiantesLink, #padresLink{
+    cursor:pointer;
+}
 /*#table .feather {
     width: 10px;
     height: 10px;

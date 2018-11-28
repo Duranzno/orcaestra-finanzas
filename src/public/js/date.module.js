@@ -1,29 +1,31 @@
-function DateModule() {
-    let monthNames = [
-      'Enero',
-      'Febrero',
-      'Marzo',
-      'Abril',
-      'Mayo',
-      'Junio',
-      'Julio',
-      'Agosto',
-      'Septiembre',
-      'Octubre',
-      'Noviembre',
-      'Diciembre',
-    ];
+class DateModule {
+    constructor(){
+      this.monthNames=[
+        'Enero',
+        'Febrero',
+        'Marzo',
+        'Abril',
+        'Mayo',
+        'Junio',
+        'Julio',
+        'Agosto',
+        'Septiembre',
+        'Octubre',
+        'Noviembre',
+        'Diciembre',
+      ];
+    }   
   
-    function getMonthName(monthNumber) {
-      return monthNames[monthNumber];
+    getMonthName(monthNumber) {
+      return this.monthNames[monthNumber];
     }
   
-    function getFecha(date) {
+    getFecha(date) {
       let value = typeof date === 'string' ? new Date(date) : date;
       return `${value.getDate()} ${getMesAno(value)}`;
     }
   
-    function arrayMeses(date) {
+    arrayMeses(date) {
       date = date ? date : new Date();
       let nMonth = date.getMonth();
       let nYear = date.getFullYear();
@@ -38,20 +40,20 @@ function DateModule() {
       return meses;
     }
   
-    function getMesAno(date) {
+    getMesAno(date) {
       let value = typeof date === 'string' ? new Date(date) : date;
       return `${getMonthName(value.getMonth())} ${value.getFullYear()}`;
     }
   
-    function getAnoMesURL(date) {
+    getAnoMesURL(date) {
       return +date.getFullYear() + '/' + (date.getMonth() + 1) + '/';
     }
   
-    return {
-      getFecha: getFecha,
-      arrayMeses: arrayMeses,
-      getMesAno: getMesAno,
-      getAnoMesURL: getAnoMesURL,
-      // getMonthName:getMonthName,
-    };
+    // return {
+    //   getFecha: getFecha,
+    //   arrayMeses: arrayMeses,
+    //   getMesAno: getMesAno,
+    //   getAnoMesURL: getAnoMesURL,
+    //   // getMonthName:getMonthName,
+    // };
   }

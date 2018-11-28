@@ -45,14 +45,28 @@ PagoSchema.statics = {
     if (pagoNuevo.referencia === null || pagoNuevo.referencia === '') {
       console.error(new Error('No tiene referencia el pago nuevo'));
     }
-
-    return await pThis.findOneAndUpdate(
+    
+    if(typeof pagoNuevo._id==="undefined"){
+      return await pThis.findOneAndUpdate(
       {
         referencia: pagoNuevo.referencia,
       },
       pagoNuevo,
       {upsert: true, runValidators: true, new: true}
     );
+    }
+    else
+    {
+      return await pThis.findOneAndUpdate(
+      {
+        // referencia: pagoNuevo.referencia,
+        _id:pagoNuevo._id,
+      },
+      pagoNuevo,
+      {upsert: true, runValidators: true, new: true}
+    );  
+    }
+    
 
     // return p;
   },

@@ -3,42 +3,22 @@ const Estudiantes = require('./models/estudiante');
 const Pagos = require('./models/pago');
 const Grupos = require('./models/grupos');
 const Bancos = require('./models/bancos');
-const dataEstudiantes = [
-  {
-    nombre: 'Alejandro',
-    apellido: 'Duran',
-    email: 'aledurax@gmail.com',
-    tlf: '1',
-    cedula: '214125',
-    grupo: Grupos[Math.floor(Math.random() * Grupos.length)],
-  },
-  {
-    nombre: 'Fernando',
-    apellido: 'Duran',
-    email: 'aledurax@gmail.com',
-    tlf: '2',
-    cedula: '214124',
-    grupo: Grupos[Math.floor(Math.random() * Grupos.length)],
-  },
-  {
-    nombre: 'Jose',
-    apellido: 'Duran',
-    email: 'aledurax@gmail.com',
-    tlf: '3',
-    cedula: '214121',
-    grupo: Grupos[Math.floor(Math.random() * Grupos.length)],
-  },
-  {
-    nombre: 'Yuli',
-    apellido: 'Duran',
-    email: 'aledurax@gmail.com',
-    tlf: '4',
-    cedula: '214134',
-    grupo: Grupos[Math.floor(Math.random() * Grupos.length)],
-  },
-];
+const Padre = require('./models/padre');
+const util = require('../test/utils');
 
-function seedDB() {
+
+const randLen=4;
+function rand(rand){
+  if(typeof Array.isArray(rand)){
+    return rand[Math.floor(Math.random() * rand.length)]
+  }
+  else{
+    return (typeof rand==="undefined")
+        ?Math.floor(Math.random() * randLen)
+        :Math.floor(Math.random() * rand)
+  }  
+}
+async function seedDB() {
   mongoose.connection.dropCollection('pagos').then(function(listo) {
     if (listo) {
       console.log('removed Pagos!');
@@ -49,37 +29,55 @@ function seedDB() {
       console.log('removed Estudiantes!');
     }
   });
-
-  dataEstudiantes.forEach(function(seedEstudiantes) {
-    Estudiantes.create(seedEstudiantes, function(err, estudiante) {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(`Creado ${estudiante.nombre} | ${estudiante._id}`);
-
-        // console.log(estudiante);
-        //Crear un pago
-        Pagos.create(
-          {
-            banco: Bancos[Math.floor(Math.random() * Bancos.length)],
-            referencia: Math.floor(Math.random() * 1000 + 100).toString(),
-            monto: Math.floor(Math.random() * 1000 + 100).toString(),
-          },
-          function(err, pago) {
-            if (err) {
-              console.log(err);
-            } else {
-              estudiante.pagos.push(pago);
-              estudiante.save();
-              console.log(`Creado pago en ${pago.banco} | ${pago._id}`);
-              // console.log(pago);
-            }
-          }
-        );
-      }
-    });
+  mongoose.connection.dropCollection('padres').then(function(done) {
+    if (done) {
+      console.log('removed padres!');
+    }
   });
-  console.log('Finalizado');
+  
+  for(let i=0;i<randLen;i++){
+    try {
+      let p= await Padre.crear(util.getMockPadre())
+      console.log(`seedDB | Creado Padre ${p.nombre} ${p.apellido}`);
+      let h=await p.agregarHijo(util.getMockStudent());
+      console.log(`seedDB | Creado hijo ${h.nombre} de ${p.nombre}`);
+      let pa=await p.agregarPago(util.getMockPago());
+      console.log(`seedDB | Creado pago ${pa.banco} de ${p.nombre}`);
+    }
+    catch(e){
+      console.error(e)
+    }
+  }
+  // dataEstudiantes.forEach(function(seedEstudiantes) {
+  //   Estudiantes.create(seedEstudiantes, function(err, estudiante) {
+  //     if (err) {
+  //       console.log(err);
+  //     } else {
+  //       console.log(`Creado ${estudiante.nombre} | ${estudiante._id}`);
+
+  //       // console.log(estudiante);
+  //       //Crear un pago
+  //       Pagos.create(
+  //         {
+  //           banco: Bancos[Math.floor(Math.random() * Bancos.length)],
+  //           referencia: Math.floor(Math.random() * 1000 + 100).toString(),
+  //           monto: Math.floor(Math.random() * 1000 + 100).toString(),
+  //         },
+  //         function(err, pago) {
+  //           if (err) {
+  //             console.log(err);
+  //           } else {
+  //             estudiante.pagos.push(pago);
+  //             estudiante.save();
+  //             console.log(`Creado pago en ${pago.banco} | ${pago._id}`);
+  //             // console.log(pago);
+  //           }
+  //         }
+  //       );
+  //     }
+  //   });
+  // });
+  console.log('seedDB | Finalizado');
 }
 
 module.exports = seedDB;

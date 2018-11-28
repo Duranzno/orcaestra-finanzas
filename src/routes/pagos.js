@@ -13,13 +13,15 @@ router.get('/:pagoid',async function(req, res){
   });
 });
 //Reemplazar directamente un pago
-router.put('/:pagoId', async (req, res) => {
+router.put('/:pagoId', async function (req, res) {
   try{
-    const newData=req.body;
-    newData._id=req.params.id;
+    let newData=req.body;
+    newData._id=req.params.pagoId;
+    console.log(newData);
     sendOk("Actualizado pago",res,await Pago.crear(newData))
   }
-  catch (e) {
+  catch (err) {
+    console.error(err);
     sendError("Error actualizando pago",res, err);
   }
 });
