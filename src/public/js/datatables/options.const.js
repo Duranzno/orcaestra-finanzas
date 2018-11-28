@@ -1,6 +1,8 @@
-class Constantes {
+class Constants {
   constructor(grupos,colE,bancos,colP) {}
+  
   static grupos(){return [ 'Sin Determinar', 'Coro de Padres', 'Inicial', 'Preparatorio "B"', '"Alma Llanera"', 'IMA', 'IMB', 'PMA', 'PMB', 'Pre-Infantil', 'Infantil', 'Pre Juvenil', 'Juvenil', 'Kinder Musical', ];}
+  
   static colE(){ return [ 
     { title:'Pagos', className: 'details-control', orderable: false, data: null, defaultContent: '', },
     { title:'Nombre', data: 'nombre'}, { title:'Apellido', data: 'apellido'}, 
@@ -14,6 +16,7 @@ class Constantes {
        }, 
     }, 
   ];}
+  
   static colP() { return [ 
     { title:'Extra', className: 'details-control', orderable: false, data: null, defaultContent: '', }, 
     { title:'Nombre', data: 'nombre'}, { title:'Apellido', data: 'apellido'}, { title:'Correo', data: 'email'}, 
@@ -27,7 +30,8 @@ class Constantes {
          }, 
       },
   ]};
-  static banco(){ return
+  
+  static bancos(){ return
     [ 'Desconocido', 'Banesco', `Banco de Venezuela`, `BBVA Provincial`, `Banco Mercantil`, `BOD`, 
     `Banco Bicentenario`, `Bancaribe`, `BNC`, `Banco del Tesoro`, `Bancaribe`, `Banco Exterior`,
      `BFC`, `Sofitasa`, `Bancrecer`, `Banplus`, `Banco Plaza`, `Banco Caroni`, `DELSUR`, ];

@@ -21,17 +21,17 @@ function rand(rand){
 async function seedDB() {
   mongoose.connection.dropCollection('pagos').then(function(listo) {
     if (listo) {
-      console.log('removed Pagos!');
+      console.log('seedDB | removed Pagos!');
     }
   });
   mongoose.connection.dropCollection('estudiantes').then(function(done) {
     if (done) {
-      console.log('removed Estudiantes!');
+      console.log('seedDB | removed Estudiantes!');
     }
   });
   mongoose.connection.dropCollection('padres').then(function(done) {
     if (done) {
-      console.log('removed padres!');
+      console.log('seedDB | removed padres!');
     }
   });
   

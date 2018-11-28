@@ -3,8 +3,13 @@
     
     <div class="btn-toolbar mb-2 mb-md-0">
         <div class="btn-group mr-2">
-            <button class="btn btn-sm btn-outline-secondary" type="button" data-toggle="collapse"
-                    data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            <button class="btn btn-sm btn-outline-secondary" type="button" data-toggle="collapse" id="btn-collapse-e" 
+                    data-target="#collapseEstudiante" aria-expanded="false" aria-controls="collapseEstudiante">
+                <span data-feather="user-plus"></span> 
+            </button>
+            <button class="btn btn-sm btn-outline-secondary" 
+            id="btn-collapse-p" type="button" data-toggle="collapse"
+                    data-target="#collapsePadre" aria-expanded="false" aria-controls="collapsePadre">
                 <span data-feather="user-plus"></span> 
             </button>
             <!--<input type="file" class="inputP" style="display: none" />-->
@@ -25,7 +30,7 @@
 </div>
 
 <!--Agregar Nuevo Estudiantes-->
-<div class="collapse" id="collapseExample">
+<div class="collapse" id="collapseEstudiante">
     <div class="card card-body">
         <form>
             <!--Agregar Estudiante-->
@@ -41,6 +46,25 @@
             <div class="col-md-5"></div>
 
             <button class="col-md-7 btn btn-dark" id="agregarEstudianteNuevo">Agregar Estudiante Nuevo</button>
+        </div>
+    </div>
+</div>
+<!--Agregar Nuevo Padre-->
+<div class="collapse" id="collapsePadre">
+    <div class="card card-body">
+        <form>
+            <!--Agregar Padre-->
+            <% include forms/padre.ejs %>
+
+            <!--Agregar Pago-->
+            <% include forms/pago.ejs %>
+
+
+        </form>
+        <div class="row">
+            <div class="col-md-5"></div>
+
+            <button class="col-md-7 btn btn-dark" id="agregarRepresentanteNuevo">Agregar Representante Nuevo</button>
         </div>
     </div>
 </div>

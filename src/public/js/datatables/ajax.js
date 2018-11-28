@@ -1,14 +1,11 @@
 class Ajax{
-	constructor(baseURL,url) {
+	constructor(baseURL,isStudentTable) {
 		this.baseURL= baseURL?baseURL:'http//localhost:1234/api'
-		this.urlSet('p')
+		this.urlSet(isStudentTable)
 	}
-	urlSet(type){
-		if(type==="e"){this.url=`/api/estudiantes`}
-		else if(type==="p"){this.url=`/api/padres`}
-		else {
-			throw console.error('modificador de url desconocido');
-		}
+	urlSet(isStudentTable){
+		if(typeof isStudentTable==='undefined') isStudentTable=true;
+		this.url=(isStudentTable)?`/api/estudiantes`:`/api/padres`
 	}
 	put(d){
 		console.log(d);
@@ -17,7 +14,7 @@ class Ajax{
 			url: `${this.url}/${d._id}`,
 			data: d,
 			dataType: "json",
-			success:newAjaxSrc(this.url)
+			success:this.newAjaxSrc()
 		});
 	}
 	post(d){
@@ -26,7 +23,7 @@ class Ajax{
 			url: `${this.url}/${d._id}`,
 			data: d,
 			dataType: "json",
-			success:newAjaxSrc(this.url)
+			success:this.newAjaxSrc()
 		});
 	}
 	delete(d){
@@ -34,7 +31,7 @@ class Ajax{
 			type: 'DELETE',
 			url: `${this.url}/${d._id}`,
 			dataType: 'json',
-			success:newAjaxSrc(this.url)
+			success:this.newAjaxSrc()
 		})
 	}
 	postPago(d,p){
@@ -43,7 +40,7 @@ class Ajax{
 			url: `${this.url}/${d._id}/pago`,
 			data: p,
 			dataType: "json",
-			success:newAjaxSrc(this.url)
+			success:this.newAjaxSrc()
 		});
 	}
 	putPago(p){
@@ -53,7 +50,7 @@ class Ajax{
 			url: `api/pagos/${p._id}`,
 			data: p,
 			dataType: "json",
-			success: newAjaxSrc(this.url)
+			success: this.newAjaxSrc()
 		});
 	}
 	deletePago(d,p){
@@ -62,13 +59,41 @@ class Ajax{
 			url:`${this.url}/${d._id}/pago/${p._id}`,
 			data: p,
 			dataType: "json",
-			success: newAjaxSrc(this.url)
+			success: this.newAjaxSrc()
 		});
 	}
+	uploadExcel(data,url){
+		data.append('planilla', this.file_data);
+    const excelThis=this;
+    $.ajax({
+      type: 'POST',
+      enctype: 'multipart/form-data',
+      url: url,
+      data: data,
+      processData: false,
+      contentType: false,
+      cache: false,
+      timeout: 600000,
+      success: function(data) {
+        console.log('uploadExcel| SUCCESS : ', data);
+      	excelThis.newAjaxSrc();
+      },
+      error: function(e) {
+        console.log('uploadExcel| ERROR : ', e);
+      },
+    });
+
+	}
+
+	async newAjaxSrc(newUrl) {
+		let dt=$('#table').DataTable({"retrieve": true});
+		await dt.ajax.url((typeof url==="undefined")?newUrl:this.url);	
+		await dt.ajax.reload();
+	};
+	static async updateTable(url){
+		let dt=$('#table').DataTable({"retrieve": true});
+		await dt.ajax.url(url);
+		await dt.ajax.reload();
+	}
+
 }
-async function newAjaxSrc(url) {
-	let dt=$('#table').DataTable({"retrieve": true});
-	console.log("NEW AJAX SRC")
-	await dt.ajax.url(url);
-	await dt.ajax.reload();
-};

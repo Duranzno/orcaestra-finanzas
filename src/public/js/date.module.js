@@ -42,7 +42,7 @@ class DateModule {
   
     getMesAno(date) {
       let value = typeof date === 'string' ? new Date(date) : date;
-      return `${getMonthName(value.getMonth())} ${value.getFullYear()}`;
+      return `${this.getMonthName(value.getMonth())} ${value.getFullYear()}`;
     }
   
     getAnoMesURL(date) {
