@@ -7,7 +7,7 @@
     "start": "node src/server.js",
     "test": "mocha",
     "pretest": "eslint --ignore-path .gitignore .",
-    "nd":"nodemon src/server.js"
+    "nd": "nodemon src/server.js"
   },
   "repository": {
     "type": "git",
