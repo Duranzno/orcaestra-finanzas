@@ -33,6 +33,7 @@ class Ajax{
 			dataType: 'json',
 			success:this.newAjaxSrc()
 		})
+		this.newAjaxSrc().then(()=>{console.log('updated table')}).catch((e)=>{console.error()})
 	}
 	postPago(d,p){
 		$.ajax({
@@ -75,8 +76,8 @@ class Ajax{
       cache: false,
       timeout: 600000,
       success: function(data) {
-        console.log('uploadExcel| SUCCESS : ', data);
-      	excelThis.newAjaxSrc();
+		console.log('uploadExcel| SUCCESS : ', data);
+		excelThis.newAjaxSrc();
       },
       error: function(e) {
         console.log('uploadExcel| ERROR : ', e);
@@ -86,14 +87,21 @@ class Ajax{
 	}
 
 	async newAjaxSrc(newUrl) {
+	// try {
 		let dt=$('#table').DataTable({"retrieve": true});
-		await dt.ajax.url((typeof url==="undefined")?newUrl:this.url);	
+		await dt.ajax.url((typeof url==="undefined")?newUrl:'http//localhost:1234/api/api/padres');	
 		await dt.ajax.reload();
-	};
+	// }
+	// catch(e){console.error(e)}
+
+	}
 	static async updateTable(url){
+	try {
 		let dt=$('#table').DataTable({"retrieve": true});
 		await dt.ajax.url(url);
 		await dt.ajax.reload();
+	}
+	catch(e){console.error(e)}
 	}
 
 }

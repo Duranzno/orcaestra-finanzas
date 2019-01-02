@@ -1,24 +1,25 @@
-function subRow() {
-	let table=$('#table').DataTable({"retrieve": true});
-  $('#table tbody').on('click', 'td.details-control', function() {
-    let tr = $(this).closest('tr');
-    let filasPagos = table.row(tr);
-    if (filasPagos.child.isShown()) {
-      //Los pagos del estudiante estan mostrados, se van a ocultar
-      filasPagos.child.hide();
-      tr.removeClass('shown');
-    } 
-    else {
-      // Mostrar Filas de Pagos
-      let html = htmlFila(filasPagos.data(),htmlPagoTitulo,htmlPagoHijos /*ó hijo.titulo, hijo.hijo*/);
-      filasPagos.child(html).show();
-      tr.addClass('shown');
-      feather.replace()
-    } 
-    
-  });
+class subRow{
+  constructor(){
+    let table=$('#table').DataTable({"retrieve": true});
+    $('#table tbody').on('click', 'td.details-control', function() {
+      let tr = $(this).closest('tr');
+      let filasPagos = table.row(tr);
+      if (filasPagos.child.isShown()) {
+        //Los pagos del estudiante estan mostrados, se van a ocultar
+        filasPagos.child.hide();
+        tr.removeClass('shown');
+      } 
+      else {
+        // Mostrar Filas de Pagos
+        let html = htmlFila(filasPagos.data(),htmlPagoTitulo,htmlPagoHijos /*ó hijo.titulo, hijo.hijo*/);
+        filasPagos.child(html).show();
+        tr.addClass('shown');
+        feather.replace()
+      }       
+    });
+  }
 
-  function htmlFila(d,titulo,hijo) {
+  htmlFila(d,titulo,hijo) {
     return `
     	<table class="table table-striped">
           ${titulo()}
@@ -27,12 +28,12 @@ function subRow() {
       // ${htmlTitulo()}
       // ${htmlHijos(d)}
 	}
-  function htmlPagoTitulo() {
+  htmlPagoTitulo() {
     return `
     <tr><td>Banco</td> <td>Referencia</td> <td>Fecha</td> <td>Monto</td> <td>Opciones</td> </tr>`;
   }
 
-  function htmlPagoHijos(d) {
+  htmlPagoHijos(d) {
     let fecha = DateModule();
     let html = '';
     for (let i = 0; i < d.pagos.length; i++) {
@@ -57,12 +58,12 @@ function subRow() {
     return html;
   }
 
-	function htmlHijoTitulo() {
+	htmlHijoTitulo() {
     return `
     <tr><td>Nombre</td> <td>Apellido</td> <td>Grupo</td> <td>Opciones</td> </tr>`;
   }
 
-  function htmlHijoHijos(d) {
+  htmlHijoHijos(d) {
     let html = '';
     for (let i = 0; i < d.hijos.length; i++) {
       html +=`

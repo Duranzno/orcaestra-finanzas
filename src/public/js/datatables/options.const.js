@@ -1,5 +1,5 @@
 class Constants {
-  constructor(grupos,colE,bancos,colP) {}
+  constructor() {}
   
   static grupos(){return [ 'Sin Determinar', 'Coro de Padres', 'Inicial', 'Preparatorio "B"', '"Alma Llanera"', 'IMA', 'IMB', 'PMA', 'PMB', 'Pre-Infantil', 'Infantil', 'Pre Juvenil', 'Juvenil', 'Kinder Musical', ];}
   
@@ -29,12 +29,10 @@ class Constants {
            </button> <button type="button" data-row='${meta.row}' class="btn btn-delete btn-outline-dark btn-sm"> <span data-feather="user-x"></span> </button>`; 
          }, 
       },
-  ]};
+  ]}
   
-  static bancos(){ return
-    [ 'Desconocido', 'Banesco', `Banco de Venezuela`, `BBVA Provincial`, `Banco Mercantil`, `BOD`, 
-    `Banco Bicentenario`, `Bancaribe`, `BNC`, `Banco del Tesoro`, `Bancaribe`, `Banco Exterior`,
-     `BFC`, `Sofitasa`, `Bancrecer`, `Banplus`, `Banco Plaza`, `Banco Caroni`, `DELSUR`, ];
+  static bancos(){ 
+    return [ 'Desconocido', 'Banesco', `Banco de Venezuela`, `BBVA Provincial`, `Banco Mercantil`,`BOD`, `Banco Bicentenario`, `Bancaribe`, `BNC`, `Banco del Tesoro`, `Bancaribe`, `Banco Exterior`,`BFC`, `Sofitasa`, `Bancrecer`, `Banplus`, `Banco Plaza`, `Banco Caroni`, `DELSUR`, ];
   } 
   static dtESP(isStudentTable){
     let personas=isStudentTable?'${personas}':'representantes'

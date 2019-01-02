@@ -1,31 +1,34 @@
-function ModalFunction() {
-  let dt, isStudentTable, ajax, grupos, bancos;
-  function constructor(isStudentTable, ajax, constantes) {
-    grupos = Constants.grupos();
-    bancos = Constants.bancos();
-    dt = $('#table').DataTable({ 'retrieve': true });
-    isStudentTable = (isStudentTable === undefined) ? true : isStudentTable;
-    ajax = ajax
-    setupModal();
-    setupClickers();
+'use strict'
+class Modal{
+  constructor(ajax, constantes,isStudentTable) {
+    this.grupos = constantes.grupos();
+    this.bancos = constantes.bancos();
+    this.ajax=ajax;
+    this.dt = $('#table').DataTable({ 'retrieve': true });
+    this.tableType = (isStudentTable === undefined) ? true : isStudentTable;
+    this.setupModal();
+    this.setupClickers();
   }
-  function setupClickers() {
-    console.log()
-    //Click setters
+  ajaxSet(newAjax){
+    this.ajax=newAjax;
+  }
+  setupClickers() {
+    const m=this;
     //EDITAR ESTUDIANTE/PADRE
     $('#table').on('click', 'button.btn.btn-edit', function () {
       let rowIndex = $(this).data('row');
-      let data = {
-        ...(dt.row(rowIndex).data()),
+      $('#estudianteModal').val(
+        {...(m.dt.row(rowIndex).data()),
         rowIndex: rowIndex
-      };
-      $('#estudianteModal').val(data);
+        }
+      );
       $('#estudianteModal').modal('show');
       $(`.btn-modal-save-student`).on(`click`, function () {
         let modal = $('#estudianteModal')
-        let e = findEstudianteModal(modal)
+        let e = m.findEstudianteModal(modal)
         $('#estudianteModal').modal('toggle');
-        ajax.put(e)
+        m.ajax.put(e)
+        
         $(this).off();
       });
     })
@@ -34,7 +37,7 @@ function ModalFunction() {
     $('#table').on('click', 'button.btn.btn-delete', function () {
       let rowIndex = $(this).data('row');
       let data = {
-        ...(dt.row(rowIndex).data()),
+        ...(m.dt.row(rowIndex).data()),
         rowIndex: rowIndex
       };
       $('#deleteModal').val(data);
@@ -42,7 +45,7 @@ function ModalFunction() {
       $(`.btn-delete-modal`).on(`click`, function () {
         let d = $('#deleteModal').val();
         $('#deleteModal').modal('toggle');
-        ajax.delete(d)
+        m.ajax.delete(d)
         $(this).off();
       });
     })
@@ -51,20 +54,19 @@ function ModalFunction() {
     $('#table').on('click', 'button.btn.btn-add-pago', function () {
       const modal = $('#pagoModal');
       const rowIndex = $(this).data('row');
-      const d = dt.row(rowIndex).data();
-      let data = {
+      const d = m.dt.row(rowIndex).data();
+      modal.val({
         apellido: (d.apellido),
         nombre: (d.nombre),
-        _id: d._id, rowIndex: rowIndex
-      };
-
-      modal.val(data);
+        _id: d._id,
+        rowIndex: rowIndex
+      });
       modal.modal('show');
       $(`.btn-modal-save-pago`).on(`click`, function () {
         console.log('btn-modal-save-pago AGREGARPAGO')
-        let p = findPagoModal(modal);
+        let p = m.findPagoModal(modal);
         let d = { _id: modal.val()._id };
-        ajax.postPago(d, p)
+        m.ajax.postPago(d, p)
         console.log(d)
         console.log(p)
         $(this).off();
@@ -74,7 +76,7 @@ function ModalFunction() {
 
     //EDITAR PAGO
     $('#table').on('click', 'button.btn.btn-edit-pago', function () {
-      const data = (dt.row($(this).data('row')).data())
+      const data = (m.dt.row($(this).data('row')).data())
       const p = {
         ...data.pagos.find(pago => pago._id === $(this).data('pagoid')),
         nombre: data.nombre,
@@ -97,7 +99,7 @@ function ModalFunction() {
     $('#table').on('click', 'button.btn.btn-delete-pago', function () {
       const deleteModal = $('#deleteModal');
       let rowIndex = $(this).data('row');
-      let data = (dt.row(rowIndex).data());
+      let data = (m.dt.row(rowIndex).data());
       p = { _id: $(this).data('pagoid') }
       deleteModal.on(`show.bs.modal`, function () {
         $(this).find(`.modal-title`).text(`¿Seguro que desea eliminar el pago?`);
@@ -113,30 +115,30 @@ function ModalFunction() {
         $(this).off();
       });
     });
-  };
-  function setupModal() {
-    //show.bs.modal
-    $(`#estudianteModal`).on(`show.bs.modal`, function (event) {
+  }
+  setupModal() {
+    const m=this;
+    $(`#estudianteModal`).on(`show.bs.modal`, function () {
       const modal = $(this);
       const e = modal.val();
       console.log(e)
-      findEstudianteModal(modal, e);
-    });
-    $(`#deleteModal`).on(`show.bs.modal`, function (event) {
+      m.findEstudianteModal(modal, e);
+    });   
+    // $(`#pagoModal`).on(`show.bs.modal`, function () {
+    //   const modal = $(this);
+    //   const d = modal.val();
+    //   console.log('#pagoModal');
+    //   console.log(d);
+    //   findPagoModal(modal, d);
+    // });
+    $(`#deleteModal`).on(`show.bs.modal`, function () {
       const modal = $(this);
       const d = modal.val();
-      // let text=(typeof d.nombre!==undefined)?`a ${d.nombre} ${d.apellido}?`:'el pago?'
-      modal.find(`.modal-title`).text(`¿Seguro que desea eliminar esto?`);
+      let text=(typeof d.nombre!==undefined)?`a ${d.nombre} ${d.apellido}`:'el pago'
+      modal.find(`.modal-title`).text(`¿Seguro que desea eliminar ${text}?`);
     });
-    $(`#pagoModal`).on(`show.bs.modal`, function (event) {
-      const modal = $(this);
-      const d = modal.val();
-      console.log('#pagoModal');
-      console.log(d);
-      findPagoModal(modal, d);
-    });
-  };
-  function findPadreModal(modal, p) {
+  }
+  findPadreModal(modal, p) {
     if (typeof p === 'undefined') {
       return {
         nombre: modal.find(`.modal-body #nombre`).val(),
@@ -154,12 +156,12 @@ function ModalFunction() {
       modal.find(`.modal-body #correo`).val(p.email);
     }
   }
-  function findEstudianteModal(modal, e) {
+  findEstudianteModal(modal, e) {
     if (typeof e === 'undefined') {
       return {
         nombre: modal.find(`.modal-body #nombre`).val(),
         apellido: modal.find(`.modal-body #apellido`).val(),
-        grupo: grupos[modal.find(`.modal-body #grupo`).val()],
+        grupo: this.grupos[modal.find(`.modal-body #grupo`).val()],
         tlf: modal.find(`.modal-body #tlf`).val(),
         email: modal.find(`.modal-body #correo`).val(),
         _id: modal.val()._id,
@@ -169,16 +171,16 @@ function ModalFunction() {
       modal.find(`.modal-title`).text(`Cambiar datos de ` + e.nombre);
       modal.find(`.modal-body #nombre`).val(e.nombre);
       modal.find(`.modal-body #apellido`).val(e.apellido);
-      modal.find(`.modal-body #grupo`).val(grupos.indexOf(e.grupo));
+      modal.find(`.modal-body #grupo`).val(this.grupos.indexOf(e.grupo));
       modal.find(`.modal-body #tlf`).val(e.tlf);
       modal.find(`.modal-body #correo`).val(e.email);
     }
   }
-  function findPagoModal(modal, p) {
+  findPagoModal(modal, p) {
     if (typeof p === 'undefined') {
       console.log('WRITE PAGOS');
       return {
-        banco: bancos[modal.find(`.modal-body #banco`).val()],
+        banco: this.bancos[modal.find(`.modal-body #banco`).val()],
         monto: modal.find(`.modal-body #monto`).val(),
         referencia: modal.find(`.modal-body #referencia`).val(),
         date: modal.find(`.modal-body #date`).val(),
@@ -191,17 +193,14 @@ function ModalFunction() {
         ? `Agregar pago nuevo para ${p.nombre} ${p.apellido}`
         : `Cambiar datos del pago de referencia ${p.referencia} del banco ${p.banco}`;
       modal.find(`.modal-title`).text(titulo);
-      console.log(bancos)
-      modal.find(`.modal-body #banco`).val(bancos.indexOf(p.banco));
+      console.log(this.bancos)
+      modal.find(`.modal-body #banco`).val(this.bancos.indexOf(p.banco));
       modal.find(`.modal-body #monto`).val(p.monto);
       modal.find(`.modal-body #referencia`).val(p.referencia);
       modal.find(`.modal-body #date`).val(p.date);
     }
   }
-
-  return {
-    constructor: constructor,
-  }
+  
 }
 
 
