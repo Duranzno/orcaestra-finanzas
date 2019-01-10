@@ -1,8 +1,8 @@
 const mongoose = require('mongoose'),
-  // DB = process.env.MONGODB_URI || 'mongodb://localhost:27017/orcaestra',
+  DB = process.env.MONGODB_URI || 'mongodb://localhost:27017/orcaestra',
   IP=process.env.IP || 'localhost' ,
   PORT=process.env.PORT || 1234;
-DB="mongodb://duranzno:ale123@ds039778.mlab.com:39778/orcaestra-tests"
+// DB="mongodb://duranzno:ale123@ds039778.mlab.com:39778/orcaestra-tests"
 // const databaseUri="mongoDB://admin:ale123.@ds157522.mlab.com:57522/orcaestra"
 //  process.env.MONGODB_URI || 'mongoDB://localhost:27017/orcaestra';
 mongoose.connect(DB,{useNewUrlParser: true})
@@ -13,6 +13,7 @@ mongoose.connect(DB,{useNewUrlParser: true})
   });
 
 const app = require('./app')(mongoose);
+console.log('hi')
 app.listen(PORT, function() {
 	// console.log(process.env);
   console.log(

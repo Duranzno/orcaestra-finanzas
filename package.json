@@ -4,10 +4,10 @@
   "description": "Servidor para Orquesta",
   "main": "src/server.js",
   "scripts": {
-    "start": "node src/server.js",
     "test": "mocha",
     "pretest": "eslint --ignore-path .gitignore .",
-    "nd": "nodemon src/server.js"
+    "start": "nodemon src/server.js",
+    "debug": "nodemon --inspect src/server.js"
   },
   "repository": {
     "type": "git",

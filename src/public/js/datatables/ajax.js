@@ -87,19 +87,23 @@ class Ajax{
 	}
 
 	async newAjaxSrc(newUrl) {
-	// try {
-		let dt=$('#table').DataTable({"retrieve": true});
-		await dt.ajax.url((typeof url==="undefined")?newUrl:'http//localhost:1234/api/api/padres');	
-		await dt.ajax.reload();
-	// }
-	// catch(e){console.error(e)}
-
+		let dt=$('#table').DataTable();
+		// await dt.ajax.url((typeof url==="undefined")?newUrl:this.url);
+		console.log('newAjaxSrc')	;
+		await dt.ajax.url(this.url).load();
+		await dt.clear().draw();
+		//FIXME al eliminar un estudiante/representante no se actualiza la tabla
+		//TODO algo mas
+		// await dt.ajax.url(this.url).load();
 	}
+	
 	static async updateTable(url){
 	try {
 		let dt=$('#table').DataTable({"retrieve": true});
 		await dt.ajax.url(url);
 		await dt.ajax.reload();
+		console.log('updateTable')	
+
 	}
 	catch(e){console.error(e)}
 	}

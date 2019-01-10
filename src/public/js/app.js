@@ -1,10 +1,7 @@
-
 $(document).ready(async function () {
-
-
   await Promise.all([
     $.getScript("/public/js/datatables/options.const.js",
-      // () => console.log("Constantes Cargadas")
+      () => console.log("Constantes Cargadas")
     ),
     $.getScript("/public/js/date.module.js",
       // () => console.log("Cargado DateModule")
@@ -29,7 +26,7 @@ $(document).ready(async function () {
     ),
   ])
   // Constantes
-  let updateTable=function(isStudentTable) {
+  let updateTable=async function(isStudentTable) {
     $('#dashboard').text((isStudentTable) ? 'Estudiantes' : 'Representantes');
     if (isStudentTable) {
       $('#btn-collapse-p').hide(); $('#btn-collapse-e').show();
@@ -41,9 +38,8 @@ $(document).ready(async function () {
     }
     ajax.urlSet(isStudentTable);
     modal.ajaxSet(ajax);
-    datatableModule.setupDataTable(isStudentTable).then(() => {
+    await datatableModule.setupDataTable(isStudentTable)
       //  console.log("Tipo de Tabla Cambiado Exitosamente a " + $('#dashboard').text()) 
-    });
   }
   let ajax = new Ajax('http//localhost:1234/api', true);
   CalendarModule();
@@ -51,7 +47,7 @@ $(document).ready(async function () {
   new StartupModule(ajax, date);
   let datatableModule = await new DatatablesModule(date, true, ajax);
   let modal= new Modal(ajax,Constants,true);
-  updateTable(true);
+  await updateTable(true);
   feather.replace();
 
 
