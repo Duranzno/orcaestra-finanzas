@@ -1,41 +1,47 @@
 class Constants {
-  constructor() {}
-  
-  static grupos(){return [ 'Sin Determinar', 'Coro de Padres', 'Inicial', 'Preparatorio "B"', '"Alma Llanera"', 'IMA', 'IMB', 'PMA', 'PMB', 'Pre-Infantil', 'Infantil', 'Pre Juvenil', 'Juvenil', 'Kinder Musical', ];}
-  
-  static colE(){ return [ 
-    { title:'Pagos', className: 'details-control', orderable: false, data: null, defaultContent: '', },
-    { title:'Nombre', data: 'nombre'}, { title:'Apellido', data: 'apellido'}, 
-    { title:'Grupo', data: 'grupo'}, { title:'Correo', data: 'email'}, { title:'Telefono', data: 'tlf'}, 
-    { title:'Opciones', targets: -1, data: null, 
-      render: function(data, type, row, meta) { 
-        return ` 
+  constructor() { }
+
+  static grupos() { return ['Sin Determinar', 'Coro de Padres', 'Inicial', 'Preparatorio "B"', '"Alma Llanera"', 'IMA', 'IMB', 'PMA', 'PMB', 'Pre-Infantil', 'Infantil', 'Pre Juvenil', 'Juvenil', 'Kinder Musical',]; }
+
+  static colE() {
+    return [
+      { title: 'Pagos', className: 'details-control', orderable: false, data: null, defaultContent: '', },
+      { title: 'Nombre', data: 'nombre' }, { title: 'Apellido', data: 'apellido' },
+      { title: 'Grupo', data: 'grupo' }, { title: 'Correo', data: 'email' }, { title: 'Telefono', data: 'tlf' },
+      {
+        title: 'Opciones', targets: -1, data: null,
+        render: function (data, type, row, meta) {
+          return ` 
           <button type="button" data-row='${meta.row}' class="btn btn-add-pago btn-sm btn-outline-dark"> <span data-feather="file-plus"></span>
          </button> <button type="button" data-row='${meta.row}' class="btn btn-edit btn-sm btn-outline-dark"> <span data-feather="edit"></span> 
-         </button> <button type="button" data-row='${meta.row}' class="btn btn-delete btn-outline-dark btn-sm"> <span data-feather="user-x"></span> </button>`; 
-       }, 
-    }, 
-  ];}
-  
-  static colP() { return [ 
-    { title:'Extra', className: 'details-control', orderable: false, data: null, defaultContent: '', }, 
-    { title:'Nombre', data: 'nombre'}, { title:'Apellido', data: 'apellido'}, { title:'Correo', data: 'email'}, 
-    { title:'Telefono', data: 'tlf'}, 
-    { title:'Opciones', targets: -1, data: null, 
-        render: function(data, type, row, meta) { 
+         </button> <button type="button" data-row='${meta.row}' class="btn btn-delete btn-outline-dark btn-sm"> <span data-feather="user-x"></span> </button>`;
+        },
+      },
+    ];
+  }
+
+  static colP() {
+    return [
+      { title: 'Extra', className: 'details-control', orderable: false, data: null, defaultContent: '', },
+      { title: 'Nombre', data: 'nombre' }, { title: 'Apellido', data: 'apellido' }, { title: 'Correo', data: 'email' },
+      { title: 'Telefono', data: 'tlf' },
+      {
+        title: 'Opciones', targets: -1, data: null,
+        render: function (data, type, row, meta) {
           return ` 
             <button type="button" data-row='${meta.row}' class="btn btn-add-pago btn-sm btn-outline-dark"> <span data-feather="file-plus"></span>
            </button> <button type="button" data-row='${meta.row}' class="btn btn-edit btn-sm btn-outline-dark"> <span data-feather="edit"></span> 
-           </button> <button type="button" data-row='${meta.row}' class="btn btn-delete btn-outline-dark btn-sm"> <span data-feather="user-x"></span> </button>`; 
-         }, 
+           </button> <button type="button" data-row='${meta.row}' class="btn btn-delete btn-outline-dark btn-sm"> <span data-feather="user-x"></span> </button>`;
+        },
       },
-  ]}
-  
-  static bancos(){ 
-    return [ 'Desconocido', 'Banesco', `Banco de Venezuela`, `BBVA Provincial`, `Banco Mercantil`,`BOD`, `Banco Bicentenario`, `Bancaribe`, `BNC`, `Banco del Tesoro`, `Bancaribe`, `Banco Exterior`,`BFC`, `Sofitasa`, `Bancrecer`, `Banplus`, `Banco Plaza`, `Banco Caroni`, `DELSUR`, ];
-  } 
-  static dtESP(isStudentTable){
-    let personas=isStudentTable?'${personas}':'representantes'
+    ]
+  }
+
+  static bancos() {
+    return ['Desconocido', 'Banesco', `Banco de Venezuela`, `BBVA Provincial`, `Banco Mercantil`, `BOD`, `Banco Bicentenario`, `Bancaribe`, `BNC`, `Banco del Tesoro`, `Bancaribe`, `Banco Exterior`, `BFC`, `Sofitasa`, `Bancrecer`, `Banplus`, `Banco Plaza`, `Banco Caroni`, `DELSUR`,];
+  }
+  static dtESP(isStudentTable) {
+    let personas = isStudentTable ? 'estudiantes' : 'representantes'
     return {
       decimal: `,`,
       emptyTable: `No hay ${personas} disponibles en la base de datos`,
@@ -58,8 +64,8 @@ class Constants {
       aria: {
         sortAscending: `: Ordenar de forma ascendete`,
         sortDescending: `: Ordenar de forma descendente`,
-    },
-  };
+      },
+    };
   }
 }
 

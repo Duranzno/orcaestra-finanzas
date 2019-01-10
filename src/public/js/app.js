@@ -15,8 +15,8 @@ $(document).ready(async function () {
     $.getScript("/public/js/datatables/modal.js",
       // () => console.log("Cargado ModalModule")
     ),
-    $.getScript( "/public/js/datatables/subrow.js", 
-    // ( )=> {console.log("Cargado funcion para filas hijos");}
+    $.getScript("/public/js/datatables/subrow.js",
+      // ( )=> {console.log("Cargado funcion para filas hijos");}
     ),
     $.getScript("/public/js/calendar.module.js",
       // () => console.log("Cargado bootstrap-datepicker ")
@@ -26,7 +26,7 @@ $(document).ready(async function () {
     ),
   ])
   // Constantes
-  let updateTable=async function(isStudentTable) {
+  let updateTable = async function (isStudentTable) {
     $('#dashboard').text((isStudentTable) ? 'Estudiantes' : 'Representantes');
     if (isStudentTable) {
       $('#btn-collapse-p').hide(); $('#btn-collapse-e').show();
@@ -39,19 +39,21 @@ $(document).ready(async function () {
     ajax.urlSet(isStudentTable);
     modal.ajaxSet(ajax);
     await datatableModule.setupDataTable(isStudentTable)
-      //  console.log("Tipo de Tabla Cambiado Exitosamente a " + $('#dashboard').text()) 
+    //! AL USAR SETUPDATATABLE NO SE CAMBIAN LOS VALORES INTERNOS DE LA TABLA
+    //  console.log("Tipo de Tabla Cambiado Exitosamente a " + $('#dashboard').text()) 
   }
   let ajax = new Ajax('http//localhost:1234/api', true);
   CalendarModule();
   const date = new DateModule();
   new StartupModule(ajax, date);
   let datatableModule = await new DatatablesModule(date, true, ajax);
-  let modal= new Modal(ajax,Constants,true);
+  let modal = new Modal(ajax, Constants, true);
+  new Subrow()
   await updateTable(true);
   feather.replace();
 
 
-  
+
   $('#estudiantesLink').on('click', function () { updateTable(true); });
   $('#padresLink').on('click', function () { updateTable(false); });
 });

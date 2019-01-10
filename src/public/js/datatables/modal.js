@@ -1,25 +1,26 @@
 'use strict'
-class Modal{
-  constructor(ajax, constantes,isStudentTable) {
+class Modal {
+  constructor(ajax, constantes, isStudentTable) {
     this.grupos = constantes.grupos();
     this.bancos = constantes.bancos();
-    this.ajax=ajax;
+    this.ajax = ajax;
     this.dt = $('#table').DataTable({ 'retrieve': true });
     this.tableType = (isStudentTable === undefined) ? true : isStudentTable;
     this.setupModal();
     this.setupClickers();
   }
-  ajaxSet(newAjax){
-    this.ajax=newAjax;
+  ajaxSet(newAjax) {
+    this.ajax = newAjax;
   }
   setupClickers() {
-    const m=this;
+    const m = this;
     //EDITAR ESTUDIANTE/PADRE
     $('#table').on('click', 'button.btn.btn-edit', function () {
       let rowIndex = $(this).data('row');
       $('#estudianteModal').val(
-        {...(m.dt.row(rowIndex).data()),
-        rowIndex: rowIndex
+        {
+          ...(m.dt.row(rowIndex).data()),
+          rowIndex: rowIndex
         }
       );
       $('#estudianteModal').modal('show');
@@ -28,7 +29,7 @@ class Modal{
         let e = m.findEstudianteModal(modal)
         $('#estudianteModal').modal('toggle');
         m.ajax.put(e)
-        
+
         $(this).off();
       });
     })
@@ -54,7 +55,9 @@ class Modal{
     $('#table').on('click', 'button.btn.btn-add-pago', function () {
       const modal = $('#pagoModal');
       const rowIndex = $(this).data('row');
+
       const d = m.dt.row(rowIndex).data();
+      console.log('Anadir Pago', JSON.stringify(d))
       modal.val({
         apellido: (d.apellido),
         nombre: (d.nombre),
@@ -117,13 +120,13 @@ class Modal{
     });
   }
   setupModal() {
-    const m=this;
+    const m = this;
     $(`#estudianteModal`).on(`show.bs.modal`, function () {
       const modal = $(this);
       const e = modal.val();
       console.log(e)
       m.findEstudianteModal(modal, e);
-    });   
+    });
     // $(`#pagoModal`).on(`show.bs.modal`, function () {
     //   const modal = $(this);
     //   const d = modal.val();
@@ -134,7 +137,7 @@ class Modal{
     $(`#deleteModal`).on(`show.bs.modal`, function () {
       const modal = $(this);
       const d = modal.val();
-      let text=(typeof d.nombre!==undefined)?`a ${d.nombre} ${d.apellido}`:'el pago'
+      let text = (typeof d.nombre !== undefined) ? `a ${d.nombre} ${d.apellido}` : 'el pago'
       modal.find(`.modal-title`).text(`¿Seguro que desea eliminar ${text}?`);
     });
   }
@@ -200,7 +203,7 @@ class Modal{
       modal.find(`.modal-body #date`).val(p.date);
     }
   }
-  
+
 }
 
 
