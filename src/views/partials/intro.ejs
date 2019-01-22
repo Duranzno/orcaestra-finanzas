@@ -1,23 +1,31 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h1" id="dashboard">Dashboard</h1>
-    
+
     <div class="btn-toolbar mb-2 mb-md-0">
+        <div id="p-btn-group" class="btn-group btn-group-toggle px-lg-5" data-toggle="buttons">
+            <label id="p-btn-hijos" class="btn btn-outline-secondary">
+                <input type="radio" name="options" id="option2" autocomplete="off">Representados
+            </label>
+            <label id="p-btn-pagos" class="btn btn-outline-secondary btn-secondary active">
+                <input type="radio" name="options" id="option3" autocomplete="off">Pagos
+            </label>
+        </div>
         <div class="btn-group mr-2">
-            <button class="btn btn-sm btn-outline-secondary" type="button" data-toggle="collapse" id="btn-collapse-e" 
-                    data-target="#collapseEstudiante" aria-expanded="false" aria-controls="collapseEstudiante">
-                <span data-feather="user-plus"></span> 
+            <button class="btn btn-sm btn-outline-secondary" type="button" data-toggle="collapse" id="btn-collapse-e"
+                data-target="#collapseEstudiante" aria-expanded="false" aria-controls="collapseEstudiante">
+                <span data-feather="user-plus"></span>
             </button>
-            <button class="btn btn-sm btn-outline-secondary" 
-            id="btn-collapse-p" type="button" data-toggle="collapse"
-                    data-target="#collapsePadre" aria-expanded="false" aria-controls="collapsePadre">
-                <span data-feather="user-plus"></span> 
+            <button class="btn btn-sm btn-outline-secondary" id="btn-collapse-p" type="button" data-toggle="collapse"
+                data-target="#collapsePadre" aria-expanded="false" aria-controls="collapsePadre">
+                <span data-feather="user-plus"></span>
             </button>
+
             <!--<input type="file" class="inputP" style="display: none" />-->
             <button class="btn btn-sm btn-outline-secondary" id="importarPaola">Importar Planillas</button>
 
-            <input type="file" name="planilla" id="inputP" style="display: none"/>
+            <input type="file" name="planilla" id="inputP" style="display: none" />
 
-            <input type="file" name="planilla" id="inputM" style="display: none"/>
+            <input type="file" name="planilla" id="inputM" style="display: none" />
 
             <button class="btn btn-sm btn-outline-secondary" id="importarMarwan">Importar Forms</button>
 

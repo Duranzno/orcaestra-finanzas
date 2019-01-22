@@ -1,12 +1,17 @@
 class StartupModule {
+
   constructor(ajax, fecha) {
     this.ajax = ajax;
     this.file_data = undefined;
     this.fecha = fecha;
     this.setupSideBar();
     this.setupClickEvents();
+    this.pbuttons();
   }
-
+  pbuttons() {
+    $('#p-btn-pagos').on('click', function () { });
+    $('#p-btn-hijos').on('click', function () { });
+  }
   setupSideBar() {
     const startupInstance = this
     $('li.mes').append(() => {

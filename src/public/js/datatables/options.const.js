@@ -12,7 +12,7 @@ class Constants {
         title: 'Opciones', targets: -1, data: null,
         render: function (data, type, row, meta) {
           return ` 
-          <button type="button" data-row='${meta.row}' class="btn btn-add-pago btn-sm btn-outline-dark"> <span data-feather="file-plus"></span>
+          <button type="button" data-row='${meta.row}' class="btn btn-add btn-sm btn-outline-dark"> <span data-feather="file-plus"></span>
          </button> <button type="button" data-row='${meta.row}' class="btn btn-edit btn-sm btn-outline-dark"> <span data-feather="edit"></span> 
          </button> <button type="button" data-row='${meta.row}' class="btn btn-delete btn-outline-dark btn-sm"> <span data-feather="user-x"></span> </button>`;
         },
@@ -29,7 +29,7 @@ class Constants {
         title: 'Opciones', targets: -1, data: null,
         render: function (data, type, row, meta) {
           return ` 
-            <button type="button" data-row='${meta.row}' class="btn btn-add-pago btn-sm btn-outline-dark"> <span data-feather="file-plus"></span>
+            <button type="button" data-row='${meta.row}' class="btn btn-add btn-sm btn-outline-dark"> <span data-feather="file-plus"></span>
            </button> <button type="button" data-row='${meta.row}' class="btn btn-edit btn-sm btn-outline-dark"> <span data-feather="edit"></span> 
            </button> <button type="button" data-row='${meta.row}' class="btn btn-delete btn-outline-dark btn-sm"> <span data-feather="user-x"></span> </button>`;
         },
