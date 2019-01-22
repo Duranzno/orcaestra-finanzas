@@ -31,15 +31,17 @@ $(document).ready(async function () {
       this.bancos = constantes.bancos();
       this.ajax = ajax;
       this.dt = $('#table').DataTable({ 'retrieve': true });
-      this.tableType = (isStudentTable === undefined) ? true : isStudentTable;
+      this.isStudentTable = (isStudentTable === undefined) ? true : isStudentTable;
+      this.isPagoTable = true;
       this.setupModal();
       this.setupClickers();
     }
-
+    pagoTable() { this.isPagoTable = true }
+    hijoTable() { this.isPagoTable = false }
     ajaxSet(newAjax, isStudentTable) {
       this.ajax = newAjax;
       this.dt = $('#table').DataTable({ 'retrieve': true });
-      if (!(isStudentTable === undefined)) { this.tableType = isStudentTable }
+      if (!(isStudentTable === undefined)) { this.isStudentTable = isStudentTable }
     }
     setupClickers() {
       let m = this;
@@ -51,7 +53,7 @@ $(document).ready(async function () {
           ...(m.dt.row(rowIndex).data()),
           rowIndex: rowIndex
         }
-        if (m.tableType) {
+        if (m.isStudentTable) {
           console.log('student table modal')
           $('#estudianteModal').val(val);
           $('#estudianteModal').modal('show');
@@ -98,30 +100,51 @@ $(document).ready(async function () {
       //AÑÁDIR PAGO/HIJO
       $('#table').on('click', 'button.btn.btn-add', function () {
         m.dt = $('#table').DataTable({ 'retrieve': true });
-
-        const modal = $('#pagoModal');
         const rowIndex = $(this).data('row');
-
         const d = m.dt.row(rowIndex).data();
-        console.log('Anadir Pago', JSON.stringify(d))
-        modal.val({
-          apellido: (d.apellido),
-          nombre: (d.nombre),
-          _id: d._id,
-          rowIndex: rowIndex
-        });
-        modal.modal('show');
-        $(`.btn-modal-save-pago`).on(`click`, function () {
-          console.log('btn-modal-save-pago AGREGARPAGO')
-          let p = m.findPagoModal(modal);
-          let d = { _id: modal.val()._id };
-          m.ajax.postPago(d, p)
-          console.log(d)
-          console.log(p)
-          $(this).off();
-          modal.modal('toggle');
-        });
-        m.dt = $('#table').DataTable({ 'retrieve': true });
+        let modal;
+        if (m.isStudentTable || m.isPagoTable) {
+          modal = $('#pagoModal');
+          console.log('Anadir Pago', JSON.stringify(d))
+          modal.val({
+            apellido: (d.apellido),
+            nombre: (d.nombre),
+            _id: d._id,
+            rowIndex: rowIndex
+          });
+          $(`.btn-modal-save-pago`).on(`click`, function () {
+            console.log('btn-modal-save-pago AGREGARPAGO')
+            let p = m.findPagoModal(modal);
+            let d = { _id: modal.val()._id };
+            m.ajax.postPago(d, p)
+            console.log(d)
+            console.log(p)
+            $(this).off();
+            modal.modal('toggle');
+          });
+          modal.modal('show');
+        }
+        else {
+          modal = $('#estudianteModal');
+          modal.val({
+            papellido: (d.apellido),
+            pnombre: (d.nombre),
+            _id: d._id,
+            rowIndex: rowIndex
+          });
+          $(`.btn-modal-save-student`).on(`click`, function () {
+            let p = m.findEstudianteModal(modal);
+            let d = { _id: modal.val()._id };
+            m.ajax.postHijo(d, p)
+            console.log(d)
+            console.log(p)
+            $(this).off();
+            modal.modal('toggle');
+          });
+          modal.modal('show');
+
+        }
+
       });
 
       //EDIT HIJO
@@ -264,6 +287,9 @@ $(document).ready(async function () {
           _id: modal.val()._id,
         }
       }
+      else if (typeof e.pnombre !== 'undefined') {
+        modal.find(`.modal-title`).text(`Agregar hijo de ${e.pnombre} ${e.papellido}`);
+      }
       else {
         modal.find(`.modal-title`).text(`Cambiar datos de ` + e.nombre);
         modal.find(`.modal-body #nombre`).val(e.nombre);
@@ -299,23 +325,22 @@ $(document).ready(async function () {
     }
   }
   class Subrow {
-    constructor(isRepresentado) {
-      this.isRepresentado = isRepresentado;
+    constructor(isPagoTable) {
+      this.isPagoTable = isPagoTable;
       let sthis = this;
       $('#table').on('click', 'td.details-control', this.drawer(sthis));
-      $('#p-btn-pagos').on('click', function () {
-        sthis.isRepresentado = false;
-        sthis.drawer(sthis);
-        $('.shown .details-control').click()
-
-      })
-      $('#p-btn-hijos').on('click', function () {
-        sthis.isRepresentado = true;
-        sthis.drawer(sthis);
-        $('.shown .details-control').click()
-
-      })
     }
+    pagoTable() {
+      this.isPagoTable = true;
+      this.drawer(this);
+      $('.shown .details-control').click()
+    }
+    hijoTable() {
+      this.isPagoTable = false;
+      this.drawer(this);
+      $('.shown .details-control').click()
+    }
+
     drawer(sthis) {
       return function () {
         let table = $('#table').DataTable({ "retrieve": true });
@@ -331,12 +356,13 @@ $(document).ready(async function () {
           tr.removeClass('shown');
         }
         else {
-          if (sthis.isRepresentado) {
-            console.log(sthis.isRepresentado);
-            html = sthis.htmlFila(data, sthis.htmlHijoTitulo, sthis.htmlHijoHijos /*ó hijo.titulo, hijo.hijo*/);
+          if (sthis.isPagoTable) {
+            console.log(sthis.isPagoTable);
+            html = sthis.htmlFila(data, sthis.htmlPagoTitulo, sthis.htmlPagoHijos /*ó hijo.titulo, hijo.hijo*/);
           }
           else {
-            html = sthis.htmlFila(data, sthis.htmlPagoTitulo, sthis.htmlPagoHijos /*ó hijo.titulo, hijo.hijo*/);
+            html = sthis.htmlFila(data, sthis.htmlHijoTitulo, sthis.htmlHijoHijos /*ó hijo.titulo, hijo.hijo*/);
+
           }
           filas.child(html).show();
           tr.addClass('shown');
@@ -413,7 +439,7 @@ $(document).ready(async function () {
 
 
   // Constantes
-  let updateTable = async function (isStudentTable, isRepresentados) {
+  let updateTable = async function (isStudentTable, isPagoTables) {
     $('#dashboard').text((isStudentTable) ? 'Estudiantes' : 'Representantes');
     if (isStudentTable) {
       $('#btn-collapse-p').hide(); $('#btn-collapse-e').show();
@@ -423,13 +449,13 @@ $(document).ready(async function () {
 
       $('#estudiantesLink').addClass('active')
       $('#padresLink').removeClass('active')
-
+      subrow.pagoTable();
     }
     else {
       $('#btn-collapse-e').hide(); $('#btn-collapse-p').show();
       $('#collapseEstudiante').collapse('hide');
       $('#p-btn-group').show();
-      // if (isRepresentados) { $('#p-btn-representados').click(); }
+      // if (isPagoTables) { $('#p-btn-representados').click(); }
       // else { $('#p-btn-pagos').click(); }
       $('#estudiantesLink').removeClass('active')
       $('#padresLink').addClass('active')
@@ -446,11 +472,13 @@ $(document).ready(async function () {
   new StartupModule(ajax, date);
   let datatableModule = await new DatatablesModule(date, true, ajax);
   let modal = new Modal(ajax, Constants, true);
-  new Subrow(false)
+  let subrow = new Subrow(true)
   await updateTable(false);
   feather.replace();
 
 
+  $('#p-btn-hijos').on('click', function () { subrow.hijoTable(); modal.hijoTable(); })
+  $('#p-btn-pagos').on('click', function () { subrow.pagoTable(); modal.pagoTable(); })
 
   $('#estudiantesLink').on('click', function () { updateTable(true); });
   $('#padresLink').on('click', function () { updateTable(false); });

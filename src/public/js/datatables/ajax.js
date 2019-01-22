@@ -27,6 +27,15 @@ class Ajax {
       success: this.newAjaxSrc()
     });
   }
+  postHijo(d, p) {
+    $.ajax({
+      type: "POST",
+      url: `${this.url}/${d._id}/hijo`,
+      data: p,
+      dataType: "json",
+      success: this.newAjaxSrc()
+    });
+  }
   deleteHijo(d) {
     $.ajax({
       type: 'DELETE',
@@ -54,6 +63,7 @@ class Ajax {
     })
     this.newAjaxSrc().then(() => { console.log('updated table') }).catch((e) => { console.error() })
   }
+
   postPago(d, p) {
     $.ajax({
       type: "POST",
