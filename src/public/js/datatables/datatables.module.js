@@ -1,11 +1,13 @@
 class DatatablesModule {
   constructor(dateModule, isStudentTable, ajax) {
     this.fecha = dateModule;
-    this.table = this.setupDataTable(isStudentTable)
+    this.table = this.setupDataTable(isStudentTable, ajax)
     this.ajax = ajax;
+    let sthis = this;
     $('#searchBar').on('keyup', function () {
+      const table = $('#table').DataTable({ "retrieve": true });
       // Barra de Busqueda que filtra por datos estudiantiles
-      this.table.search(this.value).draw();
+      table.search(this.value).draw();
     });
 
     //Botones para filtrar por estudiantes que han pagado en ese mes-año
@@ -13,14 +15,14 @@ class DatatablesModule {
       const fechaURL = $(this)
         .closest('a')
         .attr(`id`);
-      const url = this.ajax.newAjaxSrc + fechaURL;
+      const url = sthis.ajax.url + fechaURL;
       console.log(url)
-      this.ajax.newAjaxSrc(url);
+      Ajax.updateTable(url);
     });
 
   }
   //LLamada a toda la configuracion de filas de Pago
-  async setupDataTable(isStudentTable) {
+  async setupDataTable(isStudentTable, ajax) {
     isStudentTable = (typeof isStudentTable === "undefined")
       ? this.changeTable(true)
       : isStudentTable;
@@ -32,9 +34,7 @@ class DatatablesModule {
 
     return $('#table').DataTable({
       ajax: {
-        url: (isStudentTable)
-          ? 'http://localhost:1234/api/estudiantes'
-          : 'http://localhost:1234/api/padres',
+        url: ajax.url,
         dataSrc: '',
         deferRender: true,
       },

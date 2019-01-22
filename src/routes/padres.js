@@ -61,9 +61,15 @@ router.get('/:ano/:mes', async function (req, res) {
         $project: { array: true, _id: false },
       },
     ]);
-    const idArray = estIdDelBanco[0].array;
-    let result = await Padre.find({ _id: { $in: idArray } }).populate('pagos');
-    sendOk(`GET ${addr}/:ano/:mes`, res, result)
+    if (!Array.isArray(estIdDelBanco) || !estIdDelBanco.length) {
+      sendOk(`GET ${addr}/:ano/:mes`, res, {})
+    } else {
+      let idArray = estIdDelBanco[0].array;
+      let result = await Padre.find({ _id: { $in: idArray } }).populate('pagos');
+
+      sendOk(`GET ${addr}/:ano/:mes`, res, result)
+    }
+
   }
   catch (e) { sendError(`GET ${addr}/:ano/:mes`, res, e) }
 });

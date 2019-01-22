@@ -4,16 +4,22 @@ const Bancos= require('../src/models/bancos');
 const Grupos= require('../src/models/grupos');
 const NameArray=["Alejandro","Fernando","Dominga","Armando","Arturo","Lennittza","Ricardo","Eduardo","Paola","Ramon"];
 const LastNameArray=["Duran","Aparicio","Cova","Martinez","Brito","Zorrilla","Hernandez"];
+function randomDate(start, end) {
+    return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+  }
 module.exports={
   assertSameId(result, expected){
     expect(result._id.toString()).to.equal(expected._id.toString());
   },
+  
   getMockPago(){
     const a= {
       banco: Bancos[Math.floor(Math.random() * Bancos.length)],
       referencia: Math.floor(Math.random() * 1000 + 100).toString(),
       monto: Math.floor(Math.random() * 1000 + 100).toString(),
+      fecha:randomDate(new Date(2018, 5, 2), new Date())
     };
+    console.log(a.fecha)
     return a;
   },
   getMockStudent(){
@@ -38,4 +44,7 @@ module.exports={
     a.email=`${a.nombre}_${a.apellido}@noexiste.com`;
     return a;
   }
+
 };
+
+
