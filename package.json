@@ -35,16 +35,17 @@
     "require": "^2.4.20",
     "serve-favicon": "^2.5.0",
     "sheetjs": "^1.0.21",
-    "xlsx": "^0.13.3"
-  },
-  "devDependencies": {
-    "chai": "^4.2.0",
+    "xlsx": "^0.13.3",
+     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
     "eslint": "^5.7.0",
     "mocha": "^5.2.0",
     "nodemon": "^1.18.10",
     "supertest": "^3.3.0",
     "uglify-js": "^3.4.9"
+  },
+  "devDependencies": {
+   
   },
   "engines": {
     "node": "8.11.4",
