@@ -10,7 +10,7 @@ const addr="/api/padres",
   pd=require('../../src/utils/excel/parseDate');
 //App Imports
 const mongoose = require('mongoose'),
-  db = 'mongodb://localhost:27017/restdb',
+  db = process.env.ORCAESTRA_DB_TEST,
   app = require('../../src/app')(mongoose);
 
 

@@ -8,7 +8,7 @@ const request = require('supertest'),
 const {Pago}=require("../../src/models");
 //App Imports
 const mongoose = require('mongoose'),
-  db = 'mongodb://localhost:27017/restTest',
+  db = process.env.ORCAESTRA_DB_TEST,
   app = require('../../src/app')(mongoose);
 
 
