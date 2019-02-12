@@ -1,8 +1,8 @@
 const mongoose = require('mongoose'),
   IP = process.env.IP || 'localhost',
   PORT = process.env.PORT || 1234;
-DB = process.env.ORCAESTRA_DB || "mongoDB://admin:ale123.@ds157522.mlab.com:57522/orcaestra";
-console.log(process.env.ORCAESTRA_DB )
+DB = process.env.ORCAESTRA_DB || "mongodb://duranzno:ale123@ds039778.mlab.com:39778/orcaestra-tests";
+console.log(DB,process.env)
 mongoose.connect(DB, { useNewUrlParser: true })
   .then(() => console.log(`Base de Datos Conectada`))
   .catch(err => {
