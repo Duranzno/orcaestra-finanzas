@@ -3,7 +3,7 @@
   "configurations": [
     {
       "name": "Debug Frontend",
-      "runtimeExecutable": "/usr/bin/flashpeak-slimjet",
+      "runtimeExecutable": "C:\\Program Files\\Slimjet\\slimjet.exe",
       "type": "chrome",
       "request": "launch",
       "url": "http://localhost:1234/",

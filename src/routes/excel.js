@@ -21,16 +21,13 @@ const storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 router.post('/uploadPaola', upload.single('planilla'), (req, res) => {
   try {
-    console.log('got here')
     if (!req.file) {
       console.log('No file received');
       return res.send({
         success: false,
       });
     } else {
-      console.log('yes')
       console.log(`Received: ${req.file.filename}`);
-      console.log(req);
       handleXLSX.useSheetPaolaStyle(req.file.path);
       return res.send({
         success: true,
@@ -38,20 +35,7 @@ router.post('/uploadPaola', upload.single('planilla'), (req, res) => {
     }
   } catch (e) { console.error(e) }
 });
-// router.post('/uploadMarwan', upload.single('planilla'), (req, res) => {
-//   if (!req.file) {
-//     console.log('No file received');
-//     return res.send({
-//       success: false,
-//     });
-//   } else {
-//     console.log(`Received: ${req.file.filename}`);
-//     // handleXLSX.useSheetMarwanStyle(req.file.path);
-//     return res.send({
-//       success: true,
-//     });
-//   }
-// });
+
 
 module.exports = router;
 
