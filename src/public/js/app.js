@@ -1,3 +1,57 @@
+class DatatablesModule {
+  constructor(dateModule, isStudentTable, ajax) {
+    this.fecha = dateModule;
+    this.table = this.setupDataTable(isStudentTable, ajax)
+    this.ajax = ajax;
+    let sthis = this;
+    $('#searchBar').on('keyup', function () {
+      const table = $('#table').DataTable({ "retrieve": true });
+      // Barra de Busqueda que filtra por datos estudiantiles
+      table.search(this.value).draw();
+    });
+
+    //Botones para filtrar por estudiantes que han pagado en ese mes-año
+    $('.btn-fecha').on('click', function () {
+      console.log("btn fecha")
+      const fechaURL = $(this)
+        .closest('a')
+        .attr(`id`);
+      const url = sthis.ajax.url + fechaURL;
+      console.log(url)
+      sthis.ajax.updateTable2(url);
+    });
+
+  }
+  //LLamada a toda la configuracion de filas de Pago
+  async setupDataTable(isStudentTable, ajax) {
+    isStudentTable = (typeof isStudentTable === "undefined")
+      ? this.changeTable(true)
+      : isStudentTable;
+
+    if ($.fn.DataTable.isDataTable('#table')) {
+      $('#table').DataTable({ 'retrieve': true }).destroy()
+      $('#table').empty();
+    }
+
+    return $('#table').DataTable({
+      ajax: {
+        url: ajax.url,
+        dataSrc: '',
+        deferRender: true,
+      },
+      language: Constants.dtESP(),
+      select: 'single', // enable single row selection
+      sPaginationType: 'full_numbers',
+      columns: (isStudentTable)
+        ? Constants.colE()
+        : Constants.colP(),
+      responsive: true,
+      paging: false,
+      order: [[1, 'asc']],
+      drawCallback: () => { feather.replace(); },
+    });
+  }
+}
 $(document).ready(async function () {
   await Promise.all([
     $.getScript("/public/js/datatables/options.const.js",
@@ -6,9 +60,9 @@ $(document).ready(async function () {
     $.getScript("/public/js/date.module.js",
       // () => console.log("Cargado DateModule")
     ),
-    $.getScript("/public/js/startup.module.js",
-      // () => console.log("Cargado StartupModule")
-    ),
+    // $.getScript("/public/js/startup.module.js",
+    // () => console.log("Cargado StartupModule")
+    // ),
     $.getScript("/public/js/datatables/ajax.js",
       // () => console.log("Cargado Ajax")
     ),
@@ -21,9 +75,9 @@ $(document).ready(async function () {
     $.getScript("/public/js/calendar.module.js",
       // () => console.log("Cargado bootstrap-datepicker ")
     ),
-    $.getScript("/public/js/datatables/datatables.module.js",
-      // () => console.log("Cargado datatables.module")
-    ),
+    // $.getScript("/public/js/datatables/datatables.module.js",
+    // () => console.log("Cargado datatables.module")
+    // ),
   ])
   class Ajax {
     constructor(baseURL, isStudentTable) {
@@ -153,7 +207,9 @@ $(document).ready(async function () {
       //TODO algo mas
       // await dt.ajax.url(this.url).load();
     }
-
+    async updateTable2(url) {
+      Ajax.updateTable(url);
+    }
     static async updateTable(url) {
       try {
         let dt = $('#table').DataTable({ "retrieve": true });
@@ -197,8 +253,8 @@ $(document).ready(async function () {
 
     addNewMonthRow(date) {
       return `
-      <a class="nav-link btn-fecha" 
-        id=${this.fecha.getAnoMesURL(date)} href="#" >
+      <a class="nav-link btn-fecha"
+        id="${this.fecha.getAnoMesURL(date)}" href="#" >
         <span data-feather="file-text"></span>
         ${this.fecha.getMesAno(date)}
       </a>  `;
@@ -278,7 +334,7 @@ $(document).ready(async function () {
     ajax.urlSet(isStudentTable);
     modal.ajaxSet(ajax, isStudentTable);
     await datatableModule.setupDataTable(isStudentTable, ajax)
-    //  console.log("Tipo de Tabla Cambiado Exitosamente a " + $('#dashboard').text()) 
+    //  console.log("Tipo de Tabla Cambiado Exitosamente a " + $('#dashboard').text())
   }
   let ajax = new Ajax('http//localhost:1234/api', true);
   CalendarModule();

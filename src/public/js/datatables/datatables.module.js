@@ -12,6 +12,7 @@ class DatatablesModule {
 
     //Botones para filtrar por estudiantes que han pagado en ese mes-año
     $('.btn-fecha').on('click', function () {
+      console.log("btn fecha")
       const fechaURL = $(this)
         .closest('a')
         .attr(`id`);
