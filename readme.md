@@ -16,10 +16,10 @@ Deployed on Heroku the Backend of Orcaestra Finanzas is an Express Server connec
 
 ### Screenshots
 
-![Estudiantes](".github/estudiantes.png")
-![Modal](".github/modal.png")
-![New Student](".github/new-student.png")
-![Second Row](".github/second-row.png")
+![Estudiantes](.github/estudiantes.png)
+![Modal](.github/modal.png)
+![New Student](.github/new-student.png)
+![Second Row](.github/second-row.png)
 
 ### Prerequisites
 
