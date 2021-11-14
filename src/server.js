@@ -1,10 +1,10 @@
+require('dotenv').config();
+
 const mongoose = require("mongoose"),
   IP = process.env.IP || "localhost",
   PORT = process.env.PORT || 1234;
-DB =
-  process.env.ORCAESTRA_DB ||
-  "mongodb://duranzno:ale123@ds039778.mlab.com:39778/orcaestra-tests";
-console.log(DB);
+  DB = 
+    process.env.ORCAESTRA_DB 
 mongoose
   .connect(
     DB,

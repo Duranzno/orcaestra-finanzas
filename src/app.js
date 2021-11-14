@@ -26,8 +26,6 @@ let corsOptions = {
   credentials:true
 }
 // configure dotenv
-require('dotenv').config();
-
 module.exports = function (mongoose){
   mongoose.Promise = global.Promise;
 
